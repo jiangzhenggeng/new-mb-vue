@@ -46,6 +46,10 @@
 
 	export default {
 		props: {
+      cache: {
+        type: Boolean,
+        default: true
+      },
 			url: {
 				type: String
 			},
@@ -89,7 +93,8 @@
 		mounted: function () {
 			this._cacheKey_ = window.location.href;
 			let cache_data = sessionStorage.get(this._cacheKey_);
-			if (!cache_data) {
+			if ( !this.cache || !cache_data ) {
+        sessionStorage.delete( this._cacheKey_ );
 				this.getItemData();
 			} else {
 				this._cacheData_ = cache_data;
@@ -228,7 +233,6 @@
 
   .loading-more-flage {
     user-select: none;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -10,7 +10,9 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
-var arguments = process.argv.splice(2)
+
+var arguments = process.argv.length>2?[process.argv[2]]:[];
+
 var HtmlWebpackPluginObj = null
 if (arguments.length) {
   config.page.forEach((item) => {

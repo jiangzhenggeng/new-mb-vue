@@ -3,7 +3,12 @@
     <div class="header header-inner">
       <div class="menu">
         <a @click="openMenu" class="icon icon-menu" href="javascript:;"></a>
-        <left-menu ref="menu" :show="show" @closeMenu="closeMenu"/>
+        <left-menu
+          ref="menu"
+          :show="show"
+          @closeMenu="closeMenu"
+          :curr="curr"
+        />
       </div>
       <div class="logo">
         <a @click="clearCacheData" href="/">
@@ -37,6 +42,12 @@
 	import $ from 'jquery';
 
 	export default {
+	  props:{
+      curr: {
+        type: String,
+        default: 'index'
+      }
+    },
 		data: function () {
 			return {
 				show: false,

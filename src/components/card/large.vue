@@ -4,9 +4,11 @@
       <a :href="`/mb/article/article/${item.blogid}.html`">
         <div class="stream-title ft16 mgb5">{{ item.title }}</div>
         <div class="stream-box">
-          <span v-if="item.type==1" class="event-tag qingdan">清单</span>
-          <span v-else-if="item.type==2" class="event-tag xinping">新品</span>
-          <span v-else-if="item.type==4" class="event-tag tiyan">体验</span>
+          <template v-if="tag">
+            <span v-if="item.type==1" class="event-tag qingdan">清单</span>
+            <span v-else-if="item.type==2" class="event-tag xinping">新品</span>
+            <span v-else-if="item.type==4" class="event-tag tiyan">体验</span>
+          </template>
           <div class="stream-img">
             <load-img
               :big-img="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
@@ -45,26 +47,55 @@
 
         </div>
       </a>
+      <template v-if="productName">
+        <div class="article-show-all-header" v-if="item.product">
+          <a class="article-show-all-header-href ft16 gray" :href="`/mb/article/articlelist/id/${item.pid}.html`">
+            <span style="height: 40px;">{{ item.product }}</span>
+            <span v-if="item.num>1" class="icon icon-more">{{item.num}}篇</span>
+          </a>
+        </div>
+      </template>
     </div>
   </li>
 </template>
 
 <script>
-	import loadImg from '../loadimg.vue';
-	import {rippleButton} from '../button/index';
+  import loadImg from '../loadimg.vue'
+  import { rippleButton } from '../button/index'
 
-	export default {
-		props: {
-			item: {
-				type: Object
-			}
-		},
-		components: {
-			loadImg,
-			rippleButton
-		},
-		data: function () {
-			return {}
-		},
-	}
+  export default {
+    props: {
+      item: {
+        type: Object
+      },
+      tag: {
+        type: Boolean,
+        default: true
+      },
+      productName:{
+        type: Boolean,
+        default: false
+      }
+    },
+    components: {
+      loadImg,
+      rippleButton
+    },
+    data: function () {
+      return {}
+    },
+  }
 </script>
+<style lang="less" rel="stylesheet/less" scoped>
+  .icon.icon-more{
+    position: relative;
+    padding-right: 35px;
+    min-width: 100px;
+    &::before{
+       position: absolute;
+      right: 0;
+      top:50%;
+      transform: translateY(-50%);
+     }
+  }
+</style>

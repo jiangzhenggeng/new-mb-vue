@@ -28,8 +28,29 @@ var HtmlWebpackPluginDefaultConfig = {
   // necessary to consistently work with multiple chunks via CommonsChunkPlugin
   chunksSortMode: 'dependency'
 }
+
+var arguments = process.argv.length>2?[process.argv[2]]:[];
 var HtmlWebpackPluginConfig = []
-config.page.forEach((item) => {
+var completeModule = []
+
+if (arguments.length) {
+  config.page.forEach((item) => {
+    if (completeModule.length) return
+    arguments.forEach((name) => {
+      if (completeModule.length) return
+      if (item.name == name) {
+        completeModule.push(item)
+      }
+    })
+  })
+} else {
+  completeModule = config.page
+}
+if (!completeModule.length) {
+  process.exit(0)
+}
+
+completeModule.forEach((item) => {
   var htmlPlugin = new HtmlWebpackPlugin(merge(HtmlWebpackPluginDefaultConfig, item.options))
   HtmlWebpackPluginConfig.push(htmlPlugin)
 })

@@ -1,12 +1,20 @@
 <template>
   <div class="page">
     <loading v-show="$store.show"/>
-    <page-header curr="event"/>
+    <page-header curr="article"/>
     <div class="content-wrap">
       <div class="mian-stream">
-        <load-data-limit url="/api/event/mbevent" :cache="listcache">
+        <load-data-limit
+          url="/api/article/ArticleList"
+          :cache="listcache"
+          :extData="extData"
+        >
           <template slot="item" scope="props">
-            <list-card :item="props.item"/>
+            <larg-card
+              :item="props.item"
+              :tag="false"
+              :productName="true"
+            />
           </template>
         </load-data-limit>
       </div>
@@ -17,18 +25,27 @@
 <script>
   import PageHeader from '@/components/header.vue'
   import loadDataLimit from '@/components/loadDataLimit.vue'
-  import ListCard from './components/list-card.vue'
+  import LargCard from './../../components/card/large.vue'
   import { mapState } from 'vuex'
 
   export default {
     data: function () {
       return {
-        listcache:process.env.NODE_ENV=='production'?true:false
+        listcache: process.env.NODE_ENV == 'production' ? true : false,
+        extData: {
+          type: 4,
+          id: process.env.NODE_ENV == 'production' ? window.blogid : 30831
+        }
+      }
+    },
+    created () {
+      if (!this.extData.id) {
+        window.history.back()
       }
     },
     components: {
       PageHeader,
-      ListCard,
+      LargCard,
       loadDataLimit
     },
   }

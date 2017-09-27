@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './app.vue'
+import App from './app_one.vue'
 import Loading from './../../components/loading'
 import store from './../../store'
 import jQuery from 'jquery'

@@ -8,6 +8,9 @@
     <%= require('./../../index/block_tpl/_config.php') %>
 </head>
 <body>
+<script>
+    window.blogid = "<?php echo $id?$id:$_GET['id'];?>";
+</script>
 <div id="app"></div>
 </body>
 <%= require('./../../index/block_tpl/_baidu_count.php') %>

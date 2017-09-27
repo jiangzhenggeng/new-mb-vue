@@ -3,7 +3,9 @@
     <div class="global-padding">
       <a :href="`/mb/article/article/${item.blogid}.html`">
         <div class="stream-box">
-          <span v-if="item.type==6" class="event-tag huati">话题</span>
+          <template v-if="tag">
+            <span v-if="item.type==6" class="event-tag huati">话题</span>
+          </template>
           <div class="stream-img">
             <load-img
               :big-img="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
@@ -29,21 +31,25 @@
 </template>
 
 <script>
-	import loadImg from '../loadimg.vue';
-	import {rippleButton} from '../button/index';
+  import loadImg from '../loadimg.vue'
+  import { rippleButton } from '../button/index'
 
-	export default {
-		props: {
-			item: {
-				type: Object
-			}
-		},
-		components: {
-			loadImg,
-			rippleButton
-		},
-		data: function () {
-			return {}
-		},
-	}
+  export default {
+    props: {
+      item: {
+        type: Object
+      },
+      tag: {
+        type: Boolean,
+        default: true
+      }
+    },
+    components: {
+      loadImg,
+      rippleButton
+    },
+    data: function () {
+      return {}
+    },
+  }
 </script>
