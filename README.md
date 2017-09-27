@@ -5,26 +5,15 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# 安转依赖
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 启动服务 localhost:8080 page为页面名称，对应config/page.config.js 下面的name项 默认index
+npm run dev page
 
-# build for production with minification
+# 打包所有页面，参数在config/page.config.js以及config/index.js下设置
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
