@@ -16,120 +16,132 @@
         </a>
       </div>
       <div class="header-right">
-        <a @click="searchRecodCurrUrl" class="search icon icon-search" href="/mb/search/list.html"></a>
-        <a v-if="window.URL && window.URL['login']" class="user has-login" href="/mb/user/index.html">
-          <div class="header-right-badge-wrap">
-            <div class="user-innner">
-              <img :src="window.URL['user-face']">
+        <template v-if="search">
+          <a @click="searchRecodCurrUrl" class="search icon icon-search" href="/mb/search/list.html"></a>
+        </template>
+        <template v-if="user">
+          <a v-if="window.URL && window.URL['login']" class="user has-login" href="/mb/user/index.html">
+            <div class="header-right-badge-wrap">
+              <div class="user-innner">
+                <img :src="window.URL['user-face']">
+              </div>
+              <em v-if="hasMessage" class="badge"
+                  :class="{'number':ioMessageNumber}">{{ ioMessageNumber ? ioMessageNumber : '' }}</em>
             </div>
-            <em v-if="hasMessage" class="badge"
-                :class="{'number':ioMessageNumber}">{{ ioMessageNumber ? ioMessageNumber : '' }}</em>
-          </div>
-        </a>
-        <a class="user fl pos-rel" href="/mb/user/index.html" v-else>
-          <i class="icon icon-user"></i>
-        </a>
+          </a>
+          <a class="user fl pos-rel" href="/mb/user/index.html" v-else>
+            <i class="icon icon-user"></i>
+          </a>
+        </template>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-	import leftMenu from './leftMenu.vue';
-	import sessionStorage from './../tool/sessionStorage';
-	import Cookie from 'js-cookie';
-	import io from 'socket.io-client';
-	import $ from 'jquery';
+  import leftMenu from './leftMenu.vue'
+  import sessionStorage from './../tool/sessionStorage'
+  import Cookie from 'js-cookie'
+  import io from 'socket.io-client'
+  import $ from 'jquery'
 
-	export default {
-	  props:{
+  export default {
+    props: {
       curr: {
         type: String,
         default: 'index'
+      },
+      search: {
+        type: Boolean,
+        default: true
+      },
+      user: {
+        type: Boolean,
+        default: true
       }
     },
-		data: function () {
-			return {
-				show: false,
-				window: window,
-				hasMessage: false,
-				ioMessageNumber: 0
-			}
-		},
-		components: {
-			'left-menu': leftMenu
-		},
-		mounted: function () {
-			if (!('messageIo' in window) && window.URL && window.URL['uid'] && window.URL['ioid']) {
-				window.messageIo = true;
-				setTimeout(() => {
-					this.pushNotification(window.URL['ioid']);
-				});
-			}
-		},
-		methods: {
-			openMenu: function () {
-				var _this = this;
-				_this.$refs['menu'].$el.style.display = 'block';
-				setTimeout(function () {
-					_this.show = true;
-				}, 0);
-			},
-			closeMenu: function () {
-				var _this = this;
-				_this.show = false;
-				setTimeout(function () {
-					_this.$refs['menu'].$el.style.display = 'none';
-				}, 320);
-			},
-			clearCacheData() {
-				sessionStorage.clear();
-			},
-			searchRecodCurrUrl() {
-				Cookie.set('isSearchCurrUrl', window.location.href, {path: '/'});
-			},
-			pushNotification(userssid) {
-				var socket;
-				// 连接服务端
-				if (process.env.NODE_ENV == 'production') {
-					socket = io('http://io.jiguo.com:2126');
-				} else {
-					socket = io('http://msg.jiguo.com:2126');
-				}
-				// 连接后登录
-				socket.on('connect', function () {
-					socket.emit('login', userssid);
-				});
-				// 后端推送来消息时
-				socket.on('h5-news', msg => {
-					eval('msg = ' + msg);
+    data: function () {
+      return {
+        show: false,
+        window: window,
+        hasMessage: false,
+        ioMessageNumber: 0
+      }
+    },
+    components: {
+      'left-menu': leftMenu
+    },
+    mounted: function () {
+      if (!('messageIo' in window) && window.URL && window.URL['uid'] && window.URL['ioid']) {
+        window.messageIo = true
+        setTimeout(() => {
+          this.pushNotification(window.URL['ioid'])
+        })
+      }
+    },
+    methods: {
+      openMenu: function () {
+        var _this = this
+        _this.$refs['menu'].$el.style.display = 'block'
+        setTimeout(function () {
+          _this.show = true
+        }, 0)
+      },
+      closeMenu: function () {
+        var _this = this
+        _this.show = false
+        setTimeout(function () {
+          _this.$refs['menu'].$el.style.display = 'none'
+        }, 320)
+      },
+      clearCacheData () {
+        sessionStorage.clear()
+      },
+      searchRecodCurrUrl () {
+        Cookie.set('isSearchCurrUrl', window.location.href, {path: '/'})
+      },
+      pushNotification (userssid) {
+        var socket
+        // 连接服务端
+        if (process.env.NODE_ENV == 'production') {
+          socket = io('http://io.jiguo.com:2126')
+        } else {
+          socket = io('http://msg.jiguo.com:2126')
+        }
+        // 连接后登录
+        socket.on('connect', function () {
+          socket.emit('login', userssid)
+        })
+        // 后端推送来消息时
+        socket.on('h5-news', msg => {
+          eval('msg = ' + msg)
 
-					if (msg != null) {
-						if (msg.type == 'news') {
-							//消息
-							if (typeof(msg.num) != 'undefined' && parseInt(msg.num) > 0) {
-								// 显示数字
-								this.hasMessage = true;
-								this.ioMessageNumber = msg.num;
-							} else if (parseInt(msg.num) == 0 && typeof (msg.tips) != 'undefined' && parseInt(msg.tips) > 0) {
-								// 显示点
-								this.hasMessage = true;
-								this.ioMessageNumber = 0;
-							} else {
-								this.hasMessage = false;
-								this.ioMessageNumber = 0;
-							}
-						} else if (msg.type == 'broadcast') {
+          if (msg != null) {
+            if (msg.type == 'news') {
+              //消息
+              if (typeof(msg.num) != 'undefined' && parseInt(msg.num) > 0) {
+                // 显示数字
+                this.hasMessage = true
+                this.ioMessageNumber = msg.num
+              } else if (parseInt(msg.num) == 0 && typeof (msg.tips) != 'undefined' && parseInt(msg.tips) > 0) {
+                // 显示点
+                this.hasMessage = true
+                this.ioMessageNumber = 0
+              } else {
+                this.hasMessage = false
+                this.ioMessageNumber = 0
+              }
+            } else if (msg.type == 'broadcast') {
 
-							this.hasMessage = !!msg.tips;
-							this.ioMessageNumber = msg.tips || 0;
+              this.hasMessage = !!msg.tips
+              this.ioMessageNumber = msg.tips || 0
 
-						}
-					}
-				});
-			}
-		}
-	}
+            }
+          }
+        })
+      }
+    }
+  }
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
@@ -169,10 +181,11 @@
       height: 70px;
     }
   }
-
+  .menu,.header-right{
+    width: 210px;
+  }
   .menu {
     height: unit(@height, px);
-    width: 190px;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;

@@ -69,6 +69,16 @@ module.exports = [
       template: getTplPath('article'),
       chunks: [...chunksCommon, 'article_one'],
     }
+  },
+  //极果优品
+  {
+    name: 'special_youpin',
+    main: './src/pages/special/youpin/app.vue.js',
+    options: {
+      filename: basePath + '/html/youpin.php',
+      template: getTplPath('special/youpin'),
+      chunks: [...chunksCommon, 'special_youpin'],
+    }
   }
 ]
 

@@ -29,8 +29,13 @@ module.exports = {
 		assetsSubDirectory: 'static',
 		assetsPublicPath: '/',
 		proxyTable: {
+      '/api/html': {
+        target: 'http://new.jiguo.com',
+        secure: true,
+        changeOrigin: true
+      },
 			'/api': {
-				target: 'http://m.jiguo.com',
+				target: 'http://new.jiguo.com',
 				secure: true,
 				changeOrigin: true
 			},
