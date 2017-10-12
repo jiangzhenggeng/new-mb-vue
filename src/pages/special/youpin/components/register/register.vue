@@ -19,7 +19,7 @@
                   <div class="register-item-wrap">
                     <div class="register-item-text">产品名称：</div>
                     <div class="register-item-input">
-                      <input type="text" ref="v_pname" name="pname"/>
+                      <input type="text" ref="_v_pname" name="pname"/>
                       <div class="error-msg">填写产品名称</div>
                     </div>
                   </div>
@@ -27,7 +27,7 @@
                   <div class="register-item-wrap">
                     <div class="register-item-text">产品特点：</div>
                     <div class="register-item-input">
-                      <textarea ref="v_feature" name="feature"></textarea>
+                      <textarea ref="_v_feature" name="feature"></textarea>
                       <div class="error-msg">填写产品特点</div>
                     </div>
                   </div>
@@ -35,7 +35,7 @@
                   <div class="register-item-wrap">
                     <div class="register-item-text">厂商全称：</div>
                     <div class="register-item-input">
-                      <input ref="v_factory_name" type="text" name="factory_name"/>
+                      <input ref="_v_factory_name" type="text" name="factory_name"/>
                       <div class="error-msg">填写厂商全称</div>
                     </div>
                   </div>
@@ -43,7 +43,7 @@
                   <div class="register-item-wrap">
                     <div class="register-item-text">官方网站：</div>
                     <div class="register-item-input">
-                      <input ref="v_url" type="text" name="url"/>
+                      <input ref="_v_url" type="text" name="url"/>
                       <div class="error-msg">填写官方网站</div>
                     </div>
                   </div>
@@ -51,7 +51,7 @@
                   <div class="register-item-wrap">
                     <div class="register-item-text">电商网址：</div>
                     <div class="register-item-input">
-                      <input ref="v_shop_url" type="text" name="shop_url"/>
+                      <input ref="_v_shop_url" type="text" name="shop_url"/>
                       <div class="error-msg">填写电商网址</div>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
                   <div class="register-item-wrap">
                     <div class="register-item-text">渠道特点：</div>
                     <div class="register-item-input">
-                      <textarea ref="v_feature" name="feature"></textarea>
+                      <textarea ref="_v_feature" name="feature"></textarea>
                     </div>
                   </div>
                 </template>
@@ -146,10 +146,13 @@
       var registerBox = $('.register-wrap');
       registerBox.on('keyup blur focus', 'input,textarea', function (e) {
         if (e.originalEvent.type == 'focus') {
-          var offsetTop = $(this).offset().top - registerBox.find('>div').first().offset().top - 30;
-          if( offsetTop>0 ){
-            registerBox.scrollTop( offsetTop )
-          }
+          _this['gydfbdfb_t'] && clearTimeout(_this['gydfbdfb_t']);
+          _this['gydfbdfb_t'] = setTimeout(()=>{
+            var offsetTop = $(this).offset().top - registerBox.find('>div').first().offset().top - 30;
+            if( offsetTop>0 ){
+              registerBox.scrollTop( offsetTop )
+            }
+          },300);
         }
         _this.timer && clearTimeout(_this.timer)
         _this.timer = setTimeout(() => {
@@ -197,15 +200,21 @@
       submitData () {
         if (this.verification()) {
           var url = this.type == 1 ? '/api/html/PostSupplier' : '/api/html/PostChannel'
-          var formData = $(this.$refs['form-data']).serialize()
-          $.get(url, formData, (repalyData) => {
+          var formData = $(this.$refs['form-data']).serialize();
+          if(this.submiting){
+            return;
+          }
+          this.submiting = true;
+          var ajax = $.get(url, formData, (repalyData) => {
+            this.submiting = false;
             if (repalyData.resultCode == 0) {
               this.$toast('提交成功')
               this.close()
             } else {
-              this.$toast('提交失败')
+              this.$toast(repalyData.errorMsg||'提交失败')
             }
-          }, 'json')
+          }, 'json');
+
         }
       },
       getFormFunction () {

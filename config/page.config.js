@@ -1,6 +1,5 @@
 var path = require('path')
 var basePath = path.resolve(__dirname, '../../../jiguo/protected/modules/mb/views');
-var chunksCommon = ['vendor', 'manifest'];
 
 function getTplPath (module) {
   return path.resolve(__dirname, `../src/pages/${module}/block_tpl/index.ejs.js`);
@@ -13,7 +12,6 @@ module.exports = [
     options: {
       filename: basePath + '/index/index.php',
       template: getTplPath('index'),
-      chunks: [...chunksCommon, 'index'],
     }
   },
   {
@@ -22,7 +20,6 @@ module.exports = [
     options: {
       filename: basePath + '/event/index.php',
       template: getTplPath('event'),
-      chunks: [...chunksCommon, 'event'],
     }
   },
   {
@@ -31,7 +28,6 @@ module.exports = [
     options: {
       filename: basePath + '/product/list.php',
       template: getTplPath('product'),
-      chunks: [...chunksCommon, 'product'],
     }
   },
   {
@@ -40,7 +36,6 @@ module.exports = [
     options: {
       filename: basePath + '/rebate/list.php',
       template: getTplPath('rebate'),
-      chunks: [...chunksCommon, 'rebate'],
     }
   },
   {
@@ -49,7 +44,6 @@ module.exports = [
     options: {
       filename: basePath + '/list/list.php',
       template: getTplPath('list'),
-      chunks: [...chunksCommon, 'list'],
     }
   },
   {
@@ -58,7 +52,6 @@ module.exports = [
     options: {
       filename: basePath + '/article/list_all.php',
       template: getTplPath('article'),
-      chunks: [...chunksCommon, 'article_all'],
     }
   },
   {
@@ -67,7 +60,6 @@ module.exports = [
     options: {
       filename: basePath + '/article/list_one.php',
       template: getTplPath('article'),
-      chunks: [...chunksCommon, 'article_one'],
     }
   },
   //极果优品
@@ -77,7 +69,6 @@ module.exports = [
     options: {
       filename: basePath + '/html/youpin.php',
       template: getTplPath('special/youpin'),
-      chunks: [...chunksCommon, 'special_youpin'],
     }
   }
 ]

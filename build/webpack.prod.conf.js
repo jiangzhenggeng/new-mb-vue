@@ -51,6 +51,7 @@ if (!completeModule.length) {
 }
 
 completeModule.forEach((item) => {
+  item.options.chunks = ['vendor', 'manifest', item.name ];
   var htmlPlugin = new HtmlWebpackPlugin(merge(HtmlWebpackPluginDefaultConfig, item.options))
   HtmlWebpackPluginConfig.push(htmlPlugin)
 })

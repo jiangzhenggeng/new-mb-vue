@@ -23,7 +23,7 @@
           <li :class="{'on': curr=='list'}"><a href="/mb/list/index.html"><i class="icon icon-list"></i>清单</a></li>
           <li :class="{'on': curr=='article'}"><a href="/mb/article/index.html"><i class="icon icon-experience"></i>体验</a></li>
           <li :class="{'on': curr=='vip'}"><a href="/mb/vip/index.html"><i class="icon icon-uee"></i>体验师</a></li>
-          <li :class="{'on': curr=='youpin'}"><a href="/mb/html/youpin.html"><i class="icon icon-youpin"></i>优品</a></li>
+          <!--<li :class="{'on': curr=='youpin'}"><a href="/mb/html/youpin.html"><i class="icon icon-youpin"></i>优品</a></li>-->
           <li :class="{'on': curr=='mall'}"><a href="/mb/mall/index.html"><i class="icon icon-mall"></i>商城</a></li>
           <li :class="{'on': curr=='html'}"><a href="/mb/html/list.html"><i class="icon icon-contact"></i>联系</a></li>
         </ul>
@@ -154,6 +154,9 @@
         }
         .icon-app-download:before {
           background-position: -202px*2 -205px*2;
+        }
+        .icon-youpin:before {
+          background-image: url(../style/images/menu/red.png);
         }
       }
     }

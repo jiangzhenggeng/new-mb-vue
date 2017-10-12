@@ -4,10 +4,11 @@
       <img src="../style/images/icon/footer-logo.png" />
     </div>
     <div class="footer-erweima">
-      <img src="../style/images/icon/icon-12.png" />
+      <img src="../style/images/icon/icon-12.jpg" />
+      <div class="tips">扫码关注“极果优品”微信</div>
     </div>
     <div class="footer-weixin">
-      <div>微信服务号：jgypvip1 </div>
+      <div>微信服务号：jgypvip1</div>
       <div><a href="mailto:jgyp@jiguo.com">邮箱：jgyp@jiguo.com</a></div>
     </div>
   </div>
@@ -22,6 +23,14 @@
   }
   .footer-erweima{
     margin-top: 30px;
+    text-align: center;
+    font-size: 24px;
+    .tips{
+      margin-top: 10px;
+    }
+    img{
+      width: 270px;
+    }
   }
   .footer-weixin{
     margin-top: 30px;
