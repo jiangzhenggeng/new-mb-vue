@@ -1,6 +1,6 @@
 <template>
-  <div class="body-header-item">
-    <div v-for="item in sub_item" class="sub-header-wrap">
+  <div class="body-header-item k-animate-2" ref="body-header-item">
+    <div v-for="item in sub_item" class="sub-header-wrap ">
       <sub-header
         :sub_data="item.sub_header"
         :item="item"
@@ -17,8 +17,10 @@
 </template>
 
 <script>
+  import headerBg from '../../style/images/icon/header-bg.jpg'
   import SubHeader from './sub-header.vue'
   import SubItem from './sub-item.vue'
+  import $ from 'jquery';
 
   export default {
     data () {
@@ -93,7 +95,19 @@
       SubHeader,
       SubItem,
     },
+    mounted(){
+      this.loadImg(headerBg,function () {
+        $(this.$refs['body-header-item']).addClass('into-k-animate');
+      });
+    },
     methods: {
+      loadImg(src,callback){
+        var img = new Image();
+        img.onload = () => {
+          (callback || function(){}).call(this);
+        }
+        img.src = src;
+      },
       openRegister (type) {
         this.$emit('openRegister',type)
       }

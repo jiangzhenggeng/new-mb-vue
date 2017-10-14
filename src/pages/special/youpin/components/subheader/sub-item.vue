@@ -1,5 +1,5 @@
 <template>
-  <div class="sub-item">
+  <div class="sub-item k-animate-2">
     <div class="sub-item-logo">
       <div :class="`sub-item-logo-img sub-item-logo-img-${item.icon}`"></div>
     </div>

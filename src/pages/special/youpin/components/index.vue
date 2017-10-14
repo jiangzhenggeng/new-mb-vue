@@ -12,8 +12,8 @@
       <div style="margin-bottom: 50px">
         <sub-header-item :sub_data="has_sub_item" :button="false"/>
       </div>
-      <template v-for="i in [1,2,3,4,5]">
-        <center-item />
+      <template v-for="item in item_link">
+        <center-item :item="item" />
       </template>
     </div>
     <footer-bottom />
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  import $ from 'jquery'
   import Register from './register/register.vue'
   import HeaderBg from './header-bg.vue'
   import FooterBottom from './footer.vue'
@@ -37,7 +38,29 @@
           sub_logo: 'icon-11.png',
           sub_title: '经典案例',
           sub_en_title: 'Classic Case'
-        }
+        },
+        item_link:[
+          {
+            url:'http://www.jiguo.com/article/article/50124.html',
+            cover:require('../style/images/凯驰.jpg'),
+            title:'与德国凯驰达成独家战略合作',
+          },
+          {
+            url:'http://www.jiguo.com/article/article/50101.html',
+            cover:require('../style/images/有赞.jpg'),
+            title:'有赞推荐优质合作伙伴',
+          },
+          {
+            url:'http://www.jiguo.com/article/article/50104.html',
+            cover:require('../style/images/天猫.jpg'),
+            title:'助推品牌电商流量暴涨5倍',
+          },
+          {
+            url:'http://www.jiguo.com/article/article/50105.html',
+            cover:require('../style/images/比菲力T恤.jpg'),
+            title:'60天将一件小众T恤卖到400万',
+          }
+        ]
       }
     },
     components: {
@@ -51,21 +74,10 @@
     methods: {
       openRegister (type) {
         this.show_register = true;
-//        ['mousewheel','DOMMouseScroll','touchmove'].forEach((item)=>{
-//          window.addEventListener(item,this._preventDefault, {passive: false });
-//        });
         this.type = type || this.type;
       },
       closeRegister () {
         this.show_register = false;
-//        ['mousewheel','DOMMouseScroll','touchmove'].forEach((item)=>{
-//          window.removeEventListener(item,this._preventDefault);
-//        });
-      },
-      _preventDefault(e){
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
       }
     }
   }

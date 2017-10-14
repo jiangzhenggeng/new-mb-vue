@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './app.vue'
 import router from './router'
+import store from './store'
 import Loading from './components/loading'
 
 Vue.config.productionTip = false
@@ -19,5 +20,6 @@ Vue.use(Toast)
 new Vue({
   el: '#app',
   router,
+  store,
   render: _ => _(App)
 });
