@@ -9,7 +9,7 @@ function resolve (dir) {
 
 var entry = {}
 
-var arguments = process.argv.length>2?[process.argv[2]]:[];
+var arguments = process.argv.length > 2 ? [process.argv[2]] : []
 var completeModule = []
 if (arguments.length) {
   config.page.forEach((item) => {
@@ -25,7 +25,7 @@ if (arguments.length) {
   completeModule = config.page
 }
 if (!completeModule.length) {
-  process.exit(0);
+  process.exit(0)
 }
 
 completeModule.forEach((item) => {
@@ -42,7 +42,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.min.js','.js', '.vue', '.json'],
+    extensions: ['.min.js', '.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -58,7 +58,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        exclude: {
+          test: [/\.min\.(js|css)$/]
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
