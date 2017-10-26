@@ -1,3 +1,13 @@
+<style lang="less">
+  .progressive{
+    width: 100%;
+    height: 100%;
+  }
+  .preview{
+    min-width: 100%;
+    min-height: 100%;
+  }
+</style>
 <template>
   <div class="progressive">
     <img ref="load-img" class="preview" :data-source="bigImg" :src="src"/>
@@ -71,7 +81,7 @@
 
 				var objEvt = jQuery._data(jQuery(window)[0], 'events');
 				var no_scroll_lay_img = true;
-				objEvt['scroll'].forEach((item) => {
+        (objEvt?objEvt['scroll']:[]).forEach((item) => {
 					if (item.namespace == 'img.lay') {
 						no_scroll_lay_img = false;
 						return true;

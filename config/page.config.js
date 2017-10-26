@@ -70,6 +70,15 @@ module.exports = [
       filename: basePath + '/html/youpin.php',
       template: getTplPath('special/youpin'),
     }
+  },
+  //搜索
+  {
+    name: 'search',
+    main: './src/pages/search/app.vue.js',
+    options: {
+      filename: basePath + '/search/index_v2.php',
+      template: getTplPath('search'),
+    }
   }
 ]
 

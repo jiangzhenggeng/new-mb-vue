@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 Vue.use(Loading)
 
 import {Alert, Confirm, Prompt, Toast} from 'wc-messagebox'
-import './style/less/wc-messagebox.less'
+import '../../../style/less/wc-messagebox.less'
 
 Vue.use(Alert)
 Vue.use(Confirm)

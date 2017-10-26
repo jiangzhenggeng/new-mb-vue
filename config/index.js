@@ -35,7 +35,7 @@ module.exports = {
         changeOrigin: true
       },
 			'/api': {
-				target: 'http://new.jiguo.com',
+				target: 'http://m.jiguo.com',
 				secure: true,
 				changeOrigin: true
 			},
