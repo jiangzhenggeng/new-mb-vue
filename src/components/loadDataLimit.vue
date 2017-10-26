@@ -75,10 +75,8 @@
       },
       resultCallback: {
         type: Function,
-        default: function () {
-          return function (replayData) {
-            return replayData
-          }
+        default: function (replayData) {
+          return replayData
         }
       }
     },
@@ -188,15 +186,15 @@
           }
         }, 'json')
       },
-      refresh(){
-        this.jqueryLoader.abort();
-        sessionStorage.delete(this._cacheKey_);
-        this.timer && clearTimeout(this.timer);
+      refresh () {
+        this.jqueryLoader.abort()
+        sessionStorage.delete(this._cacheKey_)
+        this.timer && clearTimeout(this.timer)
         this.new_limit = ''
         this.item_data = []
         this.nomore = false
-        this.loading = false;
-        this.nodata = false;
+        this.loading = false
+        this.nodata = false
         this._cacheData_ = ''
         this.item_data = []
       }

@@ -168,6 +168,8 @@
 
     .banner-img-box {
       position: relative;
+      height: 750px /2;
+      overflow: hidden;
     }
 
     .banner-desc {
