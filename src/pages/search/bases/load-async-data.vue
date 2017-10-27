@@ -108,7 +108,7 @@
 <script>
 
   import jQuery from 'jquery'
-  import tools from '../tools'
+  import tools from '../../../tools'
 
   export default {
     props: {

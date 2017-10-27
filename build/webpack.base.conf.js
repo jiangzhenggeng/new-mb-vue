@@ -24,7 +24,8 @@ if (arguments.length) {
 } else {
   completeModule = config.page
 }
-if (!completeModule.length) {
+
+if (!completeModule.length && process.argv[3]!=='test/unit/karma.conf.js' ) {
   process.exit(0)
 }
 
@@ -64,7 +65,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,

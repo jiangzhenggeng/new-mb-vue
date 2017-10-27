@@ -12,7 +12,7 @@
 
 <script>
   import pageHeader from './../../../components/header.vue'
-  import tool from './../../../tool/throttle'
+  import tools from './../../../tools'
   import { mapState } from 'vuex'
   import $ from 'jquery'
 
@@ -28,7 +28,7 @@
     mounted () {
       var hasAnimate = $('.k-animate:not(.into-k-animate),.k-animate-2:not(.into-k-animate)')
       var winHeight = $(window).height();
-      var debounce = tool.debounce(function () {
+      var throttle = tools.throttle(function () {
         var scrollTop = $(window).scrollTop()
         hasAnimate.filter(function () {
           if ($(this).hasClass('into-k-animate')) {
@@ -42,7 +42,7 @@
         })
       });
       $(window).off('scroll.into.animate').on('scroll.into.animate', function () {
-        debounce();
+        throttle();
       }).trigger('scroll.into.animate')
     }
   }

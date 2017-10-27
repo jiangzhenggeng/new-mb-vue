@@ -100,7 +100,7 @@
 <script>
 
 	import * as types from '../store/types';
-	import TouchSlide from '../tool/TouchSlide';
+	import TouchSlide from '../components/touchslide/touch-slide';
 	import jQuery from 'jquery';
 
 	export default {

@@ -41,8 +41,8 @@
 <script>
 
   import jQuery from 'jquery'
-  import throttle from '../tool/throttle'
-  import sessionStorage from '../tool/sessionStorage'
+  import throttle from '../tools/throttle'
+  import sessionStorage from '../tools/session-storage'
 
   export default {
     props: {
@@ -113,9 +113,9 @@
         this.nomore = cache_data.nomore || this.nomore
       }
 
-      let throttleDeFn = throttle.debounce(() => {
+      let throttleDeFn = throttle(() => {
         this.getItemData()
-      }, 10, 500)
+      },320);
       jQuery(window).off('scroll.home').on('scroll.home', () => {
         throttleDeFn()
       })

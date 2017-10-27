@@ -44,25 +44,35 @@ export default {
   install (Vue, options = {name: 'lazy'}) {
     var windowScrollFunctionInit1 = tools.debounce(function () {
       globalLazyImgBox = globalLazyImgBox.map(item => {
-        if(!item.offset){
-          item.offset = $(item.el).offset()
-        }
+        item.offset = $(item.el).offset()
+        item.height = $(item.el).height()
         return item
       })
-    },true);
+    }, 1, true)
     var windowScrollFunctionInit2 = tools.debounce(function () {
       globalLazyImgBox = globalLazyImgBox.map(item => {
-        if(!item.offset){
-          item.offset = $(item.el).offset()
-        }
+        item.offset = $(item.el).offset()
+        item.height = $(item.el).height()
         return item
       })
-    },false);
+    }, 1, false)
 
     var windowScrollFunction = tools.throttle(function () {
       windowScrollTop = $(window).scrollTop()
+      globalLazyImgBox = globalLazyImgBox.map(item => {
+        if (!item.offset) item.offset = $(item.el).offset()
+        if (!item.height) item.height = $(item.el).height()
+        return item
+      })
+
       globalLazyImgBox = globalLazyImgBox.filter(item => {
-        if (windowHeight + windowScrollTop > item.offset.top) {
+        if (
+          !item.offset ||
+          (
+            windowHeight + windowScrollTop > item.offset.top &&
+            windowScrollTop < item.offset.top + item.height
+          )
+        ) {
           var imgArray = []
           if (item.src) {
             imgArray.push({
@@ -84,8 +94,8 @@ export default {
     }, 320)
 
     $(window).on('scroll.lazy', () => {
-      windowScrollFunctionInit1();
-      windowScrollFunctionInit2();
+      windowScrollFunctionInit1()
+      windowScrollFunctionInit2()
       windowScrollFunction()
     })
 

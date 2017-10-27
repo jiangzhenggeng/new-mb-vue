@@ -1,4 +1,3 @@
-
 <template>
   <header class="header header-wrap">
     <div class="header header-inner">
@@ -45,7 +44,7 @@
 
 <script>
   import leftMenu from './leftMenu.vue'
-  import sessionStorage from './../tool/sessionStorage'
+  import sessionStorage from './../tools/session-storage'
   import Cookie from 'js-cookie'
   import io from 'socket.io-client'
   import $ from 'jquery'
@@ -153,9 +152,10 @@
   @import "../style/less/_mixs.less";
 
   @height: 104;
-  .icon{
+  .icon {
     display: flex !important;
   }
+
   .header {
     background: #fff;
     position: relative;
@@ -189,9 +189,11 @@
       height: 70px;
     }
   }
-  .menu,.header-right{
+
+  .menu, .header-right {
     width: 210px;
   }
+
   .menu {
     height: unit(@height, px);
     display: flex;
@@ -230,5 +232,13 @@
   .header-right-badge-wrap {
     position: relative;
     margin-right: 15px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    .user-innner img {
+      display: block;
+    }
   }
 </style>

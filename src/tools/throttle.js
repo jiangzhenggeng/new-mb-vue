@@ -1,6 +1,7 @@
 function throttle (func, wait) {
   var ctx, args, rtn, timeoutID // caching
   var last = 0
+  wait = wait || 120;
 
   return function throttled () {
     ctx = this
