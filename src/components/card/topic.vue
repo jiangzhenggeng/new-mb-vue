@@ -1,5 +1,5 @@
 <template>
-  <li class="large topic clear">
+  <li class="large topic clear" v-waves.block="true">
     <div class="global-padding">
       <a :href="`/mb/article/article/${item.blogid}.html`">
         <div class="stream-box">
@@ -7,8 +7,8 @@
             <span v-if="item.type==6" class="event-tag huati">话题</span>
           </template>
           <div class="stream-img">
-            <load-img
-              :big-img="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
+            <img
+              v-lazy="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
               :src="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/60/h/30/q/30`"
             />
             <div class="mask-cover"></div>
@@ -31,8 +31,6 @@
 </template>
 
 <script>
-  import loadImg from '../loadimg.vue'
-  import { rippleButton } from '../button/index'
 
   export default {
     props: {
@@ -43,10 +41,6 @@
         type: Boolean,
         default: true
       }
-    },
-    components: {
-      loadImg,
-      rippleButton
     },
     data: function () {
       return {}

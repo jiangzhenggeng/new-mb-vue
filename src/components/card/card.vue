@@ -1,5 +1,5 @@
 <template>
-  <li class="small clear">
+  <li class="small clear" v-waves.block="true">
     <div class="global-padding">
       <a :href="`/mb/article/article/${item.blogid}.html`">
         <div class="stream-box">
@@ -7,8 +7,8 @@
             <div v-if="item.elite==1" class="elite">
               <img src="../../style/images/elite.png">
             </div>
-            <load-img
-              :big-img="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/230/h/230/q/100`"
+            <img
+              v-lazy="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/230/h/230/q/100`"
               :src="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/50/h/50/q/30`"
             />
             <div v-if="item.video==1" class="video">
@@ -46,18 +46,12 @@
 </template>
 
 <script>
-	import {rippleButton} from '../button/index';
-	import loadImg from '../loadimg.vue';
 
 	export default {
 		props: {
 			item: {
 				type: Object
 			}
-		},
-		components: {
-			loadImg,
-			rippleButton
 		},
 		data: function () {
 			return {}

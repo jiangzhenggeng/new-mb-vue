@@ -1,5 +1,5 @@
 <template>
-  <li class="large clear">
+  <li class="large clear" v-waves.block="true">
     <div class="global-padding">
       <a :href="`/mb/article/article/${item.blogid}.html`">
         <div class="stream-title ft16 mgb5">{{ item.title }}</div>
@@ -10,8 +10,8 @@
             <span v-else-if="item.type==4" class="event-tag tiyan">体验</span>
           </template>
           <div class="stream-img">
-            <load-img
-              :big-img="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
+            <img
+              v-lazy="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
               :src="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/60/h/30/q/30`"
             />
             <div class="mask-cover"></div>
@@ -60,8 +60,6 @@
 </template>
 
 <script>
-  import loadImg from '../loadimg.vue'
-  import { rippleButton } from '../button/index'
 
   export default {
     props: {
@@ -72,14 +70,10 @@
         type: Boolean,
         default: true
       },
-      productName:{
+      productName: {
         type: Boolean,
         default: false
       }
-    },
-    components: {
-      loadImg,
-      rippleButton
     },
     data: function () {
       return {}
@@ -87,15 +81,15 @@
   }
 </script>
 <style lang="less" rel="stylesheet/less" scoped>
-  .icon.icon-more{
+  .icon.icon-more {
     position: relative;
     padding-right: 35px;
     min-width: 100px;
-    &::before{
-       position: absolute;
+    &::before {
+      position: absolute;
       right: 0;
-      top:50%;
+      top: 50%;
       transform: translateY(-50%);
-     }
+    }
   }
 </style>

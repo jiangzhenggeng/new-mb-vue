@@ -5,6 +5,8 @@ import App from './app.vue'
 import router from './router'
 import store from './store'
 import Loading from './components/loading'
+import Waves from '../../../components/button/waves'
+Vue.use(Waves)
 
 Vue.config.productionTip = false
 Vue.use(Loading)

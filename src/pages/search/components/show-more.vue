@@ -29,7 +29,7 @@
 
 <template>
   <div class="search-type-more">
-    <router-link class="block" :to="_url">
+    <router-link class="block" :to="_url" v-waves.block="true">
       <div class="s-left">
         {{ desc }} (<font id="seaech-event-num">{{ number }}</font>)
       </div>

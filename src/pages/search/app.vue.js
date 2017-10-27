@@ -4,6 +4,10 @@ import Loading from './../../components/loading'
 import store from './../../store'
 import router from './router/index'
 import jQuery from 'jquery'
+import Waves from '../../components/button/waves'
+Vue.use(Waves)
+import Lazyload from '../../components/lazyload/index'
+Vue.use(Lazyload)
 
 import { Alert, Confirm, Toast } from 'wc-messagebox'
 

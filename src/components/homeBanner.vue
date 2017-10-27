@@ -102,7 +102,6 @@
 	import * as types from '../store/types';
 	import TouchSlide from '../tool/TouchSlide';
 	import jQuery from 'jquery';
-	import loadImg from './loadimg.vue';
 
 	export default {
 		data: function () {
@@ -110,9 +109,6 @@
 				event_hot: [],
 				now: (new Date()).getTime() / 1000
 			}
-		},
-		components: {
-			'load-img': loadImg
 		},
 		created: function () {
 			this.getBannerData();

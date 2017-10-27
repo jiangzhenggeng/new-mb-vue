@@ -1,13 +1,100 @@
+<style lang="less" rel="stylesheet/less" scoped>
+  .search__header-box,
+  .search__header-wrap {
+    height: 104px;
+    font-size: 32px;
+  }
+
+  .search__header-wrap {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 32px;
+    border-bottom: 1px solid #ececec;
+    z-index: 5;
+  }
+
+  .search__header-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .search__header-inner-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 12px 0 24px;
+  }
+
+  .search__input-box {
+    flex: 1;
+    border-radius: 100px;
+    border: 2px solid #e8e8e8;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 38px;
+    height: 70px;
+
+    .search__input {
+      color: #595858;
+      -webkit-appearance: none;
+      font-size: 32px;
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+  }
+
+  .search__btn-wrap {
+    user-select: none;
+    line-height: 70px;
+    width: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .search__btn{
+    width: 84%;
+    height: 84%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
 <template>
   <div class="search__header-box">
     <div class="search__header-wrap">
       <div class="search__header-inner">
-        <label class="search__input-box">
-          <input @keyup="keyup($event)" type="text" class="search__input"
-                 :placeholder="placeholder" :value="inner_keyword"/>
-        </label>
+        <div class="search__header-inner-box">
+          <label class="search__input-box">
+            <input
+              @keyup="keyup($event)"
+              type="text"
+              class="search__input"
+              :placeholder="placeholder"
+              :value="inner_keyword"
+            />
+          </label>
+        </div>
         <div class="search__btn-wrap">
-          <span class="search__btn" @click="cancelOrSearch">{{ searchText }}</span>
+          <div
+            class="search__btn"
+            @click="cancelOrSearch"
+            v-waves.circle="true"
+          >
+            {{ searchText }}
+          </div>
         </div>
       </div>
     </div>
@@ -82,65 +169,3 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
-  .search__header-box,
-  .search__header-wrap {
-    height: 104px;
-    font-size: 32px;
-  }
-
-  .search__header-wrap {
-    background: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 32px;
-    border-bottom: 1px solid #ececec;
-    z-index: 5;
-  }
-
-  .search__header-inner {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 0 24px;
-  }
-
-  .search__input-box {
-    flex: 1;
-    border-radius: 100px;
-    border: 2px solid #e8e8e8;
-    background-color: #f7f7f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 38px;
-    height: 70px;
-
-    .search__input {
-      color: #595858;
-      -webkit-appearance: none;
-      font-size: 32px;
-      display: block;
-      width: 100%;
-      border: none;
-      outline: none;
-      background-color: transparent;
-    }
-  }
-
-  .search__btn-wrap {
-    margin-left: 20px;
-    user-select: none;
-
-    .search__btn {
-      display: block;
-      line-height: 70px;
-      width: 70px;
-      color: #595858;
-    }
-  }
-</style>

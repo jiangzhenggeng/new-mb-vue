@@ -1,8 +1,11 @@
+
 <template>
   <header class="header header-wrap">
     <div class="header header-inner">
       <div class="menu">
-        <a @click="openMenu" class="icon icon-menu" href="javascript:;"></a>
+        <a @click="openMenu" class="menu__open">
+          <i class="icon icon-menu" v-waves.circle="true"></i>
+        </a>
         <left-menu
           ref="menu"
           :show="show"
@@ -17,11 +20,13 @@
       </div>
       <div class="header-right">
         <template v-if="search">
-          <a @click="searchRecodCurrUrl" class="search icon icon-search" href="/mb/search/list.html"></a>
+          <a @click="searchRecodCurrUrl" class="search" href="/mb/search/list.html">
+            <i class="icon icon-search" v-waves.circle="true"></i>
+          </a>
         </template>
         <template v-if="user">
           <a v-if="window.URL && window.URL['login']" class="user has-login" href="/mb/user/index.html">
-            <div class="header-right-badge-wrap">
+            <div class="header-right-badge-wrap" v-waves.circle="true">
               <div class="user-innner">
                 <img :src="window.URL['user-face']">
               </div>
@@ -148,6 +153,9 @@
   @import "../style/less/_mixs.less";
 
   @height: 104;
+  .icon{
+    display: flex !important;
+  }
   .header {
     background: #fff;
     position: relative;
@@ -189,8 +197,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
-    .icon-menu {
+    .menu__open {
       width: unit(@height, px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

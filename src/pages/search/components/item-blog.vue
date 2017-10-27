@@ -48,15 +48,15 @@
 </style>
 
 <template>
-  <li class="item">
+  <li class="item" v-waves.block="true">
     <a :href="`/mb/article/article/${item.blogid}.html`">
       <div class="stream-box">
         <div class="stream-img">
           <div class="elite" v-if="item.elite==1">
             <img src="../../../style/images/elite.png">
           </div>
-          <load-img
-            :big-img="`http://s1.jiguo.com/${item.cover}/230x230`"
+          <img
+            v-lazy="`http://s1.jiguo.com/${item.cover}/230x230`"
             :src="`http://s1.jiguo.com/${item.cover}/230x230?imageView2/1/w/50/h/30/q/30`"
           />
           <div class="video" v-if="item.video==1">
@@ -99,7 +99,6 @@
   </li>
 </template>
 <script>
-  import loadImg from '../../../components/loadimg.vue'
 
   export default {
     props: {
@@ -107,9 +106,6 @@
         type: Object,
         required: true
       }
-    },
-    components: {
-      loadImg
-    },
+    }
   }
 </script>

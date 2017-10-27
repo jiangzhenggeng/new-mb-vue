@@ -1,6 +1,6 @@
 <template>
   <div class="body-header-item k-animate-2" ref="body-header-item">
-    <div v-for="item in sub_item" class="sub-header-wrap ">
+    <div v-for="item in sub_item" class="sub-header-wrap" :key="item.type">
       <sub-header
         :sub_data="item.sub_header"
         :item="item"
@@ -10,6 +10,7 @@
         <sub-item
           v-for="item2 in item.sub_item"
           :item="item2"
+          :key="item2.icon"
         />
       </div>
     </div>
