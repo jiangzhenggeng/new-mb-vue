@@ -1,7 +1,7 @@
 <template>
   <header class="header header-wrap">
     <div class="header header-inner">
-      <div class="menu">
+      <div class="menu s">
         <a @click="openMenu" class="menu__open">
           <i class="icon icon-menu" v-waves.circle="true"></i>
         </a>
