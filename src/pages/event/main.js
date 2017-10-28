@@ -5,6 +5,8 @@ import store from './../../store'
 import jQuery from 'jquery'
 import Waves from '../../components/button/waves'
 Vue.use(Waves)
+import Lazyload from '../../components/lazyload/index'
+Vue.use(Lazyload)
 
 window.$WIN_HEIGHT = jQuery(window).height()
 window.$WIN_WIDTH = jQuery(window).width()

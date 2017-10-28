@@ -8,7 +8,7 @@ function getTplPath (module) {
 module.exports = [
   {
     name: 'index',
-    main: './src/pages/app.vue.js',
+    main: './src/pages/main.js',
     options: {
       filename: basePath + '/index/index.php',
       template: getTplPath('index'),
@@ -16,7 +16,7 @@ module.exports = [
   },
   {
     name: 'event',
-    main: './src/pages/event/app.vue.js',
+    main: './src/pages/event/main.js',
     options: {
       filename: basePath + '/event/index.php',
       template: getTplPath('event'),
@@ -24,7 +24,7 @@ module.exports = [
   },
   {
     name: 'product',
-    main: './src/pages/product/app.vue.js',
+    main: './src/pages/product/main.js',
     options: {
       filename: basePath + '/product/list.php',
       template: getTplPath('product'),
@@ -32,7 +32,7 @@ module.exports = [
   },
   {
     name: 'rebate',
-    main: './src/pages/rebate/app.vue.js',
+    main: './src/pages/rebate/main.js',
     options: {
       filename: basePath + '/rebate/list.php',
       template: getTplPath('rebate'),
@@ -40,7 +40,7 @@ module.exports = [
   },
   {
     name: 'list',
-    main: './src/pages/list/app.vue.js',
+    main: './src/pages/list/main.js',
     options: {
       filename: basePath + '/list/list.php',
       template: getTplPath('list'),
@@ -48,7 +48,7 @@ module.exports = [
   },
   {
     name: 'article_all',
-    main: './src/pages/article/app.vue.js',
+    main: './src/pages/article/main.js',
     options: {
       filename: basePath + '/article/list_all.php',
       template: getTplPath('article'),
@@ -56,7 +56,7 @@ module.exports = [
   },
   {
     name: 'article_one',
-    main: './src/pages/article/app_one.vue.js',
+    main: './src/pages/article/main_one.js',
     options: {
       filename: basePath + '/article/list_one.php',
       template: getTplPath('article'),
@@ -65,7 +65,7 @@ module.exports = [
   //极果优品
   {
     name: 'special_youpin',
-    main: './src/pages/special/youpin/app.vue.js',
+    main: './src/pages/special/youpin/main.js',
     options: {
       filename: basePath + '/html/youpin.php',
       template: getTplPath('special/youpin'),
@@ -74,7 +74,7 @@ module.exports = [
   //搜索
   {
     name: 'search',
-    main: './src/pages/search/app.vue.js',
+    main: './src/pages/search/main.js',
     options: {
       filename: basePath + '/search/index_v2.php',
       template: getTplPath('search'),

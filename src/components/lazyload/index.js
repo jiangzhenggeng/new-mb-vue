@@ -20,6 +20,7 @@ const loadimg = (el, array, callback, cell) => {
         if (item.level >= level) {
           level = item.level
           callback.call(el, item.src)
+          el.style.background = '';
         }
         if (item.level > 2) {
           cell.loading = false

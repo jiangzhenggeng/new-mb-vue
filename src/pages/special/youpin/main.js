@@ -7,6 +7,8 @@ import store from './store'
 import Loading from './components/loading'
 import Waves from '../../../components/button/waves'
 Vue.use(Waves)
+import Lazyload from '../../../components/lazyload/index'
+Vue.use(Lazyload)
 
 Vue.config.productionTip = false
 Vue.use(Loading)

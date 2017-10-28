@@ -25,8 +25,7 @@
                   </span>
               <span v-else-if="item.feature" class="red ft-12">{{ item.feature }}</span>
               <template v-else>
-                <span v-if="item.productinfo && item.productinfo.price" class="ft18">￥{{ item.productinfo.price
-                  }}</span>
+                <span v-if="item.productinfo && item.productinfo.price" class="ft18">￥{{ item.productinfo.price }}</span>
                 <span v-if="item.productinfo && item.productinfo.discount && item.productinfo.discount>0"
                       class="ml10 ft12">{{ item.productinfo.discount }}折</span>
               </template>
