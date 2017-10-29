@@ -5,7 +5,7 @@
     <div class="content-wrap">
       <div class="mian-stream">
         <load-data-limit url="/api/event/mbevent" :cache="listcache">
-          <template slot="item" scope="props">
+          <template slot="item" slot-scope="props">
             <list-card :item="props.item"/>
           </template>
         </load-data-limit>

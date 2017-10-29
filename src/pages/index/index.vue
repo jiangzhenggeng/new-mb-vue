@@ -4,7 +4,7 @@
     <home-announcement/>
     <div class="mian-stream">
       <load-data-limit url="/api/article/GetArticleList">
-        <template slot="item" scope="props">
+        <template slot="item" slot-scope="props">
           <!--一般大卡片-->
           <item-large v-if="props.item.type==1||props.item.type==2||props.item.type==3||props.item.type==4"
                       :item="props.item"/>

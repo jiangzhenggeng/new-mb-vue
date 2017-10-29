@@ -3,17 +3,17 @@ import mutations from './mutations'
 
 const state = {
   //请求地址
-  search_url: '',
+  //search_url: '',
   //搜索关键词
   keyword: '',
   //搜索状态
-  searching: false,
+  //searching: false,
   //首页搜索结果
-  result: {},
+  //result: {},
   //试用
-  event: [],
+  //event: [],
   //文章
-  blog: []
+  //blog: []
 }
 
 export default {

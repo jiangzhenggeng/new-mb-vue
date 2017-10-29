@@ -13,7 +13,7 @@
           :resultCallback="resultCallback"
           ref="load-data-limit"
         >
-          <template slot="slot-data-box" scope="props">
+          <template slot="slot-data-box" slot-scope="props">
             <ul>
               <item-component v-for="item in props.data" :item="item" :key="item.eventid"/>
             </ul>

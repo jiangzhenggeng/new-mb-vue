@@ -41,6 +41,7 @@
     align-items: center;
     padding: 0 38px;
     height: 70px;
+    position: relative;
 
     .search__input {
       color: #595858;
@@ -63,12 +64,25 @@
     justify-content: center;
     text-align: center;
   }
-  .search__btn{
+
+  .search__btn {
     width: 84%;
     height: 84%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .search__close-wrap {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+
+    img {
+      width: 70px;
+    }
   }
 </style>
 
@@ -85,6 +99,9 @@
               :placeholder="placeholder"
               :value="inner_keyword"
             />
+            <div v-show="close_search" class="search__close-wrap" @click="closeSearch">
+              <img src="./searh-close.svg"/>
+            </div>
           </label>
         </div>
         <div class="search__btn-wrap">
@@ -103,7 +120,6 @@
 
 <script>
   import Cookie from 'js-cookie'
-  import { mapState, mapActions } from 'vuex'
 
   export default {
     props: {
@@ -128,6 +144,7 @@
       return {
         inner_keyword: this.keyword,
         backUrl: Cookie.get('isSearchCurrUrl'),
+        close_search: !!this.keyword
       }
     },
     computed: {
@@ -137,6 +154,15 @@
           return this.search
         } else {
           return this.cancel
+        }
+      }
+    },
+    watch: {
+      inner_keyword () {
+        if (this.inner_keyword) {
+          this.close_search = true
+        } else {
+          this.close_search = false
         }
       }
     },
@@ -163,6 +189,14 @@
           } else {
             window.location = '/'
           }
+        }
+      },
+      closeSearch () {
+        if (this.inner_keyword) {
+          this.inner_keyword = ''
+          this.$emit('search', '', true)
+        } else {
+          this.cancelOrSearch()
         }
       }
     }

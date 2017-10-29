@@ -83,7 +83,8 @@
         return this.result.blog || []
       },
       ...mapState({
-        show: state => state.show
+        show: state => state.show,
+        keyword: state => state.search.keyword
       })
     },
     components: {
@@ -94,7 +95,11 @@
     },
     methods: {
       search (keyword) {
-        this.searching = true
+        this.searching = true;
+        this.searchChangeKeyword({
+          keyword:keyword
+        });
+
         $.get('/api/search/index', {
           keyword: (keyword || '').replace(/^\s+|\s+$/g, '')
         }, replayData => {
@@ -109,7 +114,8 @@
           this.hidePageLoading()
         })
       },
-      ...mapActions(['hidePageLoading'])
+      ...mapActions(['hidePageLoading']),
+      ...mapActions('search',['searchChangeKeyword'])
     }
   }
 </script>

@@ -9,7 +9,7 @@
           :cache="listcache"
           :extData="extData"
         >
-          <template slot="item" scope="props">
+          <template slot="item" slot-scope="props">
             <small-card :item="props.item" />
           </template>
         </load-data-limit>
