@@ -79,6 +79,15 @@ module.exports = [
       filename: basePath + '/search/index_v2.php',
       template: getTplPath('search'),
     }
+  },
+  //个人中心
+  {
+    name: 'user',
+    main: './src/pages/user/main.js',
+    options: {
+      filename: basePath + '/user/index_v2.php',
+      template: getTplPath('user'),
+    }
   }
 ]
 

@@ -1,0 +1,28 @@
+
+
+.button {
+  text-align: center;
+  appearance: none;
+  color: #fff;
+  background: #fe5341;
+  border: none;
+  outline: none;
+  display: block;
+  border-radius: 10px;
+  height: 100px;
+  width: 100%;
+  font-size: 40px;
+  user-select: none;
+  &.red{
+    background: #fe5341;
+    color: #fff;
+  }
+  &.gray{
+    background: #a5a5a5;
+    color: #fff;
+  }
+  &:not(.gray):active {
+    background: #fe5341 - 20%;
+    color: #fff - 20%;
+  }
+}

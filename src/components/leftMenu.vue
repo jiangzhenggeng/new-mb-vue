@@ -96,6 +96,8 @@
       transform: translate3d(0, 0, 0);
       transition-duration: 0.3s;
       transition-property: transform;
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
 
     &.show {

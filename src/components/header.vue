@@ -25,8 +25,8 @@
         </template>
         <template v-if="user">
           <a v-if="window.URL && window.URL['login']" class="user has-login" href="/mb/user/index.html">
-            <div class="header-right-badge-wrap" v-waves.circle="true">
-              <div class="user-innner">
+            <div class="header-right-badge-wrap">
+              <div class="user-innner" v-waves.circle="true">
                 <img :src="window.URL['user-face']">
               </div>
               <em v-if="hasMessage" class="badge"
@@ -149,9 +149,8 @@
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
-  @import "../style/less/_mixs.less";
 
-  @height: 104;
+  @height: 104px;
   .icon {
     display: flex !important;
   }
@@ -159,7 +158,7 @@
   .header {
     background: #fff;
     position: relative;
-    height: unit(@height, px);
+    height: @height;
     z-index: 5;
   }
 
@@ -179,9 +178,12 @@
   .logo {
     flex: 1;
     text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
     a {
       display: block;
-      line-height: unit(@height, px);
+      line-height: @height;
     }
     img {
       display: inline-block;
@@ -191,16 +193,19 @@
   }
 
   .menu, .header-right {
-    width: 210px;
+    /*width: 210px;*/
+    position: relative;
+    z-index: 2;
   }
 
   .menu {
-    height: unit(@height, px);
+    height: @height;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
+    z-index: 3;
     .menu__open {
-      width: unit(@height, px);
+      width: @height;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -216,7 +221,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: unit(@height, px);
+      width: @height;
     }
     .user-innner {
       border-radius: 50%;
