@@ -57,8 +57,8 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
-  @import "./../../../style/less/_mixs.less";
+<style lang="scss" scoped>
+  @import './../../../style/scss/helpers/functions';
   .mian-stream li.large.event {
     .stream-bottom {
       color: #fff;
@@ -67,8 +67,8 @@
       color: #ccc;
     }
     .stream-title {
-      height: 60px;
-      line-height: 60px;
+      height: px2rem(60);
+      line-height: px2rem(60);
     }
   }
 </style>

@@ -83,9 +83,10 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
+  @import "../../../../style/scss/helpers/functions";
   .classic-case {
     background: #fff;
-    padding: 75px;
+    padding: px2rem(75);
   }
 </style>

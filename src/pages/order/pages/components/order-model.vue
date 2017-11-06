@@ -1,5 +1,5 @@
-<style lang="less">
-  @import "./module.less";
+<style lang="scss">
+  @import "./module.scss";
 
   .model__wrap {
     .model__item-box{
@@ -8,18 +8,18 @@
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap;
-      margin-left: -20px;
+      margin-left: px2rem(-20);
       width: 105%;
     }
     .model__item{
       float: left;
-      min-width: 150px;
-      height: 80px;
-      line-height: 80px;
+      min-width: px2rem(150);
+      height: px2rem(80);
+      line-height: px2rem(80);
       cursor: pointer;
       text-align: center;
-      margin-left: 20px;
-      margin-bottom: 20px;
+      margin-left: px2rem(20);
+      margin-bottom: px2rem(20);
       position: relative;
       user-select: none;
       label{
@@ -27,11 +27,12 @@
       }
 
       .model__text{
-        border: 2px solid #e9e9e9;
-        border-radius: 10px;
+        border: px2rem(2) solid #e9e9e9;
+        border-radius: px2rem(10);
         color: #4c4c4c;
-        padding: 0 20px;
+        padding: 0 px2rem(20);
         transition: all .3s;
+        font-size: px2rem(28);
         &:active{
           color: #fff - 20%;
           border-color: #e9e9e9 + 10%;
@@ -39,8 +40,8 @@
       }
       .model__input-radio{
         position: absolute;
-        width: 1px;
-        height: 1px;
+        width: px2rem(1);
+        height: px2rem(1);
         appearance: none;
         outline: none;
         background: none;

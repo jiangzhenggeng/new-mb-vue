@@ -1,4 +1,5 @@
-<style lang="less" scoped>
+<style lang="scss" scoped="">
+  @import "../../../../../style/scss/helpers/functions";
   .order-tips{
     .radio-box{
       display: block;

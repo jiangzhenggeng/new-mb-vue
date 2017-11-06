@@ -84,32 +84,32 @@
 	}
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import "../style/less/_mixs.less";
+<style lang="scss">
+  @import "../style/scss/helpers/functions";
 
   //首页公告
   .announcement-main {
     .announcement-wrap {
       position: relative;
-      padding: 0 24px;
+      padding: 0 px2rem(24);
       color: #666666;
-      font-size: 26px;
-      height: 92px;
+      font-size: px2rem(26px);
+      height: px2rem(92);
       overflow: hidden;
       background: #f7f7f7;
-      padding-left: 100px;
+      padding-left: px2rem(100);
       z-index: 2;
       &:after {
         position: absolute;
-        left: 24px;
+        left: px2rem(24);
         top: 50%;
-        margin-top: -28px;
+        margin-top: px2rem(-28);
         content: '';
         display: block;
-        width: 52px;
-        height: 52px;
+        width: px2rem(52);
+        height: px2rem(52);
         background-image: url(../style/images/announcement.png);
-        background-size: 24px auto;
+        background-size: px2rem(24) auto;
         background-clip: content-box;
         background-repeat: no-repeat;
         background-position: left center;
@@ -118,16 +118,16 @@
         position: absolute;
         content: '';
         display: block;
-        left: 74px;
+        left: px2rem(74);
         top: 50%;
-        margin-top: -24px;
-        width: 2px;
-        height: 48px;
+        margin-top: px2rem(-24);
+        width: px2rem(2);
+        height: px2rem(48);
         background-color: #D1D1D1;
       }
     }
     li {
-      height: 92px;
+      height: px2rem(92);
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
@@ -140,10 +140,10 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
         overflow: hidden;
-        line-height: 36px;
-        max-height: 72px;
+        line-height: px2rem(36);
+        max-height: px2rem(72);
         position: relative;
-        top: 2px;
+        top: px2rem(2);
       }
     }
     .announcement-item {
@@ -151,7 +151,7 @@
     }
     .announcement-event-name {
       color: #666666;
-      margin-right: 16px;
+      margin-right: px2rem(16);
     }
   }
 </style>

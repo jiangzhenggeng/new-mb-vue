@@ -1,5 +1,5 @@
-<style lang="less">
-  @import "./static/password.less";
+<style lang="scss">
+  @import "./static/password.scss";
 </style>
 <template>
   <div class="page">

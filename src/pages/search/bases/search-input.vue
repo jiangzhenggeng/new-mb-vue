@@ -1,8 +1,9 @@
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../../../style/scss/helpers/functions";
   .search__header-box,
   .search__header-wrap {
-    height: 104px;
-    font-size: 32px;
+    height: px2rem(104);
+    font-size: px2rem(32);
   }
 
   .search__header-wrap {
@@ -11,8 +12,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    font-size: 32px;
-    border-bottom: 1px solid #ececec;
+    font-size: px2rem(32);
+    border-bottom: px2rem(0.8) solid #ececec;
     z-index: 5;
   }
 
@@ -28,25 +29,25 @@
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 0 12px 0 24px;
+    padding: 0 px2rem(12) 0 px2rem(24);
   }
 
   .search__input-box {
     flex: 1;
-    border-radius: 100px;
-    border: 2px solid #e8e8e8;
+    border-radius: px2rem(100);
+    border: px2rem(2) solid #e8e8e8;
     background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 38px;
-    height: 70px;
+    padding: 0 px2rem(38);
+    height: px2rem(70);
     position: relative;
 
     .search__input {
       color: #595858;
       -webkit-appearance: none;
-      font-size: 32px;
+      font-size: px2rem(32);
       display: block;
       width: 100%;
       border: none;
@@ -57,8 +58,8 @@
 
   .search__btn-wrap {
     user-select: none;
-    line-height: 70px;
-    width: 104px;
+    line-height: px2rem(70);
+    width: px2rem(104);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,13 +76,13 @@
 
   .search__close-wrap {
     position: absolute;
-    right: 10px;
+    right: px2rem(10);
     top: 50%;
     transform: translateY(-50%);
     opacity: 0.7;
 
     img {
-      width: 70px;
+      width: px2rem(70);
     }
   }
 </style>

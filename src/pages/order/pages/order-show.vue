@@ -1,6 +1,4 @@
-<style lang="less">
 
-</style>
 
 <template>
   <div class="order__page-wrap">

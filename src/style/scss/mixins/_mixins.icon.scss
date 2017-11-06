@@ -9,7 +9,7 @@
       display: block;
       height: px2rem(52);
       width: px2rem(52);
-      background-image: url(../../images/global-icon.png);
+      background-image: url('#{$IMAGES_PATH}global-icon.png');
       background-size: px2rem(500) auto;
       background-clip: content-box;
       background-repeat: no-repeat;
@@ -56,7 +56,7 @@
       background-position:px2rem(-410px) px2rem(-52px);
     }
     &.icon-youpin:before {
-      background-image: url(../../images/menu/gray.png);
+      background-image: url('#{$IMAGES_PATH}menu/gray.png');
       background-size:px2rem(32px) auto;
       background-position: center center;
     }
@@ -127,7 +127,7 @@
       background-position:px2rem(0px) px2rem(-238px);
     }
     &.icon-coupon:before {
-      background-image: url(../../images/coupon-icon.png);
+      background-image: url('#{$IMAGES_PATH}/coupon-icon.png');
       background-size: px2rem(32px) auto;
       background-repeat: no-repeat;
       background-position: 0px center;

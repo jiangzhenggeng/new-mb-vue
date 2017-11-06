@@ -1,5 +1,5 @@
-<style lang="less" scoped>
-  @import "./item.less";
+<style lang="scss" scoped>
+  @import "./item.scss";
 </style>
 
 <template>

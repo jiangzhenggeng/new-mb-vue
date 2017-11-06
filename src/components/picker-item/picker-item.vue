@@ -1,4 +1,5 @@
 <style lang="scss" scoped="">
+  @import "../../style/scss/helpers/functions";
   $color-background: #fff;
   $color-checked: #2c97f1;
   $color-text-main: #333;
@@ -8,7 +9,7 @@
       &-mask {
         background: linear-gradient(to top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1));
         position: absolute;
-        top: -37px;
+        top: px2rem(-37);
         left: 0;
         width: 100%;
         height: 50%;
@@ -16,14 +17,14 @@
       }
       &-down-mask {
         top: auto;
-        bottom: -37px;
+        bottom: px2rem(-37);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1));
       }
       &-item {
         overflow: hidden;
         width: 100%;
         text-align: center;
-        height: 440px;
+        height: px2rem(440);
         background: $color-background;
         position: relative;
         backface-visibility: hidden;
@@ -38,21 +39,21 @@
         left: 0;
         right: 0;
         z-index: 2;
-        height: 68px;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
+        height: px2rem(68);
+        border-top: px2rem(1) solid #ccc;
+        border-bottom: px2rem(1) solid #ccc;
         top: 50%;
         transform: translateY(-50%);
       }
       &-list-item {
-        text-shadow: 0 1px 1px rgba(102, 102, 102, 0.6);
+        text-shadow: 0 px2rem(1) px2rem(1) rgba(102, 102, 102, 0.6);
       }
       &-list-item {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 34px * 2;
-        font-size: 18px * 2;
+        line-height: px2rem(34 * 2);
+        font-size: px2rem(18 * 2);
         color: $color-text-main;
       }
     }

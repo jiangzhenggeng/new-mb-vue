@@ -1,9 +1,9 @@
-<style lang="less">
-
+<style lang="scss">
+  @import "../../../../style/scss/helpers/functions";
   .order__submit-height,
   .order__submit-wrap {
-    line-height: 100px;
-    height: 100px;
+    line-height: px2rem(100);
+    height: px2rem(100);
   }
 
   .order__submit-wrap {
@@ -11,11 +11,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 px2rem(24);
     background-color: #fff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 px2rem(-2) px2rem(4) rgba(0, 0, 0, 0.1);
     color: #808080;
-    font-size: 26px;
+    font-size: px2rem(26);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,12 +28,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 64px;
-      border-radius: 4px;
+      height: px2rem(64);
+      border-radius: px2rem(4);
       color: #fff;
-      font-size: 28px;
+      font-size: px2rem(28);
       background-color: #fe5341;
-      padding: 0 24px;
+      padding: 0 px2rem(24);
     }
   }
 </style>

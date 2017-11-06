@@ -20,8 +20,8 @@
             <div class="stream-discount red">
               <!--红色价格 特色描述-->
               <span v-if="item.format" class="red ft-12">
-                    <em class="ft18">{{ item.format.middle_left }}</em>
-                    <em class="ft14 ml10">{{ item.format.middle_right }}</em>
+                    <span class="ft18">{{ item.format.middle_left }}</span>
+                    <span class="ft14 ml10">{{ item.format.middle_right }}</span>
                   </span>
               <span v-else-if="item.feature" class="red ft-12">{{ item.feature }}</span>
               <template v-else>

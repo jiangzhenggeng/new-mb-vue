@@ -1,8 +1,9 @@
-<style lang="less">
+<style lang="scss">
+  @import "./../../../../../style/scss/helpers/functions";
   .user__center-header{
     position: relative;
     background-color: #262626;
-    padding: 35px 24px 50px 24px;
+    padding: px2rem(35) px2rem(24) px2rem(50) px2rem(24);
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -10,22 +11,22 @@
     .user__face{
       border-radius: 50%;
       overflow: hidden;
-      border: 2px solid #fff;
-      width: 100px;
-      height: 100px;
+      border: px2rem(2) solid #fff;
+      width: px2rem(100);
+      height: px2rem(100);
       img{
         width: 100%;
       }
     }
     .user__desc{
-      margin-left: 40px;
+      margin-left: px2rem(40);
       flex: 1;
       .edit{
         color: #fff;
       }
       .k1{
         color: #fff;
-        margin: 20px 0;
+        margin: px2rem(20) 0;
       }
     }
   }

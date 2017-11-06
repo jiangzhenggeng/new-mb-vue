@@ -1,7 +1,9 @@
-<style lang="less" rel="stylesheet/less">
-  @import './../../style/less/base.less';
-  @import './../../style/less/wc-messagebox.less';
-  @import './../../style/less/page-toggle-scene.less';
+
+<style lang="scss">
+  $IMAGES_PATH : '../../style/images/';
+  @import './../../style/scss/app.scss';
+  @import './../../style/scss/components/wc-messagebox.scss';
+  @import './../../style/scss/components/page-toggle-scene.scss';
 </style>
 
 <style lang="less" scoped>

@@ -1,10 +1,11 @@
-<style lang="less">
+<style lang="scss">
+  @import "./../../../../../style/scss/helpers/functions";
   .user__tys-bar {
     background-color: #fd8434;
-    font-size: 28px;
-    line-height: 80px;
-    height: 80px;
-    padding: 0 24px;
+    font-size: px2rem(28);
+    line-height: px2rem(80);
+    height: px2rem(80);
+    padding: 0 px2rem(24);
     position: relative;
     .user__tys-inner {
       display: flex;
@@ -14,7 +15,7 @@
     }
     .icon-right-arrow {
       position: relative;
-      left: 15px;
+      left: px2rem(15);
     }
     .tys-text {
       flex: 1;
@@ -40,41 +41,41 @@
     .user__tys-modal-body {
       text-align: center;
       position: relative;
-      padding: 50px 24px;
+      padding: px2rem(50) px2rem(24);
     }
     .user__tys-modal-icon {
-      height: 64px;
-      width: 64px;
+      height: px2rem(64);
+      width: px2rem(64);
       margin: auto;
       img {
         width: 100%;
       }
     }
     .user__tys-modal-t1{
-      font-size: 28px;
-      margin: 24px 0 50px 0;
+      font-size: px2rem(28);
+      margin: px2rem(24) 0 px2rem(50) 0;
       color: #808080;
     }
     .user__tys-modal-title{
       position: absolute;
-      top: -24px;
+      top: px2rem(-24);
       background: #fff;
       left: 50%;
       transform: translateX(-50%);
-      padding: 0 50px;
+      padding: 0 px2rem(50);
     }
     .user__tys-modal-box{
       position: relative;
-      padding: 50px;
-      border: 2px solid #d2d2d2;
+      padding: px2rem(50);
+      border: px2rem(2) solid #d2d2d2;
       text-align: center;
       color: #808080;
-      font-size: 28px;
-      line-height: 45px;
+      font-size: px2rem(28);
+      line-height: px2rem(45);
     }
     .user__tys-modal-btn{
-      height: 100px;
-      line-height: 100px;
+      height: px2rem(100);
+      line-height: px2rem(100);
       text-align: center;
       background-color: #f3f3f3;
       color: #424242;

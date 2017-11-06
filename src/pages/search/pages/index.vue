@@ -1,9 +1,9 @@
-<style lang="less" scoped>
-
+<style lang="scss" scoped>
+  @import "../../../style/scss/helpers/functions";
   .search-type-title {
-    line-height: 88px;
-    padding: 0 24px;
-    font-size: 34px;
+    line-height: px2rem(88);
+    padding: 0 px2rem(24);
+    font-size: px2rem(34);
   }
 
   .search__result-item-box {

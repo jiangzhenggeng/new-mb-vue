@@ -1,9 +1,10 @@
-<style lang="less" scoped="">
+<style lang="scss" scoped="">
+  @import "../../../../../style/scss/helpers/functions";
   .paylist__wrap{
     .paylist__wrap-row{
       display: flex;
-      margin: 36px 0;
-      font-size: 28px;
+      margin: px2rem(36) 0;
+      font-size: px2rem(28);
     }
     .paylist__wrap-name{
       color: #333;
@@ -11,7 +12,7 @@
     .paylist__wrap-line{
       position: relative;
       display: block;
-      margin: 0 24px;
+      margin: 0 px2rem(24);
       vertical-align: middle;
       flex: 1;
       &:before {
@@ -20,7 +21,7 @@
         top: 50%;
         left: 0;
         width: 100%;
-        border-bottom: 2px dashed #ccc;
+        border-bottom: px2rem(2) dashed #ccc;
       }
     }
     .paylist__wrap-del {
@@ -35,33 +36,33 @@
     }
     .paylist__wrap-all {
       position: relative;
-      padding: 0 24px;
-      margin: 0 -24px;
-      border-top: 2px solid #e6e6e6;
+      padding: 0 px2rem(24);
+      margin: 0 px2rem(-24);
+      border-top: px2rem(2) solid #e6e6e6;
       text-align: right;
-      line-height: 80px;
+      line-height: px2rem(80);
       &:after,
       &:before{
         content: '';
         position: absolute;
-        bottom: 80px;
-        right: 44px;
+        bottom: px2rem(80);
+        right: px2rem(44);
         width: 0;
         height: 0;
       }
       &:before {
-        border: 20px solid #e6e6e6;
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        border-top: 20px solid transparent;
+        border: px2rem(20) solid #e6e6e6;
+        border-left: px2rem(20) solid transparent;
+        border-right: px2rem(20) solid transparent;
+        border-top: px2rem(20) solid transparent;
       }
       &:after {
-        right: 46px;
-        bottom: 78px;
-        border: 18px solid #fff;
-        border-left: 18px solid transparent;
-        border-right: 18px solid transparent;
-        border-top: 18px solid transparent;
+        right: px2rem(46);
+        bottom: px2rem(78);
+        border: px2rem(18) solid #fff;
+        border-left: px2rem(18) solid transparent;
+        border-right: px2rem(18) solid transparent;
+        border-top: px2rem(18) solid transparent;
       }
     }
     .paylist__wrap-all-price {

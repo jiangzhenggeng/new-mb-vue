@@ -24,17 +24,18 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
+  @import "../../../../style/scss/helpers/functions";
   .item-wrap {
     margin: auto;
-    margin-top: 10px;
+    margin-top: px2rem(10);
     position: relative;
   }
 
   .item-img {
-    border-radius: 4px;
-    width: 600px;
-    height: 300px;
+    border-radius: px2rem(4);
+    width: px2rem(600);
+    height: px2rem(300);
     overflow: hidden;
     position: relative;
     .item-mask {
@@ -54,18 +55,18 @@
   .item-title {
     position: absolute;
     left: 0;
-    bottom: 20px;
+    bottom: px2rem(20);
     width: 100%;
     text-align: center;
     color: #fff;
     .n1 {
-      line-height: 40px;
-      font-size: 28px;
+      line-height: px2rem(40);
+      font-size: px2rem(28);
     }
     .n2 {
-      line-height: 28px;
-      font-size: 20px;
-      margin-top: 10px;
+      line-height: px2rem(28);
+      font-size: px2rem(20);
+      margin-top: px2rem(10);
     }
   }
 </style>

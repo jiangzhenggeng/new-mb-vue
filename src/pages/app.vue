@@ -1,5 +1,6 @@
-<style lang="less">
-  @import './../style/less/base.less';
+<style lang="scss">
+  $IMAGES_PATH : '../style/images/';
+  @import './../style/scss/app.scss';
 </style>
 
 <template>

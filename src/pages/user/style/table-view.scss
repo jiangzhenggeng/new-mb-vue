@@ -9,36 +9,36 @@
       content: '';
       display: block;
       clear: both;
-      height: 1px;
-      left: 0px;
+      height: px2rem(1);
+      left: px2rem(0);
       width: 100%;
       position: absolute;
       background-color: #e6e6e6;
-      bottom: 0px;
+      bottom: px2rem(0);
     }
   }
   .table-view-inner{
     position: relative;
-    padding: 30px 70px 30px 80px;
-    font-size: 32px;
+    padding: px2rem(30) px2rem(70) px2rem(30) px2rem(80);
+    font-size: px2rem(32);
     display: flex;
     justify-content: space-between;
 
     &:before{
       content: '';
       display: block;
-      width: 52px;
-      height: 52px;
+      width: px2rem(52);
+      height: px2rem(52);
       position: absolute;
-      right:10px;
+      right:px2rem(10);
       top: 50%;
       transform: translateY(-50%);
     }
     &:before{
-      background-image: url(../../../style/images/global-icon.png);
-      background-size: 500px auto;
+      background-image: url('#{$IMAGES_PATH}global-icon.png');
+      background-size: px2rem(500) auto;
       background-clip: content-box;
-      background-position: -40px -298px;
+      background-position: px2rem(-40) px2rem(-298);
     }
     &:active{
       background-color: #f7f7f7;
@@ -49,14 +49,14 @@
 
     .icon{
       position: absolute;
-      left: 24px;
+      left: px2rem(24);
       top: 50%;
       transform: translateY(-50%);
     }
   }
 
   .table-view-cell-title{
-    width: 120px;
+    width: px2rem(120);
   }
 
   .table-view-cell-value{

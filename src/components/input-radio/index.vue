@@ -1,8 +1,9 @@
-<style lang="less">
+<style lang="scss">
+  @import "../../style/scss/helpers/functions";
   .radio__wrap {
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: px2rem(50);
+    height: px2rem(50);
     .radio__input {
       width: 100%;
       height: 100%;
@@ -22,7 +23,7 @@
         content: '';
         display: block;
 
-        background-size: 36px auto;
+        background-size: px2rem(36) auto;
         background-position: center;
         background-repeat: no-repeat;
         background-image: url(./icon-radio-default.png);

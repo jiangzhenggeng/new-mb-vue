@@ -144,15 +144,15 @@
 	}
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import "../style/less/_mixs.less";
+<style lang="scss">
+  @import "../style/scss/helpers/functions";
 
   .banner-topic-swipe {
     overflow: hidden;
     li {
       overflow: hidden;
       position: relative;
-      height: 375px;
+      height: px2rem(375);
       overflow: hidden;
       a {
         overflow: hidden
@@ -164,28 +164,28 @@
 
     .banner-img-box {
       position: relative;
-      height: 750px /2;
+      height: px2rem(375);
       overflow: hidden;
     }
 
     .banner-desc {
       position: absolute;
-      bottom: 60px;
+      bottom: px2rem(60);
       width: 100%;
       left: 0;
       z-index: 1;
 
       .banner-title, .banner-tips {
-        margin: 0 48px;
+        margin: 0 px2rem(48);
       }
       .banner-title {
-        line-height: 60px;
-        font-size: 32px;
+        line-height: px2rem(60);
+        font-size: px2rem(32);
         color: #fff;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: px2rem(1) solid rgba(255, 255, 255, 0.3);
       }
       .banner-tips {
-        margin-top: 6px;
+        margin-top: px2rem(6);
       }
     }
   }
@@ -194,19 +194,19 @@
     position: relative;
     .hd {
       position: absolute;
-      bottom: 16px;
+      bottom: px2rem(16);
       width: 100%;
       left: 0;
       text-align: center;
       li {
         display: inline-block;
         border-radius: 50%;
-        height: 10px;
-        width: 10px;
+        height: px2rem(10);
+        width: px2rem(10);
         background-color: #fff;
         text-indent: -99999px;
         overflow: hidden;
-        margin: 0 4px;
+        margin: 0 px2rem(4);
         &.on {
           background-color: #fe584d;
         }
@@ -222,7 +222,7 @@
   .new_banner {
     width: 100% !important;
     height: 100% !important;
-    margin-bottom: -70px;
+    margin-bottom: px2rem(-70);
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -234,39 +234,39 @@
     top: 0 !important;
 
     .new_title {
-      margin-bottom: 8px;
-      font-size: 44px;
-      text-shadow: 0px 24px 48px rgba(0, 0, 0, 0.3);
+      margin-bottom: px2rem(8);
+      font-size: px2rem(44);
+      text-shadow: 0px px2rem(24) px2rem(48) rgba(0, 0, 0, 0.3);
     }
 
     .news {
-      height: 44px;
-      padding: 0 30px;
-      border-radius: 50px;
-      line-height: 44px;
+      height: px2rem(44);
+      padding: 0 px2rem(30);
+      border-radius: px2rem(50);
+      line-height: px2rem(44);
       background-color: rgba(255, 255, 255, 0.4);
-      font-size: 28px;
+      font-size: px2rem(28);
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
 
       span {
-        margin: 0 10px;
+        margin: 0 px2rem(10);
         display: flex;
         align-items: center;
         justify-content: center;
       }
       .line {
-        width: 2px;
-        height: 20px;
+        width: px2rem(2);
+        height: px2rem(20);
         margin: 0;
         background-color: rgba(255, 255, 255, .5);
       }
     }
 
     .status {
-      margin-top: 16px;
+      margin-top: px2rem(16);
       font-wight: 100;
     }
 

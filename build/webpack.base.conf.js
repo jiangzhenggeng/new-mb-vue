@@ -93,7 +93,7 @@ module.exports = {
         loader: 'html-loader'
       },
       {
-        test: /\.ejs$/,
+        test: /\.(ejs)$/,
         loader: 'extract-loader!html-loader!ejs-loader',
       }
     ]

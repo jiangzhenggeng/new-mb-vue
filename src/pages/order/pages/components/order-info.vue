@@ -1,5 +1,5 @@
-<style lang="less">
-  @import "./module.less";
+<style lang="scss">
+  @import "./module.scss";
 
   .module__box {
 
@@ -8,7 +8,7 @@
       flex-direction: row;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: px2rem(20);
     }
     .order__item-input-warp,
     .order__cell-flex {
@@ -16,31 +16,31 @@
       position: relative;
     }
     .order__item-title {
-      width: 160px;
-      line-height: 80px;
+      width: px2rem(160);
+      line-height: px2rem(80);
       color: #a3a3a3;
     }
     .order__item-input-warp {
       width: 100%;
-      padding: 20px;
-      border: 2px solid #e6e6e6;
-      border-radius: 10px;
+      padding: px2rem(20);
+      border: px2rem(2) solid #e6e6e6;
+      border-radius: px2rem(10);
       display: block;
     }
     .input__text {
       width: 100%;
       border: none;
-      font-size: 28px;
-      height: 35px;
-      line-height: 35px;
+      font-size: px2rem(28);
+      height: px2rem(35);
+      line-height: px2rem(35);
       outline: none;
       background: transparent;
       appearance: none;
     }
     .order__item-tips {
-      font-size: 24px;
+      font-size: px2rem(24);
       color: #a3a3a3;
-      margin-top: 10px;
+      margin-top: px2rem(10);
     }
   }
 </style>

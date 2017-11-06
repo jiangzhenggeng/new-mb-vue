@@ -1,4 +1,5 @@
-<style lang="less">
+<style lang="scss">
+  @import "./../../../../../style/scss/helpers/functions";
   .password__steps {
     display: flex;
     .step {
@@ -8,9 +9,9 @@
         content: '';
         position: absolute;
         width: 100%;
-        height: 2px;
-        margin-top: -1px;
-        top: 30px;
+        height: px2rem(2);
+        margin-top: px2rem(-1);
+        top: px2rem(30);
         background: #dee2e7;
         z-index: 1;
         left: 0;
@@ -18,13 +19,13 @@
     }
     .step-num {
       background: #fff;
-      width: 56px;
-      height: 56px;
-      line-height: 56px;
+      width: px2rem(56);
+      height: px2rem(56);
+      line-height: px2rem(56);
       display: inline-block;
       border-radius: 50%;
       position: relative;
-      border: 2px solid #dee2e7;
+      border: px2rem(2) solid #dee2e7;
       z-index: 2;
       text-align: center;
     }
@@ -33,7 +34,7 @@
     }
     .step-name {
       color: #dee2e7;
-      margin-top: 10px;
+      margin-top: px2rem(10);
     }
     .step.on {
       &::after {

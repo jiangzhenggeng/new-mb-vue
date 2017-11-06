@@ -1,22 +1,23 @@
-<style lang="less">
+<style lang="scss">
+  @import "../../../../style/scss/helpers/functions";
   .order__product{
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    padding: 24px;
+    padding: px2rem(24);
     background-color: #fff;
 
     .order__product-img{
-      width: 200px;
-      height: 200px;
+      width: px2rem(200);
+      height: px2rem(200);
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: px2rem(10);
       img{
         width: 100%;
       }
     }
     .order__product-desc{
-      margin-left: 30px;
+      margin-left: px2rem(30);
       display: flex;
       flex: 1;
       flex-direction: column;
@@ -24,19 +25,19 @@
       justify-content: space-between;
 
       .product-title{
-        max-height: 80px;
-        line-height: 40px;
+        max-height: px2rem(80);
+        line-height: px2rem(40);
         color: #404040;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 32px;
+        font-size: px2rem(32);
       }
     }
     .order__deposit{
-      font-size: 28px;
+      font-size: px2rem(28);
       color: #333;
     }
   }

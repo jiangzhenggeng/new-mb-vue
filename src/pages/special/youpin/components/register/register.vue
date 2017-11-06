@@ -279,18 +279,19 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../../../../../style/scss/helpers/functions";
   input, textarea, button {
     appearance: none;
     resize: none;
   }
 
   input:-webkit-autofill {
-    box-shadow: inset 0 0 0 1000px #E7DFCC;
+    box-shadow: inset 0 0 0 px2rem(1000) #E7DFCC;
   }
 
   .register-wrap {
-    line-height: 33px;
+    line-height: px2rem(33);
     background-color: rgba(255, 255, 255, 0.8);
     position: fixed;
     left: 0;
@@ -308,7 +309,7 @@
     .register-body {
       width: 100%;
       background: #FCF9F2;
-      box-shadow: 0 5px 14px 0 rgba(0, 0, 0, 0.20);
+      box-shadow: 0 px2rem(5) px2rem(14) 0 rgba(0, 0, 0, 0.20);
       position: relative;
     }
   }
@@ -316,41 +317,41 @@
   .register-header {
     text-align: left;
     background-color: #fff;
-    line-height: 33px;
-    padding: 25px 30px;
+    line-height: px2rem(33);
+    padding: px2rem(25) px2rem(30);
     position: relative;
     .t1 {
       color: #6C4607;
-      font-size: 24px;
+      font-size: px2rem(24);
     }
     .t2 {
       color: #6C4607;
-      font-size: 24px;
+      font-size: px2rem(24);
       font-weight: bold;
     }
   }
 
   .register-input-box {
-    padding: 45px 45px 45px 25px;
+    padding: px2rem(45) px2rem(45) px2rem(45) px2rem(25);
     .register-item-wrap {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: stretch;
-      margin: 18px 0;
-      border-radius: 5px;
+      margin: px2rem(18) 0;
+      border-radius: px2rem(5);
       overflow: hidden;
     }
     .register-item-text {
       color: #6C4607;
-      font-size: 24px;
+      font-size: px2rem(24);
       font-weight: 500;
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
       align-content: center;
       align-items: center;
-      width: 135px;
+      width: px2rem(150);
       text-align: right;
       .g2 {
         color: #F66039;
@@ -360,7 +361,7 @@
       color: #6C4607;
       background-color: #E7DFCC;
       flex: 1;
-      padding: 12px 20px;
+      padding: px2rem(12) px2rem(20);
       position: relative;
       input, textarea {
         outline: none;
@@ -368,12 +369,12 @@
         background-color: transparent;
         display: block;
         width: 100%;
-        line-height: 33px;
-        font-size: 24px;
+        line-height: px2rem(33);
+        font-size: px2rem(24);
         color: #6C4607;
       }
       textarea {
-        height: 150px;
+        height: px2rem(150);
       }
       &.radio {
         background: transparent;
@@ -391,11 +392,11 @@
         background-color: #F66039;
       }
       button[type=button] {
-        padding: 12px 20px;
+        padding: px2rem(12) px2rem(20);
         color: #fff;
-        font-size: 24px;
+        font-size: px2rem(24);
         background-color: transparent;
-        width: 230px;
+        width: px2rem(230);
         border: none;
         outline: none;
       }
@@ -403,18 +404,18 @@
   }
 
   .register-close {
-    width: 80px;
-    height: 80px;
+    width: px2rem(80);
+    height: px2rem(80);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 10px;
+    right: px2rem(10);
     top:50%;
     transform: translateY(-50%);
     img {
-      width: 30px;
+      width: px2rem(30);
     }
   }
 
@@ -437,8 +438,8 @@
       position: relative;
       display: block;
       overflow: hidden;
-      padding-left: 40px;
-      margin-right: 10px;
+      padding-left: px2rem(40);
+      margin-right: px2rem(10);
     }
     input[type=radio] {
       position: absolute;
@@ -449,16 +450,16 @@
       &:after {
         content: '';
         display: block;
-        width: 30px;
-        height: 30px;
+        width: px2rem(30);
+        height: px2rem(30);
         background: #E7DFCC;
-        border-radius: 7px;
+        border-radius: px2rem(7);
       }
 
       &:checked:after {
         background-image: url(../../style/images/icon-radio.svg);
         background-position: center center;
-        background-size: 16px auto;
+        background-size: px2rem(16) auto;
         background-repeat: no-repeat;
       }
     }
@@ -466,11 +467,11 @@
 
   .error-msg {
     position: absolute;
-    right: 15px;
+    right: px2rem(15);
     top: 50%;
     transform: translateY(-50%);
     color: #F66039;
-    font-size: 24px;
+    font-size: px2rem(24);
     display: none;
   }
 </style>

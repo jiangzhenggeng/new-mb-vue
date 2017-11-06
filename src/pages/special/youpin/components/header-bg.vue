@@ -72,45 +72,46 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../../../../style/scss/helpers/functions";
   .header-icon-bg {
-    @h: 610px;
-    height: @h;
+    $h: px2rem(610);
+    height: $h;
     background-image: url(../style/images/icon/header-bg.jpg);
     background-repeat: no-repeat;
-    background-size: auto @h;
+    background-size: auto $h;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    line-height: 32px;
-    font-size: 22px;
+    line-height: px2rem(32);
+    font-size: px2rem(22);
     color: #fff;
   }
 
   .header-logo {
-    margin-top: 150px;
-    height: 85px;
+    margin-top: px2rem(150);
+    height: px2rem(85);
     img {
       height: 100%
     }
   }
 
   .header-text {
-    margin-top: 80px;
+    margin-top: px2rem(80);
   }
 
   .header-youzan {
     background: #FFFFFF;
-    border-radius: 50px;
-    line-height: 44px;
+    border-radius: px2rem(50);
+    line-height: px2rem(44);
     color: #000;
-    font-size: 14px;
-    margin-top: 30px;
-    padding: 0 35px;
+    font-size: px2rem(14);
+    margin-top: px2rem(30);
+    padding: 0 px2rem(35);
     img {
-      width: 20px
+      width: px2rem(20)
     }
   }
 </style>

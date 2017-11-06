@@ -1,7 +1,8 @@
-<style lang="less" scoped="true">
+<style lang="scss" scoped>
+  @import "../../../style/scss/helpers/functions";
   .search-type-more {
-    line-height: 100px;
-    padding: 0 24px;
+    line-height: px2rem(100);
+    padding: 0 px2rem(24);
     position: relative;
     &:before {
       content: '';
@@ -22,7 +23,7 @@
       flex: 1;
     }
     .icon-right-arrow:before {
-      background-position: -16px * 2 -149px * 2;
+      background-position: px2rem(-32) px2rem(-149px * 2);
     }
   }
 </style>

@@ -203,20 +203,20 @@
 </script>
 
 
-<style lang="less" rel="stylesheet/less">
-  @import "../style/less/_mixs.less";
+<style lang="scss">
+  @import "../style/scss/helpers/functions";
 
   .spinner {
-    height: 80px;
+    height: px2rem(80);
     text-align: center;
-    font-size: 20px;
-    padding: 16px 0;
+    font-size: px2rem(20);
+    padding: px2rem(16) 0;
   }
 
   .spinner > div {
     background-color: #e8e8e8;
     height: 100%;
-    width: 6px;
+    width: px2rem(6);
     display: inline-block;
     animation: stretchdelay 1.2s infinite ease-in-out;
   }

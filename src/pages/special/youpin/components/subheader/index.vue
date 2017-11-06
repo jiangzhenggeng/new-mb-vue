@@ -116,10 +116,11 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
+  @import "../../../../../style/scss/helpers/functions";
   .sub-header-wrap {
     text-align: center;
-    padding: 75px 0;
+    padding: px2rem(75) 0;
     &:nth-child(odd) {
       background: #fff;
     }

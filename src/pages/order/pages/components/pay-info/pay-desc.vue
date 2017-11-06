@@ -1,17 +1,18 @@
-<style lang="less">
+<style lang="scss">
+  @import "../../../../../style/scss/helpers/functions";
   .paydesc__wrap{
 
     .tips-name {
-      margin-top: 20px;
+      margin-top: px2rem(20);
       color: #333;
-      font-size: 28px;
-      line-height: 50px;
+      font-size: px2rem(28);
+      line-height: px2rem(50);
     }
 
     .tips-content {
       color: #808080;
-      font-size: 28px;
-      line-height: 40px;
+      font-size: px2rem(28);
+      line-height: px2rem(40);
     }
   }
 

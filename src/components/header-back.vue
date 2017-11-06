@@ -49,9 +49,10 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../style/scss/helpers/functions";
 
-  @height: 104px;
+  $height: px2rem(104);
   .icon {
     display: flex !important;
   }
@@ -59,7 +60,7 @@
   .header {
     background: #fff;
     position: relative;
-    height: @height;
+    height: $height;
     z-index: 5;
   }
 
@@ -69,7 +70,7 @@
     justify-content: space-between;
     align-items: stretch;
     position: fixed;
-    border-bottom: 1px solid #ececec;
+    border-bottom: px2rem(1) solid #ececec;
     box-sizing: border-box;
     width: 100%;
     top: 0;
@@ -82,8 +83,8 @@
     position: absolute;
     width: 100%;
     z-index: 1;
-    height: @height;
-    font-size: 36px;
+    height: $height;
+    font-size: px2rem(36);
     color: #808080;
     display: flex;
     justify-content: center;
@@ -99,17 +100,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 24px;
-    font-size: 34px;
+    padding: 0 px2rem(24);
+    font-size: px2rem(34);
   }
 
   .header__back-wrap {
-    height: @height;
+    height: $height;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
     .header__back {
-      width: @height;
+      width: $height;
       display: flex;
       justify-content: center;
       align-items: center;

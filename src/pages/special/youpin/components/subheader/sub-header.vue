@@ -45,51 +45,52 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../../../../../style/scss/helpers/functions";
   .sub-header{
     text-align: center;
     .sub-header-logo{
-      height: 42px;
+      height: px2rem(42);
       img{ height: 100% }
     }
     .sub-header-title{
       font-size: 0;
     }
     .sub-header-title h3{
-      font-size: 48px;
+      font-size: px2rem(48);
       color: #000000;
-      line-height: 68px;
-      margin-top: 15px;
+      line-height: px2rem(68);
+      margin-top: px2rem(15);
     }
     .sub-header-title-s1{
       background: #BEBEBE;
-      border-radius: 40px;
-      padding: 0 25px;
+      border-radius: px2rem(40);
+      padding: 0 px2rem(25);
       display: inline-block;
       color: #fff;
-      font-size: 14px;
-      line-height: 20px;
-      letter-spacing: 4.5px;
+      font-size: px2rem(14);
+      line-height: 1.3;
+      letter-spacing: px2rem(4.5);
     }
     .sub-header-desc{
-      line-height: 28px;
+      line-height: px2rem(28);
       color: #666666;
-      font-size: 20px;
-      margin-top: 10px;
+      font-size: px2rem(20);
+      margin-top: px2rem(10);
     }
     .sub-header-button button{
       outline: none;
-      width: 190px;
-      line-height: 50px;
-      height: 50px;
+      width: px2rem(190);
+      line-height: px2rem(50);
+      height: px2rem(50);
       text-align: center;
       color: #fff;
-      margin-top: 30px;
+      margin-top: px2rem(30);
       background-image: linear-gradient(-180deg, #F96A4C 0%, #F86036 100%);
       border: none;
-      box-shadow: 0 2px 4px 0 #F66039, inset 0 1px 0 0 rgba(255,255,255,0.50);
-      border-radius: 4px;
-      font-size: 24px;
+      box-shadow: 0 px2rem(2) px2rem(4) 0 #F66039, inset 0 px2rem(1) 0 0 rgba(255,255,255,0.50);
+      border-radius: px2rem(4);
+      font-size: px2rem(24);
     }
   }
 </style>

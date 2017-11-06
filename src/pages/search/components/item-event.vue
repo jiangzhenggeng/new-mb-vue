@@ -1,7 +1,8 @@
-<style lang="less" scoped="true">
+<style lang="scss" scoped>
+  @import "../../../style/scss/helpers/functions";
   .item {
     position: relative;
-    padding: 24px;
+    padding: px2rem(24);
     &:before {
       content: '';
       display: block;
@@ -21,15 +22,15 @@
       align-items: stretch;
     }
     .stream-title {
-      line-height: 40px;
-      max-height: 80px;
+      line-height: px2rem(40);
+      max-height: px2rem(80);
       overflow: hidden;
     }
     .stream-img {
       overflow: hidden;
-      border-radius: 10px;
-      height: 200px;
-      width: 200px;
+      border-radius: px2rem(10);
+      height: px2rem(200);
+      width: px2rem(200);
       img {
         width: 100%;
         height: 100%;
@@ -37,7 +38,7 @@
     }
     .stream-right {
       flex: 1;
-      margin-left: 20px;
+      margin-left: px2rem(20);
       display: flex;
       flex-direction: column;
       justify-content: space-between;

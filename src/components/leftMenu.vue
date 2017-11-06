@@ -61,12 +61,12 @@
 	}
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import "../style/less/_mixs.less";
+<style lang="scss">
+  @import "../style/scss/helpers/functions";
 
   .side-menu {
     z-index: -1;
-    font-size: 32px;
+    font-size: px2rem(32);
     display: none;
 
     &, .mask {
@@ -113,49 +113,49 @@
     }
 
     li {
-      line-height: 100px;
-      border-bottom: 1px solid #f0f0f0;
+      line-height: px2rem(100);
+      border-bottom: px2rem(1) solid #f0f0f0;
       padding-left: 42%;
       position: relative;
       .icon {
         position: absolute;
-        left: -60px;
+        left: px2rem(-60);
         top: 50%;
-        margin-top: -26px;
+        margin-top: px2rem(-26);
       }
       &.on a {
         color: #fb3f3d;
       }
       &.on {
         .icon-home:before {
-          background-position: 7px*2 -55px*2;
+          background-position: px2rem(7px*2) px2rem(-55px*2);
         }
         .icon-menu-event:before {
-          background-position: -23px*2 -55px*2;
+          background-position: px2rem(-23px*2) px2rem(-55px*2);
         }
         .icon-xinping:before {
-          background-position: -55px*2 -55px*2;
+          background-position: px2rem(-55px*2) px2rem(-55px*2);
         }
         .icon-discount:before {
-          background-position: -85px*2 -55px*2;
+          background-position: px2rem(-85px*2) px2rem(-55px*2);
         }
         .icon-list:before {
-          background-position: -114px*2 -55px*2;
+          background-position: px2rem(-114px*2) px2rem(-55px*2);
         }
         .icon-experience:before {
-          background-position: -143px*2 -55px*2;
+          background-position: px2rem(-143px*2) px2rem(-55px*2);
         }
         .icon-uee:before {
-          background-position: -54px*2 -272px*2;
+          background-position: px2rem(-54px*2) px2rem(-272px*2);
         }
         .icon-mall:before {
-          background-position: -174px*2 -55px*2;
+          background-position: px2rem(-174px*2) px2rem(-55px*2);
         }
         .icon-contact:before {
-          background-position: -205px*2 -55px*2;
+          background-position: px2rem(-205px*2) px2rem(-55px*2);
         }
         .icon-app-download:before {
-          background-position: -202px*2 -205px*2;
+          background-position: px2rem(-202px*2) px2rem(-205px*2);
         }
         .icon-youpin:before {
           background-image: url(../style/images/menu/red.png);
@@ -171,26 +171,26 @@
 
   .icon-app-down-arrow {
     position: absolute;
-    right: 10px;
+    right: px2rem(10);
     top: 50%;
-    margin-top: -26px;
+    margin-top: px2rem(-26);
   }
 
   .menu-app-download {
-    padding: 30px;
+    padding: px2rem(30);
     position: relative;
 
     .app-download-logo {
-      width: 84px;
+      width: px2rem(84);
     }
     .app-download-desc {
-      margin-left: 100px;
+      margin-left: px2rem(100);
     }
     .app-download-logo img {
       width: 100%;
     }
     & + ul {
-      border-top: 1px solid #f0f0f0;
+      border-top: px2rem(1) solid #f0f0f0;
     }
   }
 </style>

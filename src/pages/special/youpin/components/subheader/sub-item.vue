@@ -23,13 +23,14 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../../../../../style/scss/helpers/functions";
 
   .sub-item {
     width: 50%;
     position: relative;
-    margin-top: 60px;
-    padding-bottom: 30px;
+    margin-top: px2rem(60);
+    padding-bottom: px2rem(30);
     &:before {
       position: absolute;
       content: '';
@@ -38,8 +39,8 @@
       left: 50%;
       transform: translateX(-50%);
       background: #F66039;
-      width: 20px;
-      height: 2px;
+      width: px2rem(20);
+      height: px2rem(2);
     }
     &:nth-child(odd):after {
       position: absolute;
@@ -49,15 +50,15 @@
       top: 50%;
       transform: translateY(-50%);
       background: #F0F0F0;
-      width: 1px;
+      width: px2rem(1);
       height: 100%;
     }
   }
   .sub-item-logo {
-    height: 70px;
+    height: px2rem(70);
     .sub-item-logo-img{
       height: 100%;
-      background-size: auto 70px;
+      background-size: auto px2rem(70);
       background-repeat: no-repeat;
       background-position: center center;
     }
@@ -88,14 +89,14 @@
   }
   .sub-item-title {
     color: #000000;
-    font-size: 28px;
-    line-height: 40px;
-    margin-top: 30px;
+    font-size: px2rem(28);
+    line-height: px2rem(40);
+    margin-top: px2rem(30);
   }
   .sub-item-desc {
-    line-height: 28px;
-    font-size: 20px;
+    font-size: px2rem(20);
     color: #808080;
-    margin-top: 15px;
+    margin-top: px2rem(15);
+    line-height: 1.5;
   }
 </style>

@@ -24,34 +24,35 @@
   </div>
 </template>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
+  @import "../../../../style/scss/helpers/functions";
   .footer {
     display: flex;
-    padding: 65px 0;
+    padding: px2rem(65) 0;
     align-items: stretch;
     flex-direction: row;
     justify-content: center;
     text-align: center;
   }
   .footer-erweima-item:nth-child(2){
-    margin-left: 50px;
+    margin-left: px2rem(50);
   }
   .footer-erweima{
-    margin-top: 30px;
+    margin-top: px2rem(30);
     text-align: center;
-    font-size: 24px;
+    font-size: px2rem(24);
     .tips{
-      margin-bottom: 10px;
-      font-size: 28px;
+      margin-bottom: px2rem(10);
+      font-size: px2rem(28);
     }
     img{
-      width: 240px;
+      width: px2rem(240);
     }
   }
   .footer-weixin{
     color: #1B1B1B;
-    font-size: 24px;
-    margin-top: 10px;
+    font-size: px2rem(24);
+    margin-top: px2rem(10);
     display: inline-block;
     text-align: left;
     a{color: #1B1B1B;}

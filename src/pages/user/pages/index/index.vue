@@ -1,16 +1,17 @@
-<style lang="less">
-  @import "./../../style/table-view.less";
-</style>
-<style lang="less" scoped>
+<style lang="scss">
+  $IMAGES_PATH : './../../../../style/images/';
+  @import "./../../../../style/scss/helpers/functions";
+  @import "./../../style/table-view.scss";
+
   .table-view .table-view-cell-title {
-    width: 160px;
+    width: px2rem(160);
   }
   .user__center {
-    font-size: 32px;
+    font-size: px2rem(32);
   }
 
   .logout a {
-    line-height: 85px;
+    line-height: px2rem(85);
     background: #fff;
     display: block;
     text-align: center;

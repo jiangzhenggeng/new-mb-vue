@@ -1,29 +1,29 @@
-<style lang="less">
-  @import "./static/button.less";
-  @import "./static/form-row.less";
+<style lang="scss">
+  @import "./static/button.scss";
+  @import "./static/form-row.scss";
 
   .password__find {
     .password__step-wrap {
-      padding: 0 50px;
-      margin: 35px 0 0;
+      padding: 0 px2rem(50);
+      margin: px2rem(35) 0 0;
       position: relative;
     }
     .password__form {
-      padding: 40px 24px;
+      padding: px2rem(40) px2rem(24);
     }
     .validatecode {
       img {
-        height: 80px;
+        height: px2rem(80);
       }
     }
     .tel-validatecode {
       .button {
-        height: 88px;
-        font-size: 28px;
+        height: px2rem(88);
+        font-size: px2rem(28);
       }
     }
     .w250 {
-      width: 250px;
+      width: px2rem(250);
     }
   }
 </style>

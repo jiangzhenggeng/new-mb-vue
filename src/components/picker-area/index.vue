@@ -1,4 +1,6 @@
-<style lang="less">
+<style lang="scss">
+
+  @import "../../style/scss/helpers/functions";
   .pd-select-wrap {
     position: fixed;
     z-index: 8;
@@ -20,9 +22,9 @@
   .pd-select-btn-wrap {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: px2rem(80);
     align-items: stretch;
-    font-size: 32px;
+    font-size: px2rem(32);
     color: #fe5341;
   }
 
@@ -30,12 +32,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 px2rem(24);
   }
 
   .pd-select-box {
     display: flex;
-    border-top: 1px solid #ccc;
+    border-top: px2rem(1) solid #ccc;
     align-items: stretch;
   }
 

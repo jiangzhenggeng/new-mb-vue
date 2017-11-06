@@ -148,9 +148,10 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
+  @import "../style/scss/helpers/functions";
 
-  @height: 104px;
+  $height: px2rem(104);
   .icon {
     display: flex !important;
   }
@@ -158,7 +159,7 @@
   .header {
     background: #fff;
     position: relative;
-    height: @height;
+    height: $height;
     z-index: 5;
   }
 
@@ -168,7 +169,7 @@
     justify-content: space-between;
     align-items: stretch;
     position: fixed;
-    border-bottom: 1px solid #ececec;
+    border-bottom: px2rem(1) solid #ececec;
     box-sizing: border-box;
     width: 100%;
     top: 0;
@@ -183,32 +184,35 @@
     z-index: 1;
     a {
       display: block;
-      line-height: @height;
+      line-height: $height;
     }
     img {
       display: inline-block;
       vertical-align: middle;
-      height: 70px;
+      height: px2rem(70);
     }
   }
 
   .menu, .header-right {
-    /*width: 210px;*/
     position: relative;
     z-index: 2;
   }
 
   .menu {
-    height: @height;
+    height: $height;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
     z-index: 3;
     .menu__open {
-      width: @height;
+      width: $height;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .icon-menu{
+      width: $height/1.5!important;
+      height: $height/1.5!important;
     }
   }
 
@@ -221,13 +225,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: @height;
+      width: $height;
     }
     .user-innner {
       border-radius: 50%;
       overflow: hidden;
-      width: unit(64, px);
-      height: unit(64, px);
+      width: px2rem(64);
+      height: px2rem(64);
     }
     img {
       width: 100%;
@@ -236,7 +240,7 @@
 
   .header-right-badge-wrap {
     position: relative;
-    margin-right: 15px;
+    margin-right: px2rem(15);
     display: flex !important;
     align-items: center;
     justify-content: center;

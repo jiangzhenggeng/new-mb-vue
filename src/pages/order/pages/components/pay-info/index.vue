@@ -1,5 +1,5 @@
-<style lang="less">
-  @import "./../module.less";
+<style lang="scss">
+  @import "./../module.scss";
 </style>
 <style lang="less" scoped="">
 

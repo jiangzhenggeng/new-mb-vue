@@ -1,16 +1,17 @@
-<style lang="less">
-  @import "./static/button.less";
-  @import "./static/form-row.less";
+<style lang="scss">
+  @import "./../../../../style/scss/helpers/functions";
+  @import "./static/button.scss";
+  @import "./static/form-row.scss";
 
   .login__wrap {
-    padding: 24px;
+    padding: px2rem(24);
     color: #a0a0a0;
-    font-size: 28px;
+    font-size: px2rem(28);
 
     .login__tips {
       text-align: center;
-      padding: 30px;
-      font-size: 32px;
+      padding: px2rem(30);
+      font-size: px2rem(32);
     }
 
     .login__type-wrap {
@@ -23,14 +24,14 @@
     }
 
     .login__type-wrap {
-      width: 560px;
+      width: px2rem(560);
       margin: auto;
       text-align: center;
     }
 
     .login__weixin {
-      width: 100px;
-      height: 100px;
+      width: px2rem(100);
+      height: px2rem(100);
       img {
         width: 100%;
       }
@@ -38,7 +39,7 @@
 
     .login__type-name {
       color: #a0a0a0;
-      margin-top: 15px;
+      margin-top: px2rem(15);
     }
 
     .login__forget {
@@ -46,9 +47,9 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      font-size: 30px;
-      margin-top: 30px;
-      padding: 0 30px;
+      font-size: px2rem(30);
+      margin-top: px2rem(30);
+      padding: 0 px2rem(30);
       a {
         color: #65abd0;
       }

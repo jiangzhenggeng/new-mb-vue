@@ -1,16 +1,18 @@
-<style lang="less">
-  @import "./../../style/table-view.less";
+<style lang="scss">
+  $IMAGES_PATH : './../../../../style/images/';
+  @import "./../../../../style/scss/helpers/functions";
+  @import "./../../style/table-view.scss";
 
   .userinfo__face {
     text-align: center;
-    padding: 50px 0;
+    padding: px2rem(50) 0;
     .userinfo__box {
       border-radius: 50%;
       overflow: hidden;
-      width: 120px;
-      height: 120px;
+      width: px2rem(120);
+      height: px2rem(120);
       display: inline-block;
-      border: 4px solid #e0e0e0;
+      border: px2rem(4) solid #e0e0e0;
       position: relative;
       img {
         width: 100%;
@@ -24,7 +26,7 @@
 <style lang="less" scoped>
   .user-infor-edit-view {
     .table-view-inner {
-      padding-left: 26px !important;
+      padding-left: px2rem(26) !important;
     }
     & {
       position: relative;
@@ -32,12 +34,12 @@
     &:before {
       content: '';
       display: block;
-      height: 1px;
-      left: 0px;
+      height: px2rem(1);
+      left: px2rem(0);
       width: 100%;
       position: absolute;
       background-color: #e6e6e6;
-      bottom: 0px;
+      bottom: px2rem(0);
       top: 0;
       z-index: 1;
     }

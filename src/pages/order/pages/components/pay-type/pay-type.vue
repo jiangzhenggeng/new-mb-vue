@@ -1,12 +1,11 @@
-<style lang="less">
-  @import "./../module.less";
-</style>
-<style lang="less" scoped="">
+<style lang="scss">
+  @import "./../module.scss";
+
   .paytype__{
     &row{
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #f1f1f1;
+      margin-bottom: px2rem(20);
+      padding-bottom: px2rem(20);
+      border-bottom: px2rem(1) solid #f1f1f1;
       &:last-child{
         border-bottom: none;
       }
@@ -17,7 +16,7 @@
       align-items: center;
       justify-content: space-between;
       img{
-        height: 52px;
+        height: px2rem(52);
       }
     }
   }
