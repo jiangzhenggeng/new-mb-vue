@@ -24,7 +24,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
   .item-wrap {
     margin: auto;
     margin-top: 10px;

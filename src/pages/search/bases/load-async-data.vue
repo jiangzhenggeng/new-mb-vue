@@ -1,4 +1,4 @@
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .spinner {
     height: 80px;
     text-align: center;

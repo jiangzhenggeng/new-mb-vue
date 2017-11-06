@@ -1,4 +1,4 @@
-<style lang="less" scoped="true">
+<style lang="scss" scoped="true">
   .search-type-more {
     line-height: 100px;
     padding: 0 24px;

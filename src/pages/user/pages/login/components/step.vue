@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   .password__steps {
     display: flex;
     .step {

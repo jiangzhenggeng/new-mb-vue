@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
 
   .order__submit-height,
   .order__submit-wrap {

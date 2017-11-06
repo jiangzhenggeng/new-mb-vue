@@ -1,4 +1,4 @@
-<style lang="less" scoped="">
+<style lang="scss" scoped="">
   .paylist__wrap{
     .paylist__wrap-row{
       display: flex;

@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   @import "./static/password.less";
 </style>
 <template>

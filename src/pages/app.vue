@@ -1,5 +1,5 @@
-<style lang="less">
-  @import './../style/less/base.less';
+<style lang="scss" >
+  //@import './../style/scss/app.scss';
 </style>
 
 <template>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+  import './../style/scss/app.scss'
   import PageHeader from './../components/header.vue'
   import { mapState } from 'vuex'
   import mainMixins from './mainMixins'

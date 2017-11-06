@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   @import "./../../style/table-view.less";
 
   .userinfo__face {
@@ -21,7 +21,7 @@
     }
   }
 </style>
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .user-infor-edit-view {
     .table-view-inner {
       padding-left: 26px !important;

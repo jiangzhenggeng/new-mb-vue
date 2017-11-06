@@ -1,8 +1,8 @@
 const indexTpl = require('./index.ejs')
-const mobileUtil = require('raw-loader!./../../../inline/mobileUtil')
+const flexible = require('raw-loader!./../../../inline/flexible')
 
 module.exports = indexTpl({
-  mobileUtil
+  flexible
 })
 
 

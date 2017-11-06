@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
   .footer {
     display: flex;
     padding: 65px 0;

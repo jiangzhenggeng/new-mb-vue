@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   .pd-select-wrap {
     position: fixed;
     z-index: 8;

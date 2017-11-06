@@ -1,4 +1,4 @@
-<style lang="less" scoped="true">
+<style lang="scss" scoped="true">
   .item {
     position: relative;
     padding: 24px;

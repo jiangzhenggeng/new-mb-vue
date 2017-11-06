@@ -13,7 +13,7 @@
  *                      元素尺寸写法 -- html { font-size: $ppr*1rem; } body { width: 750px/$ppr; }。
 
  */
-window.mobileUtil = (function (win, doc) {
+window.flexible = (function (win, doc) {
 	var UA = navigator.userAgent,
 		isAndroid = /android|adr/gi.test(UA),
 		isIos = /iphone|ipod|ipad/gi.test(UA) && !isAndroid, // 据说某些国产机的UA会同时包含 android iphone 字符
@@ -96,4 +96,4 @@ window.mobileUtil = (function (win, doc) {
 })(window, document);
 
 // 默认直接适配页面
-mobileUtil.fixScreen();
+flexible.fixScreen();

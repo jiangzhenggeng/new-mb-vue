@@ -1,10 +1,10 @@
-<style lang="less" rel="stylesheet/less">
-  @import './../../style/less/base.less';
+<style lang="scss">
+  @import './../../style/scss/app.scss';
   @import './../../style/less/wc-messagebox.less';
   @import './../../style/less/page-toggle-scene.less';
 </style>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .page {
     background-color: #f2f2f2;
   }

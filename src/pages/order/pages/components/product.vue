@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   .order__product{
     display: flex;
     flex-direction: row;

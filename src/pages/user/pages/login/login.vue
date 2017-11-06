@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   @import "./static/button.less";
   @import "./static/form-row.less";
 

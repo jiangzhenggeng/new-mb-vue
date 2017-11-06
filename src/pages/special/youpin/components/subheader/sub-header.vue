@@ -45,7 +45,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
   .sub-header{
     text-align: center;
     .sub-header-logo{

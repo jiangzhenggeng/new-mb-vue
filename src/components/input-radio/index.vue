@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   .radio__wrap {
     display: inline-block;
     width: 50px;

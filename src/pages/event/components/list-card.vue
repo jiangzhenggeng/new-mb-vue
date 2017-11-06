@@ -57,8 +57,8 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
-  @import "./../../../style/less/_mixs.less";
+<style lang="scss" scoped>
+  @import "./../../../style/scss/include.scss";
   .mian-stream li.large.event {
     .stream-bottom {
       color: #fff;

@@ -61,8 +61,8 @@
 	}
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import "../style/less/_mixs.less";
+<style lang="scss">
+  @import "../style/scss/include.scss";
 
   .side-menu {
     z-index: -1;

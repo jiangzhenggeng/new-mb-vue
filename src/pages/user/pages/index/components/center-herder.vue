@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   .user__center-header{
     position: relative;
     background-color: #262626;

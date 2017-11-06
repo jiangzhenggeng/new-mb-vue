@@ -83,7 +83,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
   .classic-case {
     background: #fff;
     padding: 75px;

@@ -80,7 +80,7 @@
     },
   }
 </script>
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
   .icon.icon-more {
     position: relative;
     padding-right: 35px;

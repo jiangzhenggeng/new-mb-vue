@@ -279,7 +279,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
   input, textarea, button {
     appearance: none;
     resize: none;

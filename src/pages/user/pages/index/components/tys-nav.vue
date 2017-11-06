@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   .user__tys-bar {
     background-color: #fd8434;
     font-size: 28px;

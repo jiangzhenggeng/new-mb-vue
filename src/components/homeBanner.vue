@@ -144,8 +144,8 @@
 	}
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import "../style/less/_mixs.less";
+<style lang="scss">
+  @import "../style/scss/include.scss";
 
   .banner-topic-swipe {
     overflow: hidden;

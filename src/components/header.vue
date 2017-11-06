@@ -148,9 +148,9 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
 
-  @height: 104px;
+  $height: px2rem(104);
   .icon {
     display: flex !important;
   }
@@ -158,7 +158,7 @@
   .header {
     background: #fff;
     position: relative;
-    height: @height;
+    height: $height;
     z-index: 5;
   }
 
@@ -183,7 +183,7 @@
     z-index: 1;
     a {
       display: block;
-      line-height: @height;
+      line-height: $height;
     }
     img {
       display: inline-block;
@@ -193,19 +193,18 @@
   }
 
   .menu, .header-right {
-    /*width: 210px;*/
     position: relative;
     z-index: 2;
   }
 
   .menu {
-    height: @height;
+    height: $height;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
     z-index: 3;
     .menu__open {
-      width: @height;
+      width: $height;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -221,7 +220,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: @height;
+      width: $height;
     }
     .user-innner {
       border-radius: 50%;

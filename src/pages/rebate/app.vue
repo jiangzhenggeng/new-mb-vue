@@ -41,10 +41,10 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import './../../style/less/base.less';
+<style lang="scss">
+  @import './../../style/scss/app.scss';
 </style>
 
-<style lang="less" rel="stylesheet/less" scoped>
-  @import "./../../style/less/_mixs.less";
+<style lang="scss" scoped>
+  @import "./../../style/scss/include.scss";
 </style>

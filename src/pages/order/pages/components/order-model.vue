@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss" >
   @import "./module.less";
 
   .model__wrap {

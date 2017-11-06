@@ -72,7 +72,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
   .header-icon-bg {
     @h: 610px;
     height: @h;

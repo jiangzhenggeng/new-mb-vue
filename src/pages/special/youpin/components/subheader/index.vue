@@ -116,7 +116,7 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="scss">
   .sub-header-wrap {
     text-align: center;
     padding: 75px 0;

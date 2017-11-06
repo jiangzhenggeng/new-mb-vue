@@ -1,4 +1,4 @@
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="scss" scoped>
   .search__header-box,
   .search__header-wrap {
     height: 104px;

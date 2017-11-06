@@ -48,8 +48,8 @@
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import "../../../style/less/base.less";
+<style lang="scss">
+  @import "../../../style/scss/app.scss";
 
   .content-wrap {
     font-family: "SF Pro SC", "HanHei SC", "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;

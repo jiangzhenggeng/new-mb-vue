@@ -1,7 +1,7 @@
-<style lang="less">
+<style lang="scss" >
   @import "./../../style/table-view.less";
 </style>
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .table-view .table-view-cell-title {
     width: 160px;
   }
