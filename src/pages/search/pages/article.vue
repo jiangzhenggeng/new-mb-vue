@@ -4,7 +4,7 @@
 
 <template>
   <div class="search__page">
-    <search-input @search="search" :keyword="keyword"/>
+    <search-input @back="back" @search="search" :keyword="keyword"/>
     <div class="search__result-item-wrap">
       <div class="search__result-item-box">
         <load-async-data

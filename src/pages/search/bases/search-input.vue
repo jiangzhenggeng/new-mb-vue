@@ -183,6 +183,7 @@
         } else {
           this.$emit('cancel', this.inner_keyword)
           if (window.history.length > 2) {
+            this.$emit('back')
             this.$router.back()
           } else if (this.backUrl) {
             window.location = this.backUrl

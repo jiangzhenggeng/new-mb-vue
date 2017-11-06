@@ -88,6 +88,15 @@ module.exports = [
       filename: basePath + '/user/index_v2.php',
       template: getTplPath('user'),
     }
+  },
+  //下订单
+  {
+    name: 'order',
+    main: './src/pages/order/main.js',
+    options: {
+      filename: basePath + '/pay/index_v2.php',
+      template: getTplPath('order'),
+    }
   }
 ]
 

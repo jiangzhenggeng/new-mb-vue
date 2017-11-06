@@ -37,7 +37,7 @@
           this.$alert('请输入图片验证码')
           return;
         }
-        console.log( this.postData );
+
         if (this.sending) return
         this._time = this.time
         $.post(this.url, this.postData, repalyData => {

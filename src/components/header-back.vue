@@ -1,33 +1,50 @@
 <template>
   <header class="header header-wrap">
-    <div class="header header-inner">
+    <div class="header header-inner" ref="header-inner">
       <div class="header__back-wrap">
         <a @click="back" class="header__back">
           <i class="icon icon-back" v-waves.circle="true"></i>
         </a>
       </div>
       <div class="header__title">
-        <span>{{ title||'修改密码' }}</span>
+        <span>{{ title || '修改密码' }}</span>
       </div>
-      <div class="header-right"></div>
+      <div class="header__right" v-if="rightTitle">
+        <div @click="right" class="header__back red" v-waves.circle="true">
+          {{ rightTitle }}
+        </div>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
   import Cookie from 'js-cookie'
+  import $ from 'jquery'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     props: {
       title: {
         type: String,
         required: true
+      },
+      rightTitle: {
+        type: String,
+        default: ''
+      },
+      setAbsolute: {
+        type: Boolean,
+        default: true
       }
     },
     methods: {
       back: function () {
         this.$emit('back')
       },
+      right () {
+        this.$emit('right')
+      }
     }
   }
 </script>
@@ -73,9 +90,17 @@
     align-items: center;
   }
 
-  .header__back-wrap, .header-right {
+  .header__back-wrap, .header__right {
     position: relative;
     z-index: 2;
+  }
+
+  .header__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    font-size: 34px;
   }
 
   .header__back-wrap {

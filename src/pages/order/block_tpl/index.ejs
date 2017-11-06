@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'/>
+    <title><%= require('./../../index/block_tpl/_title.php') %></title>
+    <%= require('./../../index/block_tpl/_meta.php') %>
+    <script><%= require('raw-loader!./../../../inline/mobileUtil') %></script>
+    <%= require('./../../index/block_tpl/_config.php') %>
+    <% if( process.env.NODE_ENV !== 'production' ){ %>
+        <script>
+          window.USER_VAR_CONFIG = {
+            "wxLoginUrl": "\/mb\/user\/wxlogin.html",
+            "qqLoginUrl": "http:\/\/m.jguo.com\/mb\/oauth\/index\/type\/qq\/id\/8h6118tad525vsbcba6mbjv712\/coded\/645700d2f23ad562dbe07b126af6b2bc.html?back_url=http%3A%2F%2Fm.jiguo.com%2Fmb%2Fuser%2Flogin.html",
+            "weiboLoginUrl": "http:\/\/m.jguo.com\/mb\/oauth\/index\/type\/sina\/id\/8h6118tad525vsbcba6mbjv712\/coded\/645700d2f23ad562dbe07b126af6b2bc.html?back_url=http%3A%2F%2Fm.jiguo.com%2Fmb%2Fuser%2Flogin.html",
+            "passwdCode": "\/mb\/api\/validatecode\/color\/mb.html"
+          }
+          if (!window.URL) window.URL = {}
+          window.URL['login'] = window.URL['uid'] = "1350026";
+          window.URL['ioid'] = "1350026&b17253ef65b12fdeb5b103ea99aaefdc";
+          window.URL['user-face'] = "http://s1.jiguo.com/edb501ae-e8a0-4186-8462-58c314ef98bd/230x230";
+        </script>
+    <% } %>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<%= require('./../../index/block_tpl/_baidu_count.php') %>
+</html>

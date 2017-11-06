@@ -1,3 +1,7 @@
+<style lang="less">
+  @import './../style/less/base.less';
+</style>
+
 <template>
   <div class="page">
     <loading v-show="show"/>
@@ -9,32 +13,22 @@
 </template>
 
 <script>
-	import page_header from './../components/header.vue';
-	import * as types from './../store/types';
-	import {mapState} from 'vuex';
+  import PageHeader from './../components/header.vue'
+  import { mapState } from 'vuex'
+  import mainMixins from './mainMixins'
 
-	export default {
-		data: function () {
-			return {};
-		},
-    computed:{
+  export default {
+    mixins: [mainMixins],
+    computed: {
       ...mapState([
         'show'
       ])
     },
-		components: {
-			'page-header': page_header
-		},
-		created: function () {
-
-		}
-	}
+    components: {
+      PageHeader
+    }
+  }
 </script>
 
-<style lang="less" rel="stylesheet/less">
-  @import './../style/less/base.less';
-</style>
 
-<style lang="less" rel="stylesheet/less" scoped>
-  @import "./../style/less/_mixs.less";
-</style>
+

@@ -19,9 +19,13 @@ Vue.use(Toast)
 window.$WIN_HEIGHT = jQuery(window).height()
 window.$WIN_WIDTH = jQuery(window).width()
 
+import mainMixins from './mainMixins'
+
 module.exports = function (options) {
   options.el = options.el || '#app'
-  new Vue(options)
+  options.mixins = options.mixins || []
+  options.mixins = [mainMixins, ...options.mixins]
+  return new Vue(options)
 }
 
 

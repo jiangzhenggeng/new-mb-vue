@@ -1,4 +1,3 @@
-
 import SearchInput from './../bases/search-input.vue'
 import loadAsyncData from './../bases/load-async-data.vue'
 import $ from 'jquery'
@@ -24,6 +23,12 @@ export default {
     SearchInput
   },
   methods: {
+
+    back () {
+      this.updateDirection({
+        direction: 'out'
+      })
+    },
     search (keyword) {
       this.keyword = keyword
       this.searchIng()
@@ -36,6 +41,9 @@ export default {
         })
       }
     },
-    ...mapActions(['hidePageLoading'])
+    ...mapActions([
+      'hidePageLoading',
+      'updateDirection'
+    ])
   }
 }

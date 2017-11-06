@@ -144,12 +144,12 @@
       open () {
         setTimeout(()=>{
           this.show = true
-        },120)
+        },30)
       },
       close () {
         setTimeout(()=>{
           this.show = false
-        },120)
+        },30)
       }
     }
   }

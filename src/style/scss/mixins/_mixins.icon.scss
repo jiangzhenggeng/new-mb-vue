@@ -1,0 +1,156 @@
+@mixin icon() {
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:before {
+      content: '';
+      display: block;
+      height: px2rem(52);
+      width: px2rem(52);
+      background-image: url(../../images/global-icon.png);
+      background-size: px2rem(500) auto;
+      background-clip: content-box;
+      background-repeat: no-repeat;
+    }
+    //头-菜单
+    &.icon-search:before {
+      background-position:px2rem(-52px) px2rem(10px);
+    }
+    &.icon-menu:before {
+      background-position:px2rem(0px) px2rem(10px);
+    }
+    &.icon-user:before {
+      background-position:px2rem(-110px) px2rem(8px);
+    }
+    //左边菜单
+    &.icon-app-down-arrow:before {
+      background-position:px2rem(-402px) px2rem(-466px);
+    }
+    &.icon-home:before {
+      background-position:px2rem(14px) px2rem(-52px);
+    }
+    &.icon-menu-event:before {
+      background-position:px2rem(-46px) px2rem(-52px);
+    }
+    &.icon-xinping:before {
+      background-position:px2rem(-110px) px2rem(-52px);
+    }
+    &.icon-discount:before {
+      background-position:px2rem(-170px) px2rem(-52px);
+    }
+    &.icon-list:before {
+      background-position:px2rem(-228px) px2rem(-52px);
+    }
+    &.icon-experience:before {
+      background-position:px2rem(-286px) px2rem(-52px);
+    }
+    &.icon-uee:before {
+      background-position:px2rem(-48px) px2rem(-544px);
+    }
+    &.icon-mall:before {
+      background-position:px2rem(-348px) px2rem(-52px);
+    }
+    &.icon-contact:before {
+      background-position:px2rem(-410px) px2rem(-52px);
+    }
+    &.icon-youpin:before {
+      background-image: url(../../images/menu/gray.png);
+      background-size:px2rem(32px) auto;
+      background-position: center center;
+    }
+
+    //首页banner话题
+    &.icon-nav-share:before {
+      background-position:px2rem(-117px*2) px2rem(-270px*2);
+    }
+    &.icon-topic-join:before {
+      width: px2rem(16px*2);
+      height: px2rem(16px*2);
+      background-position:px2rem(-119px*2) px2rem(-309px*2);
+    }
+    &.icon-topic-star:before {
+      width: px2rem(16px*2);
+      height: px2rem(16px*2);
+      background-position:px2rem(-151px*2) px2rem(-309px*2);
+    }
+    &.icon-topic-moreText:before {
+      background-position:px2rem(-83px*2) px2rem(-271px*2);
+    }
+    &.icon-topic-share:before {
+      background-position:px2rem(-84px*2) px2rem(-304px*2);
+    }
+    &.icon-topic-reply:before {
+      background-position:px2rem(-52px*2) px2rem(-339px*2);
+    }
+    &.icon-topic-zan:before {
+      background-position:px2rem(-28px*2) px2rem(-304px*2);
+    }
+    &.icon-topic-zan.on:before {
+      background-position:px2rem(-117px*2) px2rem(-120px*2);
+    }
+    &.icon-message-close:before {
+      background-position:px2rem(-146px*2) px2rem(-275px*2);
+    }
+    //大卡片流 赞 回复
+    &.icon-praise:before {
+      background-position:px2rem(-145px*2) px2rem(6px*2);
+    }
+    &.icon-replay:before {
+      background-position:px2rem(-113px*2) px2rem(7px*2);
+    }
+    &.icon-video:before {
+      background-position:px2rem(-30px*2) px2rem(-233px*2);
+    }
+    //体验流多篇文章
+    &.icon-more:before {
+      background-position:px2rem(-332px) px2rem(12px);
+    }
+    //头部返回按钮
+    &.icon-back:before {
+      background-position:px2rem(-55px) px2rem(-178px);
+    }
+
+    //个人中心体验师
+    &.icon-tys:before {
+      background-position:px2rem(0px) px2rem(-598px);
+    }
+    &.icon-right-arrow:before {
+      background-position:px2rem(-40px) px2rem(-238px);
+    }
+    //列表选项
+    &.icon-message:before {
+      background-position:px2rem(0px) px2rem(-182px);
+    }
+    &.icon-collect:before {
+      background-position:px2rem(0px) px2rem(-238px);
+    }
+    &.icon-coupon:before {
+      background-image: url(../../images/coupon-icon.png);
+      background-size: px2rem(32px) auto;
+      background-repeat: no-repeat;
+      background-position: 0px center;
+    }
+    &.icon-ceping:before {
+      background-position:px2rem(0px) px2rem(-298px);
+    }
+    &.icon-event:before {
+      background-position:px2rem(1px) px2rem(-357px);
+    }
+    &.icon-order:before {
+      background-position: px2rem(-360px) px2rem(-608px);
+    }
+    &.icon-guobi:before {
+      background-position:px2rem(0px) px2rem(-418px);
+    }
+    &.icon-address:before {
+      background-position:px2rem(0px) px2rem(-477px);
+    }
+    &.icon-bind:before {
+      background-position:px2rem(0px) px2rem(-503px);
+      background-size: px2rem(470px) auto;
+    }
+  }
+
+}

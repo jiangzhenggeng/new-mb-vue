@@ -1,17 +1,7 @@
 <style lang="less">
   @import './../../style/less/base.less';
   @import './../../style/less/wc-messagebox.less';
-
-  .router-view-enter-active, .router-view-leave-active {
-    transition: opacity .3s
-  }
-
-  .router-view-enter, .router-view-leave-active {
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    min-height: 100%;
-  }
+  @import './../../style/less/page-toggle-scene.less';
 
 </style>
 
@@ -24,11 +14,23 @@
 <template>
   <div class="page">
     <div class="content-wrap">
-      <transition name="router-view">
+      <transition :name="transitionName">
         <keep-alive>
-          <router-view></router-view>
+          <router-view class="page__animate-root"></router-view>
         </keep-alive>
       </transition>
     </div>
   </div>
 </template>
+
+<script>
+  import mainMixins from './../mainMixins'
+
+  export default {
+    mixins: [mainMixins],
+  }
+</script>
+
+
+
+

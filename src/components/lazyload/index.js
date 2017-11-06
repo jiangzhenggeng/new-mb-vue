@@ -49,14 +49,14 @@ export default {
         item.height = $(item.el).height()
         return item
       })
-    }, 1, true)
+    }, 80, true)
     var windowScrollFunctionInit2 = tools.debounce(function () {
       globalLazyImgBox = globalLazyImgBox.map(item => {
         item.offset = $(item.el).offset()
         item.height = $(item.el).height()
         return item
       })
-    }, 1, false)
+    }, 80, false)
 
     var windowScrollFunction = tools.throttle(function () {
       windowScrollTop = $(window).scrollTop()
@@ -65,13 +65,12 @@ export default {
         if (!item.height) item.height = $(item.el).height()
         return item
       })
-
       globalLazyImgBox = globalLazyImgBox.filter(item => {
         if (
           !item.offset ||
           (
-            windowHeight + windowScrollTop > item.offset.top &&
-            windowScrollTop < item.offset.top + item.height
+            2 * windowHeight + windowScrollTop > item.offset.top &&
+            windowScrollTop - windowHeight / 5 < item.offset.top + item.height
           )
         ) {
           var imgArray = []
@@ -117,6 +116,7 @@ export default {
         $(window).trigger('scroll.lazy')
       },
       update (el, binding) {
+        console.log('update')
         globalLazyImgBox = globalLazyImgBox.map(item => {
           if (item.el == el) {
             item.binding = binding
@@ -125,6 +125,7 @@ export default {
         })
       },
       componentUpdated (el, binding) {
+        console.log('componentUpdated')
         globalLazyImgBox = globalLazyImgBox.map(item => {
           if (item.el == el) {
             item.binding = binding

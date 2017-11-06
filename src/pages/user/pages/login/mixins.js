@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
@@ -25,14 +27,21 @@ export default {
         this.$alert('请输入正确的URL地址！')
         return
       }
+      this.updateDirection({
+        direction: 'out'
+      })
       this.$router.push({
         path: url
       })
     },
-    clearInputContent(dataFiled){
-      if( this[dataFiled] ){
-        this[dataFiled] = '';
+    clearInputContent (dataFiled) {
+      if (this[dataFiled]) {
+        this[dataFiled] = ''
       }
-    }
+    },
+    ...mapActions([
+      'updateDirection',
+      'hidePageLoading'
+    ])
   }
 }
