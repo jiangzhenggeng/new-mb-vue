@@ -35,12 +35,12 @@ module.exports = {
         changeOrigin: true
       },
       '/api': {
-        target: 'http://m.jiguo.com',
+        target: 'http://new.jiguo.com',
         secure: true,
         changeOrigin: true
       },
       '/mb/ajax': {
-        target: 'http://m.jiguo.com',
+        target: 'http://new.jiguo.com',
         secure: true,
         changeOrigin: true
       },

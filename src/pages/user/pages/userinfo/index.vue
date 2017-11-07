@@ -23,7 +23,8 @@
     }
   }
 </style>
-<style lang="less" scoped>
+<style lang="scss" scoped>
+  @import "./../../../../style/scss/helpers/functions";
   .user-infor-edit-view {
     .table-view-inner {
       padding-left: px2rem(26) !important;
@@ -128,6 +129,9 @@
     },
     methods: {
       back () {
+        this.updateDirection({
+          direction: 'out'
+        })
         this.$router.push({
           path: '/mb/user/index'
         })

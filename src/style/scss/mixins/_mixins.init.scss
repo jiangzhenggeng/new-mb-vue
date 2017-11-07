@@ -17,6 +17,11 @@
     font-size: px2rem(28);
     color: #595959;
     margin: auto;
+    padding:
+      constant(safe-area-inset-top)
+      constant(safe-area-inset-right)
+      constant(safe-area-inset-bottom)
+      constant(safe-area-inset-left);
   }
   iframe {
     border: none;

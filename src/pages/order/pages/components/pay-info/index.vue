@@ -1,9 +1,6 @@
 <style lang="scss">
   @import "./../module.scss";
 </style>
-<style lang="less" scoped="">
-
-</style>
 <template>
   <div class="module__wrap">
     <div class="module__box">

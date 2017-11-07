@@ -1,9 +1,14 @@
 <style lang="scss">
   @import "../../../../style/scss/helpers/functions";
+
   .order__submit-height,
   .order__submit-wrap {
     line-height: px2rem(100);
     height: px2rem(100);
+  }
+
+  .page__body{
+    border-bottom: px2rem(100) solid transparent !important;
   }
 
   .order__submit-wrap {
@@ -46,7 +51,7 @@
         <span class="rmb">￥</span>
         <span class="amount">798.8</span>
       </div>
-      <div class="order__submit-btn">提交订单</div>
+      <div class="order__submit-btn" @click="submit">提交订单</div>
     </div>
   </div>
 </template>
@@ -55,7 +60,13 @@
 <script>
   import { mapState } from 'vuex'
 
-  export default {}
+  export default {
+    methods: {
+      submit () {
+        this.$emit('submit')
+      }
+    }
+  }
 </script>
 
 

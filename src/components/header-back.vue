@@ -1,21 +1,23 @@
 <template>
-  <header class="header header-wrap">
-    <div class="header header-inner" ref="header-inner">
-      <div class="header__back-wrap">
-        <a @click="back" class="header__back">
-          <i class="icon icon-back" v-waves.circle="true"></i>
-        </a>
-      </div>
-      <div class="header__title">
-        <span>{{ title || '修改密码' }}</span>
-      </div>
-      <div class="header__right" v-if="rightTitle">
+  <div class="header header-wrap" ref="header-wrap">
+    <div class="header__back-wrap">
+      <a @click="back" class="header__back">
+        <i class="icon icon-back" v-waves.circle="true"></i>
+      </a>
+    </div>
+    <div class="header__title">
+      <slot name="title">
+        <span>{{ title }}</span>
+      </slot>
+    </div>
+    <div class="header__right" v-if="$slots['right']||rightTitle">
+      <slot name="right">
         <div @click="right" class="header__back red" v-waves.circle="true">
           {{ rightTitle }}
         </div>
-      </div>
+      </slot>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
@@ -27,7 +29,7 @@
     props: {
       title: {
         type: String,
-        required: true
+        default: '导航标题'
       },
       rightTitle: {
         type: String,
@@ -64,7 +66,7 @@
     z-index: 5;
   }
 
-  .header-inner {
+  .header-wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -115,5 +117,11 @@
       justify-content: center;
       align-items: center;
     }
+  }
+</style>
+<style lang="scss">
+  @import "../style/scss/helpers/functions";
+  .header-wrap + .page__body{
+    border-top: px2rem(104) solid transparent;
   }
 </style>

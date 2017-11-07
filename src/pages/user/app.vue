@@ -1,11 +1,11 @@
 <style lang="scss">
-  $IMAGES_PATH : '../../style/images/';
+  $IMAGES_PATH: '../../style/images/';
   @import "../../style/scss/app.scss";
   @import './../../style/scss/components/wc-messagebox.scss';
   @import './../../style/scss/components/page-toggle-scene.scss';
 </style>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .page {
     background-color: #f2f2f2;
   }
@@ -13,13 +13,11 @@
 
 <template>
   <div class="page">
-    <div class="content-wrap">
-      <transition :name="transitionName">
-        <keep-alive>
-          <router-view class="page__animate-root"></router-view>
-        </keep-alive>
-      </transition>
-    </div>
+    <transition :name="transitionName">
+      <keep-alive>
+        <router-view class="page__animate-root"></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 

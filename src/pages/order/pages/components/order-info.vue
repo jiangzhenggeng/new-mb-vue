@@ -109,7 +109,7 @@
   export default {
     data () {
       return {
-        show_select_area: false,
+        show_select_area: true,
         area: {
           province: '',
           city: '',

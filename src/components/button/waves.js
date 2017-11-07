@@ -5,13 +5,15 @@ export default {
   install (Vue, options = {name: 'waves'}) {
     Vue.directive(options.name, {
       inserted (el, binding) {
-        let classes = ['button', 'circle', 'block', 'float', 'light', 'classic']
-          .filter(cls => binding.modifiers[cls])
-          .map(cls => `waves-${cls}`)
-        if (classes.length) {
-          Waves.attach(el, classes)
-        }else{
-          Waves.attach(el)
+        if (binding.value || binding.value === undefined) {
+          let classes = ['button', 'circle', 'block', 'float', 'light', 'classic']
+            .filter(cls => binding.modifiers[cls])
+            .map(cls => `waves-${cls}`)
+          if (classes.length) {
+            Waves.attach(el, classes)
+          } else {
+            Waves.attach(el)
+          }
         }
       }
     })

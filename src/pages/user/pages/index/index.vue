@@ -21,7 +21,7 @@
   <div class="content-wrap">
     <loading v-if="show"/>
     <page-header-back @back="back" title="个人中心"/>
-    <div class="user__center">
+    <div class="page__body user__center">
       <center-header></center-header>
       <tys-nav></tys-nav>
 

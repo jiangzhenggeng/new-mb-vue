@@ -6,7 +6,7 @@
   @import './../../style/scss/components/page-toggle-scene.scss';
 </style>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .page {
     background-color: #f2f2f2;
   }
