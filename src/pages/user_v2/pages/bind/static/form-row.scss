@@ -1,0 +1,55 @@
+
+@import "./../../../../../style/scss/helpers/functions";
+.form__row {
+  margin-top: px2rem(30);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  /*输入框*/
+  .form__cell {
+    position: relative;
+    display: block;
+    background: #e6eaee;
+    border-radius: px2rem(10);
+    overflow: hidden;
+    flex: 1;
+
+    input, button {
+      font-size: px2rem(32);
+      appearance: none;
+      background: transparent;
+      border: none;
+      outline: none;
+      display: block;
+      width: 100%;
+      padding: px2rem(25) px2rem(88);
+      &:-webkit-autofill {
+        box-shadow: 0 0 px2rem(0) px2rem(1000) #e6eaee inset;
+      }
+    }
+
+    .icon-v2 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: px2rem(36);
+      height: px2rem(36);
+      img {
+        width: 100%;
+      }
+      &.left {
+        left: px2rem(30);
+      }
+      &.right {
+        right: px2rem(20);
+      }
+      &.icon-v2-clear-input {
+        opacity: 0.7;
+        width: px2rem(64);
+        height: px2rem(64);
+      }
+    }
+  }
+}

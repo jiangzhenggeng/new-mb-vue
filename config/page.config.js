@@ -89,6 +89,14 @@ module.exports = [
       template: getTplPath('user'),
     }
   },
+  {
+    name: 'user_v2',
+    main: './src/pages/user_v2/main.js',
+    options: {
+      filename: basePath + '/userv2/index.php',
+      template: getTplPath('user_v2'),
+    }
+  },
   //下订单
   {
     name: 'order',
