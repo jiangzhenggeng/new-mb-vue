@@ -1,5 +1,7 @@
 <style lang="scss">
-  @import "../../style/scss/helpers/functions";
+
+  @import "../../style/functions";
+
   .window__modal-enter-active, .window__modal-leave-active {
     transition: all .3s;
   }
@@ -21,7 +23,7 @@
       pointer-events: none;
     }
     &.mask {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.7);
     }
   }
 </style>
@@ -33,7 +35,6 @@
   </transition>
 </template>
 <script>
-  var eventsList = ['mousewheel', 'DOMMouseScroll', 'touchmove']
   export default {
     props: {
       modal: {
@@ -52,15 +53,6 @@
     watch: {
       visible (newVal) {
         this.window_show = newVal
-        if (this.mask && this.window_show) {
-          eventsList.forEach((item) => {
-            window.addEventListener(item, this._preventDefault, {passive: false})
-          })
-        } else {
-          eventsList.forEach((item) => {
-            window.removeEventListener(item, this._preventDefault)
-          })
-        }
       }
     },
     data () {
@@ -74,12 +66,7 @@
       },
       close () {
         this.window_show = false
-      },
-      _preventDefault (e) {
-        e.preventDefault()
-        e.stopPropagation()
-        return false
-      },
+      }
     }
   }
 </script>

@@ -90,8 +90,6 @@
           passwd: this.passwd1,
           repasswd: this.passwd2
         }, repalyData => {
-          this.timer = false
-          this.$refs['loading-window'].close();
           if (repalyData.result.status == 1) {
             if( repalyData.result.url ){
               window.location = repalyData.result.url
@@ -101,7 +99,11 @@
           } else {
             this.$alert(repalyData.result.message || '设置失败')
           }
-        },'json');
+        },'json').always(() => {
+          this.timer = false
+          this.$refs['loading-window'].close()
+        })
+
         this.__timer_ajax__ = setTimeout(()=>{
           ajax.abort && ajax.abort();
           this.$refs['loading-window'].close();

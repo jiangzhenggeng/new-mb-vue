@@ -32,7 +32,7 @@
 
 <template>
   <div class="content-wrap password__find">
-    <page-header-back @back="back">
+    <page-header-back @back="goLoginPage">
       <div slot="title">绑定手机号</div>
     </page-header-back>
     <div class="page__body user__center">
@@ -81,7 +81,7 @@
               </i>
             </label>
             <div class="w250 mgl10">
-              <send-code :postData="{tel,vcode}" url="/api/validation/tel"/>
+              <send-code @error="sendCodeError" :postData="{tel,vcode,action:'bind_tel'}" url="/api/validation/tel"/>
             </div>
           </div>
 
@@ -94,17 +94,25 @@
         </div>
       </div>
     </div>
+
     <loading-window ref="loading-window"></loading-window>
+    <confirm-window @cancel="confirmCancel" @ok="confirmOk" ref="confirm-window">
+      <div slot="content">改手机号已注册，是否直接登录</div>
+      <div slot="left-btn" class="gray">去登录</div>
+      <div slot="right-btn" class="red">输入新的手机号</div>
+    </confirm-window>
   </div>
 </template>
 
 <script>
   import $ from 'jquery'
+  import Cookie from 'js-cookie'
   import { mapActions, mapState } from 'vuex'
   import PageHeaderBack from '@/components/header-back.vue'
   import SendCode from './components/send-code.vue'
   import mixins from './mixins'
   import LoadingWindow from '@/components/window/loading.vue'
+  import ConfirmWindow from '@/components/window/confirm.vue'
 
   export default {
     mixins: [mixins],
@@ -126,10 +134,12 @@
     components: {
       PageHeaderBack,
       SendCode,
-      LoadingWindow
+      LoadingWindow,
+      ConfirmWindow
     },
     methods: {
       submitForm () {
+
         if (!this.validatemobile(this.tel)) {
           this.$refs['login-tel'].focus()
           return
@@ -151,24 +161,28 @@
           return
         }
         this.timer = true
-        this.$refs['loading-window'].show();
+        this.$refs['loading-window'].show()
         $.post('/api/user/CheckoutTel', {
           tel: this.tel,
           vcode: this.vcode,
           code: this.code
         }, repalyData => {
-          this.timer = false
-          this.$refs['loading-window'].close();
+          Cookie.set('bind-user', repalyData.result)
           //没有注册，跳转到填写密码
           if (repalyData.result.status == 1) {
             this.$router.push({
-              path: '/mb/userv2/setpassword.html'
+              path: '/mb/userv2/setpassword.html',
+              params: repalyData.result
             })
           } else if (repalyData.result.status == 2) {
             //已有账号，跳转到合并账号页面
-            this.$router.push({
-              path: '/mb/userv2/mergetel.html'
-            })
+//            this.$router.push({
+//              path: '/mb/userv2/mergetel.html',
+//              params: repalyData.result
+//            })
+
+            this.$refs['confirm-window'].show()
+
           } else if (repalyData.result.status == -1) {
             if (repalyData.result.url) {
               window.location = repalyData.result.url
@@ -178,10 +192,34 @@
           } else {
             this.$alert(repalyData.result.message || '验证失败')
           }
-        }, 'json')
+        }, 'json').always(() => {
+          this.timer = false
+          this.$refs['loading-window'].close()
+        })
       },
       changeValidataCode (event) {
         event.target.src = event.target.src.split('?')[0] + '?_=' + (+new Date())
+      },
+      confirmCancel () {
+        window.location = '/mb/user/login.html'
+      },
+      confirmOk () {
+        this.tel = ''
+        //this.vcode = ''
+        //this.code = ''
+        this.$refs['confirm-window'].close()
+        this.$refs['login-tel'].focus()
+      },
+      sendCodeError (replayData) {
+        //手机号已经注册
+        if (replayData.resultCode == -6) {
+          this.$refs['confirm-window'].show()
+        } else {
+          this.$alert(replayData.errorMsg || '登录失败')
+        }
+      },
+      goLoginPage () {
+        window.location = '/mb/user/login/.html'
       },
       ...mapActions(['hidePageLoading'])
     }

@@ -1,8 +1,6 @@
-
 @import "../../style/scss/helpers/functions";
-
-.loading__wrap {
-  .loading__inner {
+.dialog__wrap {
+  .dialog__inner {
     background: #fff;
     border-radius: px2rem(10);
     position: absolute;
@@ -11,23 +9,19 @@
     width: px2rem(230);
     height: px2rem(230);
     transform: translateY(-50%) translateX(-50%);
+    overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: center;
+    //align-items: center;
   }
-  .window__icon{
+  .window__icon {
     width: px2rem(60);
     display: block;
   }
-  .loading__icon {
-    animation: rotate-animation 1000ms infinite linear;
-  }
 
-  .loading__text {
-    margin-top: px2rem(30);
+  .dialog__text {
     color: #999;
   }
 }
-

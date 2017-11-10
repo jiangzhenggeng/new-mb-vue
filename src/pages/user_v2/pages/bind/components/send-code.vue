@@ -50,17 +50,23 @@
         this._time = this.time
         this.$refs['loading-window'].show()
         $.post(this.url, this.postData, repalyData => {
-          this.$refs['loading-window'].close()
           if (repalyData.resultCode == 0) {
-            this.$emit('success')
+            this.$emit('success', repalyData)
             this.sending = true
             this.runTimer()
           } else {
-            this.$emit('error')
             this.sending = false
-            this.$alert(repalyData.errorMsg || '登录失败')
+            if(this.$listeners['error']){
+              this.$emit('error', repalyData)
+            }else{
+              this.$alert(repalyData.errorMsg || '登录失败')
+            }
           }
-        }, 'json')
+        }, 'json').always(() => {
+          this.$refs['loading-window'].close()
+        }).fail(() => {
+          this.sending = false
+        })
       },
       runTimer () {
         this._time--
