@@ -49,6 +49,11 @@ module.exports = {
         secure: true,
         changeOrigin: true
       },
+      '/wxcode': {
+        target: 'https://wx.jiguo.com',
+        secure: true,
+        changeOrigin: true
+      },
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

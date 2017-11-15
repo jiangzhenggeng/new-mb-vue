@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'/>
+    <title><%= require('./../../index/block_tpl/_title.php') %></title>
+    <%= require('./../../index/block_tpl/_meta.php') %>
+    <%= require('./../../index/block_tpl/_viewport.ejs')() %>
+    <script><%= require('raw-loader!./../../../inline/flexible') %></script>
+    <%= require('./../../index/block_tpl/_config.php') %>
+    <% if( process.env.NODE_ENV == 'production' ){ %>
+        <%= require('./var_config.php') %>
+    <% }else{ %>
+        <%= require('./var_config.ejs')() %>
+    <% } %>
+    <script src="http://cdn.jiguo.com/static@2.0/permanent/zeroclipboard/dist/ZeroClipboard.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<%= require('./../../index/block_tpl/_baidu_count.php') %>
+</html>

@@ -11,3 +11,7 @@ export const hidePageLoading = ({commit}) => {
     show: false
   })
 }
+
+export const routerLoading = ({commit}, val) => {
+  commit(types.PAGE_ROUTER_LOADING, val)
+}

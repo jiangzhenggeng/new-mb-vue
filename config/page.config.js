@@ -105,6 +105,15 @@ module.exports = [
       filename: basePath + '/pay/index_v2.php',
       template: getTplPath('order'),
     }
+  },
+  //优惠券
+  {
+    name: 'coupon',
+    main: './src/pages/coupon/main.js',
+    options: {
+      filename: basePath + '/user/coupon_v2.php',
+      template: getTplPath('coupon'),
+    }
   }
 ]
 

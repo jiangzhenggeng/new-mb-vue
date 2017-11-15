@@ -6,7 +6,7 @@ import CompontentInstallApi from './../CompontentApi'
 
 export default {
   install: function (Vue) {
-    [
+    ;[
       Confirm,
       Loading,
       Toast

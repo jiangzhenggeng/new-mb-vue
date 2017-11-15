@@ -12,7 +12,7 @@
       padding: px2rem(50) px2rem(24);
       text-align: center;
       font-size: px2rem(32);
-      min-height: 180px;
+      min-height: px2rem(180);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,9 +45,9 @@
         content: '';
         display: block;
         height: 100%;
-        width: px2rem(1.5);
+        width: px2rem(4);
         background-color: #ccc;
-        left: px2rem(-1.5/2);
+        left: px2rem(-1);
         top: 0;
       }
       &:first-child:after {
@@ -65,7 +65,7 @@
         </slot>
       </div>
       <div class="confirm__btn-wrap">
-        <div v-if="type=='confirm'" class="confirm__btn" @click="cancel">
+        <div v-if="inner_type=='confirm'" class="confirm__btn" @click="cancel">
           <slot name="left-btn">取消</slot>
         </div>
         <div class="confirm__btn" @click="ok">
@@ -106,7 +106,8 @@
     data () {
       return {
         window_show: this.visible,
-        inner_text: this.text
+        inner_text: this.text,
+        inner_type: this.type
       }
     },
     components: {
@@ -125,6 +126,10 @@
       },
       setText (text) {
         this.inner_text = text
+        return this
+      },
+      setType (type) {
+        this.inner_type = type
         return this
       },
       show (time) {

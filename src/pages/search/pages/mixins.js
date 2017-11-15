@@ -22,6 +22,11 @@ export default {
     loadAsyncData,
     SearchInput
   },
+  activated(){
+    this.$nextTick(()=>{
+      window.scrollTo(0,0);
+    })
+  },
   methods: {
 
     back () {

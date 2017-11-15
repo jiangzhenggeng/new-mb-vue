@@ -2,7 +2,7 @@
   $IMAGES_PATH: '../../style/images/';
   @import "../../style/scss/app.scss";
   @import './../../style/scss/components/wc-messagebox.scss';
-  @import './../../style/scss/components/page-toggle-scene.scss';
+  /*@import './../../style/scss/components/page-toggle-scene.scss';*/
 
 </style>
 
@@ -12,23 +12,42 @@
   }
 </style>
 
+<style lang="stylus">
+
+</style>
+
 <template>
   <div class="page">
-    <transition :name="transitionName">
+    <!--<transition :name="transitionName">-->
       <keep-alive>
         <router-view class="page__animate-root"></router-view>
       </keep-alive>
-    </transition>
+    <!--</transition>-->
     <!--<div @click="toggle">切换</div>-->
   </div>
 </template>
 
 <script>
   import Vue from 'vue'
+  import { mapState } from 'vuex'
   import mainMixins from './../mainMixins'
 
   export default {
     mixins: [mainMixins],
+    computed: {
+      ...mapState({
+        pageRouterLoading: (state) => state['page-router-loading']
+      })
+    },
+    watch: {
+      pageRouterLoading (newVal) {
+        if (newVal) {
+          this.Loading().show()
+        } else {
+          this.Loading().close()
+        }
+      }
+    }
 //    data () {
 //      return {
 //        show: false
@@ -36,7 +55,11 @@
 //    },
 //    watch: {
 //      show () {
-//        this.Confirm().show()
+//        this.Confirm({
+//          props: {
+//            type: 'alert'
+//          }
+//        }).show()
 //      }
 //    },
 //    methods: {

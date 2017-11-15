@@ -79,7 +79,7 @@
     </template>
     <template v-else-if="nodata">
       <slot name="slot-nodata-status" :status="nodata">
-        <div v-if="nodata" class="main first-no-data bg-white pdt15 pdb15">
+        <div class="main first-no-data bg-white pdt15 pdb15">
           <div class="nodata-center tc">
             <div>暂时没有数据</div>
           </div>
@@ -88,7 +88,7 @@
     </template>
     <template v-else-if="nomore">
       <slot name="slot-nomore-status" :status="nomore">
-        <div v-if="nomore" class="main no-data bg-white pdt15 pdb15 tc">
+        <div class="main no-data bg-white pdt15 pdb15 tc">
           <div>没有更多啦~</div>
         </div>
       </slot>
@@ -117,6 +117,10 @@
         type: Boolean,
         default: process.env.NODE_ENV == 'production' ? true : false
       },
+      cacheKey: {
+        type: String,
+        default: window.location.href
+      },
       url: {
         type: String,
         required: true
@@ -143,10 +147,8 @@
       },
       resultCallback: {
         type: Function,
-        default: function () {
-          return function (replayData) {
-            return replayData
-          }
+        default: function (replayData) {
+          return replayData
         }
       },
       firstLoad: {
@@ -172,7 +174,7 @@
     components: {},
     mounted: function () {
 
-      this._cacheKey_ = window.location.href
+      this._cacheKey_ = this.cacheKey
       let cache_data = tools.sessionStorage.get(this._cacheKey_)
       if (!this.cache || !cache_data) {
         tools.sessionStorage.delete(this._cacheKey_)
@@ -202,6 +204,8 @@
 
         //正在加载中
         if (this.loading) return
+        //没有更多数据
+        if (this.nomore) return
 
         var loadMoreObj = jQuery(this.$refs['loading-more-flage'] || null)
 

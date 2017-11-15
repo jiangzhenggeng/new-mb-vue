@@ -45,7 +45,7 @@
               </a>
             </li>
             <li v-else-if="v.type==3">
-              <a :href="`/mb/live/LiveList${v.blogid}.html`">
+              <a :href="`/mb/live/LiveList/${v.blogid}.html`">
                 <div class="banner-img-box">
                   <img :src="`http://s1.jiguo.com/${v.fileid}/640?imageView2/1/w/640/h/320/q/100`">
                 </div>
@@ -53,10 +53,12 @@
                   <div class="new_main">
                     <div class="new_title">{{ v.title }}</div>
                     <div class="news">
-                      <span v-if="v.status==0">未开启</span>
-                      <span v-else-if="v.status==2">直播进行中</span>
-                      <span v-else-if="v.status==-1">已结束</span>
-                      <span class="line"></span>
+                      <template v-if="v.status==0||v.status==1||v.status==2||v.status==-1">
+                        <span v-if="v.status==0">未开启</span>
+                        <span v-else-if="v.status==1||v.status==2">直播进行中</span>
+                        <span v-else-if="v.status==-1">已结束</span>
+                        <span class="line"></span>
+                      </template>
                       <span>{{ v.member ? v.member : 0 }}人参加</span>
                     </div>
                   </div>

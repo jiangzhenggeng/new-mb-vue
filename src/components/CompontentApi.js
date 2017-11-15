@@ -4,6 +4,7 @@ export default function (Vue, Component) {
 
   return function (options, renderFn) {
     if (singleComponent) {
+      singleInstance.updateRenderData(options)
       singleInstance.$forceUpdate()
       return singleComponent
     }
@@ -26,6 +27,10 @@ export default function (Vue, Component) {
         }
       }
     })
+    singleInstance.updateRenderData = function (data) {
+      options = data
+    }
+    singleInstance.updateRenderData(options)
     singleInstance.$mount()
     singleInstance.init()
     singleComponent = singleInstance.$children[0]
