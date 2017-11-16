@@ -78,6 +78,7 @@
       background-image: url("./icon/close.svg");
       background-position: center center;
       background-repeat: repeat;
+      background-size: 100% auto;
       /*box-shadow: 0 0 1px 1px #fff;*/
       &:after {
         content: '';
