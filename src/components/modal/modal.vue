@@ -50,9 +50,21 @@
       }
     },
     watch: {
+      window_show (newVal) {
+        this.window_show = newVal
+        if (/*this.mask &&*/ newVal ) {
+          eventsList.forEach((item) => {
+            window.addEventListener(item, this._preventDefault, {passive: false})
+          })
+        } else {
+          eventsList.forEach((item) => {
+            window.removeEventListener(item, this._preventDefault)
+          })
+        }
+      },
       visible (newVal) {
         this.window_show = newVal
-        if (this.mask && this.window_show) {
+        if (/*this.mask &&*/ newVal ) {
           eventsList.forEach((item) => {
             window.addEventListener(item, this._preventDefault, {passive: false})
           })

@@ -4,54 +4,56 @@
 <style lang="scss" scoped="">
   @import "../../style/scss/helpers/functions";
 
-  .dialog__inner {
-    width: 80%;
-    height: auto;
+  .dialog__wrap {
+    .dialog__inner {
+      width: 80%;
+      height: auto;
 
-    .confirm__body {
-      padding: px2rem(50) px2rem(24);
-      text-align: center;
-      font-size: px2rem(32);
-      min-height: px2rem(180);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .confirm__btn-wrap {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      user-select: none;
-    }
-    .confirm__btn-wrap {
-      border-top: px2rem(1.5) solid #ccc;
-      text-align: center;
-      height: px2rem(90);
-    }
-    .confirm__btn {
-      flex: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: px2rem(30);
-      &:active {
-        background-color: #f7f7f7;
-        color: #666;
+      .confirm__body {
+        padding: px2rem(50) px2rem(24);
+        text-align: center;
+        font-size: px2rem(32);
+        min-height: px2rem(180);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
-      &:after {
-        position: absolute;
-        content: '';
-        display: block;
-        height: 100%;
-        width: px2rem(4);
-        background-color: #ccc;
-        left: px2rem(-1);
-        top: 0;
+      .confirm__btn-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        user-select: none;
       }
-      &:first-child:after {
-        display: none;
+      .confirm__btn-wrap {
+        border-top: px2rem(1.5) solid #ccc;
+        text-align: center;
+        height: px2rem(90);
+      }
+      .confirm__btn {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: px2rem(30);
+        &:active {
+          background-color: #f7f7f7;
+          color: #666;
+        }
+        &:after {
+          position: absolute;
+          content: '';
+          display: block;
+          height: 100%;
+          width: px2rem(4);
+          background-color: #ccc;
+          left: px2rem(-1);
+          top: 0;
+        }
+        &:first-child:after {
+          display: none;
+        }
       }
     }
   }

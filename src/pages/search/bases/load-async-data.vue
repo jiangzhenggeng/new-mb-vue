@@ -1,5 +1,6 @@
 <style lang="scss" scoped>
   @import "../../../style/scss/helpers/functions";
+
   .spinner {
     height: px2rem(80);
     text-align: center;
@@ -154,7 +155,11 @@
       firstLoad: {
         type: Boolean,
         default: true
-      }
+      },
+      scrollTrigger: {
+        type: Boolean,
+        default: true
+      },
     },
     data: function () {
       return {
@@ -193,9 +198,11 @@
         this.getItemData()
       }, 260)
 
-      jQuery(window).off('scroll.home').on('scroll.home', () => {
-        throttleDeFn()
-      })
+      if (this.scrollTrigger) {
+        jQuery(window).off('scroll.home').on('scroll.home', () => {
+          throttleDeFn()
+        })
+      }
     },
     methods: {
       getItemData () {
@@ -211,6 +218,7 @@
 
         var gh = window.$WIN_HEIGHT + loadMoreObj.height() + this.fixload
         if (
+          this.scrollTrigger &&
           loadMoreObj.length &&
           gh + jQuery(window).scrollTop() < loadMoreObj.offset().top
         ) {
@@ -256,7 +264,7 @@
               tools.sessionStorage.set(this._cacheKey_, this._cacheData_)
             }
             if (!this.nomore && !this.nodata) {
-              if (gh + jQuery(window).scrollTop() < loadMoreObj.offset().top) {
+              if (this.scrollTrigger && gh + jQuery(window).scrollTop() < loadMoreObj.offset().top) {
                 this.getItemData()
               }
             }
@@ -279,8 +287,8 @@
         this.item_data = []
       }
     },
-    beforeDestroy(){
-      jQuery(window).off('scroll.home');
+    beforeDestroy () {
+      jQuery(window).off('scroll.home')
     }
   }
 </script>

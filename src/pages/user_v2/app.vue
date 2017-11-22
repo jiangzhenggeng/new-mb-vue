@@ -19,9 +19,9 @@
 <template>
   <div class="page">
     <!--<transition :name="transitionName">-->
-      <keep-alive>
-        <router-view class="page__animate-root"></router-view>
-      </keep-alive>
+    <keep-alive>
+      <router-view class="page__animate-root"></router-view>
+    </keep-alive>
     <!--</transition>-->
     <!--<div @click="toggle">切换</div>-->
   </div>
@@ -31,23 +31,10 @@
   import Vue from 'vue'
   import { mapState } from 'vuex'
   import mainMixins from './../mainMixins'
+  import triggerPageMixins from './../triggerPageMixins'
 
   export default {
-    mixins: [mainMixins],
-    computed: {
-      ...mapState({
-        pageRouterLoading: (state) => state['page-router-loading']
-      })
-    },
-    watch: {
-      pageRouterLoading (newVal) {
-        if (newVal) {
-          this.Loading().show()
-        } else {
-          this.Loading().close()
-        }
-      }
-    }
+    mixins: [mainMixins, triggerPageMixins],
 //    data () {
 //      return {
 //        show: false

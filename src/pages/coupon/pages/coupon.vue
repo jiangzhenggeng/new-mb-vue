@@ -109,7 +109,7 @@
                     <item-component1 @click.native="setShowItem(item)" :link="false" :item="item" :key="item.id"/>
                   </template>
                   <template v-else>
-                    <item-component2 :link="true" :item="item" :key="item.id"/>
+                    <item-component2 :link="item.has_use==1" :item="item" :key="item.id"/>
                   </template>
                 </template>
               </ul>

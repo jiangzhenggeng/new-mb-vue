@@ -92,14 +92,14 @@
         color: #fff;
       }
       .coupons__card-money {
-        font-size: px2rem(72);
+        font-size: px2rem(52);
         line-height: px2rem(60);
       }
       .coupons__card-money .unit {
-        font-size: px2rem(48);
+        font-size: px2rem(32);
       }
       .coupons__card-type-desc {
-        font-size: px2rem(28);
+        font-size: px2rem(26);
         max-width: px2rem(170);
         height: px2rem(32);
         overflow: hidden;
@@ -142,12 +142,12 @@
     }
     .coupons__record-list {
       padding: 0 px2rem(24);
-      max-height: px2rem(600);
-      overflow: hidden;
+      /*max-height: px2rem(600);*/
+      /*overflow: hidden;*/
     }
     .coupons__record-list.show {
-      max-height: none;
-      overflow: auto;
+      /*max-height: none;*/
+      /*overflow: auto;*/
     }
     .coupons__record-item {
       display: flex;
@@ -185,7 +185,7 @@
       position: relative;
     }
     .coupons__record-more.show {
-      display: none;
+      /*display: none;*/
     }
 
     .coupons__record-more:after,
@@ -226,12 +226,12 @@
       margin-top: px2rem(50);
     }
     .coupons__event .coupons__event-list {
-      max-height: px2rem(1190);
-      overflow: hidden;
+      /*max-height: px2rem(1190);*/
+      /*overflow: hidden;*/
     }
     .coupons__event .coupons__event-list.show {
-      max-height: none;
-      overflow: auto;
+      /*max-height: none;*/
+      /*overflow: auto;*/
     }
     .coupons__event .coupons__event-title-wrap {
       text-align: center;
@@ -251,19 +251,18 @@
       display: flex;
       flex-direction: row;
       align-items: stretch;
-      border-top: px2rem(2) solid #F0F0F0;
-      padding: px2rem(30) px2rem(24);
-    }
-    .coupons__event .coupons__event-item:last-child {
       border-bottom: px2rem(2) solid #F0F0F0;
+      padding: px2rem(30) px2rem(24);
+      &:first-child {
+        border-top: px2rem(2) solid #F0F0F0;
+      }
+      &:after {
+        left: auto;
+        right: px2rem(24);
+        top: 50%;
+        transform: translateY(-50%) rotateZ(-90deg);
+      }
     }
-    .coupons__event .coupons__event-item:after {
-      left: auto;
-      right: px2rem(24);
-      top: 50%;
-      transform: translateY(-50%) rotateZ(-90deg);
-    }
-
     .coupons__event .coupons__event-cover,
     .coupons__event .coupons__event-cover img {
       width: px2rem(220);
@@ -351,7 +350,7 @@
         <div v-if="login" class="coupons__header-bg">
           <div class="coupons__header-title">{{coupons.ctitle}}</div>
           <div class="coupons__header-card">
-            <div class="coupons__card-wrap" :class="coupons.has_num<=0?'gary':'red'">
+            <div class="coupons__card-wrap" :class="coupons.has_use==1?'red':'gary'">
               <div class="coupons__card-left">
                 <div class="coupons__card-money">
                   <span>{{coupons.price}}</span>
@@ -365,13 +364,7 @@
               </div>
             </div>
           </div>
-
-          <template v-if="coupons.is_receive">
-            <div class="coupons__header-tips">{{coupons.receive_title}}</div>
-          </template>
-          <template v-else-if="coupons.is_expired">
-            <div class="coupons__header-tips">{{coupons.sold_out_desc}}</div>
-          </template>
+          <div class="coupons__header-tips">{{coupons.has_use_title}}</div>
 
           <div class="coupons__open-btn">
             <img src="../icon/icon-coupons-open-btn.png"/>
@@ -384,51 +377,81 @@
         </div>
       </div>
 
-      <div class="coupons__event" v-if="eventList.length">
-        <div class="coupons__event-title-wrap">
-          <div class="coupons__event-title">可以使用此券的活动</div>
-        </div>
-        <div class="coupons__event-list" :class="show?'show':''">
-          <a v-for="item in eventList" class="coupons__event-item" :href="`/mb/event/index/${item.eventid}.html`">
-            <div class="coupons__event-cover">
-              <img :src="`http://s1.jiguo.com/${item.cover}/230x230`"/>
+      <div class="coupons__event" v-if="loadEvent">
+        <load-async-data
+          url="/api/coupon/GetEventList"
+          :cache="false"
+          :size="3"
+          :extData="extData"
+          :scrollTrigger="false"
+          :key="`key1`"
+        >
+          <template slot="slot-data-box" slot-scope="props">
+            <div class="coupons__event-title-wrap">
+              <div class="coupons__event-title">可以使用此券的活动</div>
             </div>
-            <div class="coupons__event-right">
-              <div class="coupons__event-item-title">{{item.title}}</div>
-              <div class="coupons__event-type-list">
-                <div class="coupons__event-type-inner">
-                  <div v-for="itemmeta in item.meta" class="type-item" :class="itemmeta.is_sold_out!=0?'disable':''">
-                    <span>
-                      <span>{{itemmeta.buying_name}}</span>
-                      <span class="gray">{{itemmeta.unit}}</span>
-                    </span>
-                    <span class="red fr">{{itemmeta.price}}</span>
+            <div class="coupons__event-list">
+              <a v-for="item in props.data" class="coupons__event-item" :href="`/mb/event/index/${item.eventid}.html`">
+                <div class="coupons__event-cover">
+                  <img :src="`http://s1.jiguo.com/${item.cover}/230x230`"/>
+                </div>
+                <div class="coupons__event-right">
+                  <div class="coupons__event-item-title">{{item.title}}</div>
+                  <div class="coupons__event-type-list">
+                    <div class="coupons__event-type-inner">
+                      <div
+                        v-for="itemmeta in item.meta"
+                        class="type-item"
+                        :class="itemmeta.is_sold_out!=0?'disable':''"
+                      >
+                        <span>
+                          <span>{{itemmeta.buying_name}}</span>
+                          <span class="gray">{{itemmeta.unit}}</span>
+                        </span>
+                        <span class="red fr">{{itemmeta.price}}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </a>
-        </div>
-        <div @click="showMore" v-if="eventList.length>=5" class="coupons__record-more" :class="show?'show':''">
-          <div>查看更多</div>
-        </div>
-      </div>
-      <div class="coupons__record" v-else-if="userList.length">
-        <div class="coupons__record-title">领取记录</div>
-        <div class="coupons__record-list" :class="show?'show':''">
-          <div class="coupons__record-item" v-for="item in userList">
-            <div class="coupons__record-userinfo">
-              <div class="coupons__record-user-face">
-                <img :src="`http://s1.jiguo.com/${item.avatar}/230x230`"/>
-              </div>
-              <div class="coupons__record-user-name">{{item.username}}</div>
-            </div>
-            <div class="coupons__record-user-time">{{item.add_time}}</div>
+          </template>
+          <div slot="slot-load-more-status" class="main pdt15 pdb15 tc">
+            <div>点击加载更多~</div>
           </div>
-        </div>
-        <div @click="showMore" v-if="userList.length>=5" class="coupons__record-more" :class="show?'show':''">
-          <div>查看更多</div>
-        </div>
+          <span slot="slot-nomore-status"></span>
+
+        </load-async-data>
+      </div>
+      <div class="coupons__record" v-else-if="loadUser">
+        <load-async-data
+          url="/api/coupon/GetCouponList"
+          :cache="false"
+          :extData="extData"
+          :scrollTrigger="false"
+          :key="`key2`"
+        >
+          <template slot="slot-data-box" slot-scope="props">
+            <div class="coupons__record-title">领取记录</div>
+            <div class="coupons__record-list">
+              <div class="coupons__record-item" v-for="item in props.data">
+                <div class="coupons__record-userinfo">
+                  <div class="coupons__record-user-face">
+                    <img :src="`${item.avatar}`"/>
+                  </div>
+                  <div class="coupons__record-user-name">{{item.username}}</div>
+                </div>
+                <div class="coupons__record-user-time">{{item.add_time}}</div>
+              </div>
+            </div>
+          </template>
+
+          <div slot="slot-load-more-status" class="main pdt15 pdb15 tc">
+            <div>点击加载更多~</div>
+          </div>
+          <span slot="slot-nomore-status"></span>
+
+        </load-async-data>
       </div>
 
       <div class="coupons__use">
@@ -451,21 +474,18 @@
     data () {
       return {
         coupons: {},
-        userList: [],
-        eventList: [],
-        show: false
+        loadEvent: false,
+        loadUser: false,
+        login: !!window.URL['login'],
+        extData: {
+          id: this.$route.query.id
+        }
       }
     },
     created () {
       this.getCouponsDesc()
       this.window = window
       $('html').addClass('coupon__draw')
-      if (window.URL['login']) {
-        this.login = true
-        this.getEventList()
-      } else {
-        this.getUserList()
-      }
     },
     destroyed () {
       $('html').removeClass('coupon__draw')
@@ -486,22 +506,13 @@
           id: this.$route.query.id
         }, repayData => {
           this.coupons = repayData.result
-          this.hidePageLoading()
-        }, 'json')
-      },
-      getEventList () {
-        $.get('/api/coupon/GetEventList', {
-          id: this.$route.query.id
-        }, repayData => {
-          this.eventList = repayData.result
-          this.hidePageLoading()
-        }, 'json')
-      },
-      getUserList () {
-        $.get('/api/coupon/GetCouponList', {
-          id: this.$route.query.id
-        }, repayData => {
-          this.userList = repayData.result
+          if (repayData.result.is_receive) {
+            this.loadEvent = true
+            this.loadUser = false
+          } else {
+            this.loadEvent = false
+            this.loadUser = true
+          }
           this.hidePageLoading()
         }, 'json')
       },

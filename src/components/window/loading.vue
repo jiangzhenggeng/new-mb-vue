@@ -3,11 +3,14 @@
 </style>
 <style lang="scss" scoped="">
   @import "../../style/scss/helpers/functions";
-  .dialog__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+
+  .dialog__wrap {
+    .dialog__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
   }
 </style>
 <template>

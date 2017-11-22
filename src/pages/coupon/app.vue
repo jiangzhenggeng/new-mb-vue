@@ -26,23 +26,11 @@
   import Vue from 'vue'
   import { mapState } from 'vuex'
   import mainMixins from './../mainMixins'
+  import triggerPageMixins from './../triggerPageMixins'
 
   export default {
-    mixins: [mainMixins],
-    computed: {
-      ...mapState({
-        pageRouterLoading: (state) => state['page-router-loading']
-      })
-    },
-    watch: {
-      pageRouterLoading (newVal) {
-        if (newVal) {
-          this.Loading().show()
-        } else {
-          this.Loading().close()
-        }
-      }
-    }
+    mixins: [mainMixins, triggerPageMixins],
+
 //    data () {
 //      return {
 //        show: false
