@@ -1,8 +1,8 @@
 var path = require('path')
-var basePath = path.resolve(__dirname, '../../../jiguo/protected/modules/mb/views');
+var basePath = path.resolve(__dirname, '../../../jiguo/protected/modules/mb/views')
 
 function getTplPath (module) {
-  return path.resolve(__dirname, `../src/pages/${module}/block_tpl/index.ejs.js`);
+  return path.resolve(__dirname, `../src/pages/${module}/block_tpl/index.ejs.js`)
 }
 
 module.exports = [
@@ -113,6 +113,16 @@ module.exports = [
     options: {
       filename: basePath + '/user/coupon_v2.php',
       template: getTplPath('coupon'),
+    }
+  },
+  {
+    name: 'gtic',
+    main: './src/pages/gtic/main.js',
+    //不参与集体打包
+    notpackage: true,
+    options: {
+      filename: '/Users/jiangzg/Desktop/index.html',
+      template: getTplPath('gtic'),
     }
   }
 ]

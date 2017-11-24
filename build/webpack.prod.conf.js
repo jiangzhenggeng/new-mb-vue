@@ -45,6 +45,11 @@ if (arguments.length) {
   })
 } else {
   completeModule = config.page
+  for(var i in completeModule){
+    if(completeModule[i].notpackage){
+      delete completeModule[i]
+    }
+  }
 }
 if (!completeModule.length) {
   process.exit(0)
