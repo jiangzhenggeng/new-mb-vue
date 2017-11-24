@@ -212,7 +212,7 @@
       },
       sendCodeError (replayData) {
         //手机号已经注册
-        if (replayData.resultCode == -6) {
+        if (replayData.resultCode == -5) {
           this.$refs['confirm-window'].show()
         } else {
           this.$alert(replayData.errorMsg || '登录失败')
