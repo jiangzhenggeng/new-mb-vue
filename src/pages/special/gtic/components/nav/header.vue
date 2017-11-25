@@ -41,9 +41,6 @@
       padding-right: px2rem(50);
       padding-left: px2rem(30);
       box-sizing: content-box;
-      > * {
-        pointer-events: none;
-      }
       &:after {
         content: '';
         display: block;
@@ -74,30 +71,10 @@
 </style>
 <template>
   <div class="header__wrap">
-    <ul ref="ul">
-      <li class="on" @click="scrollTopId($event)">
-        <div class="header__title">首页</div>
-        <div class="header__title-en">Home</div>
-      </li>
-      <li @click="scrollTopId($event,'introduce')">
-        <div class="header__title">大会介绍</div>
-        <div class="header__title-en">Introduce</div>
-      </li>
-      <li @click="scrollTopId($event,'time-line')">
-        <div class="header__title">评选流程</div>
-        <div class="header__title-en">Time Line</div>
-      </li>
-      <li @click="scrollTopId($event,'awards')">
-        <div class="header__title">奖项公布</div>
-        <div class="header__title-en">Awards</div>
-      </li>
-      <li @click="scrollTopId($event,'judges')">
-        <div class="header__title">评委嘉宾</div>
-        <div class="header__title-en">Judges</div>
-      </li>
-      <li @click="scrollTopId($event,'host')">
-        <div class="header__title">主办</div>
-        <div class="header__title-en">Host</div>
+    <ul ref="ul" @click="scrollTopId($event,'li')">
+      <li v-for="item in navList" :class="item.on?'on':''" :data-id="item.id">
+        <div class="header__title">{{ item.title }}</div>
+        <div class="header__title-en">{{ item.en }}</div>
       </li>
     </ul>
   </div>
@@ -106,14 +83,55 @@
   import $ from 'jquery'
 
   export default {
+    data () {
+      return {
+        navList: [
+          {
+            title: '首页',
+            en: 'Home',
+            id: '',
+            on: true
+          },
+          {
+            title: '大会介绍',
+            en: 'Introduce',
+            id: 'introduce'
+          },
+          {
+            title: '评选流程',
+            en: 'Time Line',
+            id: 'time-line'
+          },
+          {
+            title: '奖项公布',
+            en: 'Awards',
+            id: 'awards'
+          },
+          {
+            title: '评委嘉宾',
+            en: 'Judges',
+            id: 'judges'
+          },
+          {
+            title: '主办',
+            en: 'Host',
+            id: 'host'
+          }
+        ]
+      }
+    },
     methods: {
-      scrollTopId (event, id) {
-        var dom = $('html,body')
-        if (id) {
-          dom = $('#' + id)
+      scrollTopId (e, selector) {
+        //事件代理
+        const event = this.$eventProxy( e, selector )
+        var dom
+        if ($(event.target).data('id')) {
+          dom = $('#' + $(event.target).data('id'))
+        } else {
+          dom = $('html')
         }
         var top = $(dom).offset().top - $('.header-nav').height()
-        if (id == 'introduce') {
+        if ($(event.target).data('id') == 'introduce') {
           top -= $('.first__wrap-title').height() / 2
         }
 
@@ -121,12 +139,12 @@
           $('html,body').animate({
             scrollTop: top
           })
-          $(event.currentTarget).closest('ul').find('.on').removeClass('on')
-          $(event.currentTarget).addClass('on')
+          $(event.target).closest('ul').find('.on').removeClass('on')
+          $(event.target).addClass('on')
         }
 
         var ulLeft = $(this.$refs['ul']).scrollLeft()
-        ulLeft = ulLeft + $(event.currentTarget).offset().left - ( $(window).width() / 2 ) + ($(event.currentTarget).outerWidth() / 2)
+        ulLeft = ulLeft + $(event.target).offset().left - ( $(window).width() / 2 ) + ($(event.target).outerWidth() / 2)
         $(this.$refs['ul']).animate({
           scrollLeft: ulLeft
         })

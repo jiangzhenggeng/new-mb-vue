@@ -32,6 +32,11 @@
     .window__inner {
       flex: 1;
       position: relative;
+      width: 100%;
+      img{
+        width: 100%;
+        display: block;
+      }
     }
     .hybtn {
       position: absolute;
@@ -95,7 +100,9 @@
       show (newVal) {
         if (newVal) {
           events.forEach((item) => {
-            window.addEventListener(item, this._preventDefault, {passive: false})
+            window.addEventListener(item, this._preventDefault, {
+              passive: false
+            })
           })
         } else {
           events.forEach((item) => {

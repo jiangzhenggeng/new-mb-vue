@@ -76,7 +76,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-jui')],
         exclude: {
           test: [/\.min\.(js|css)$/]
         }

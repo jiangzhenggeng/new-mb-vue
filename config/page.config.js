@@ -133,7 +133,7 @@ module.exports = [
     //不参与集体打包
     notpackage: true,
     options: {
-      filename: '/Users/jiangzg/Desktop/index.html',
+      filename: path.resolve(__dirname, '../dist/index.html'),
       template: getTplPath('special/gtic'),
     }
   }
