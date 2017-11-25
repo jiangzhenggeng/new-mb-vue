@@ -1,5 +1,5 @@
 <style lang="scss"  scoped="">
-  @import "../../../../style/scss/helpers/functions";
+  @import "../../../../../style/scss/helpers/functions";
   .pagetop__wrap{
     width: px2rem(72);
     position: fixed;

@@ -1,5 +1,5 @@
 <style lang="scss" scoped="">
-  @import "../../../../style/scss/helpers/functions";
+  @import "../../../../../style/scss/helpers/functions";
 
   .logo__wrap {
     margin: px2rem(120) auto;

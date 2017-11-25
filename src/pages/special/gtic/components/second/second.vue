@@ -1,5 +1,5 @@
 <style lang="scss"  scoped="">
-  @import "../../../../style/scss/helpers/functions";
+  @import "../../../../../style/scss/helpers/functions";
   .second__wrap{
     margin-top: px2rem(80);
     font-size: px2rem(24);

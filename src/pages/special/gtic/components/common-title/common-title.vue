@@ -1,5 +1,5 @@
 <style lang="scss" scoped="">
-  @import "../../../../style/scss/helpers/functions";
+  @import "../../../../../style/scss/helpers/functions";
 
   .common-title__wrap {
     text-align: center;

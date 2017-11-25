@@ -1,5 +1,5 @@
 <style lang="scss" scoped="">
-  @import "../../../../style/scss/helpers/functions";
+  @import "../../../../../style/scss/helpers/functions";
   .item__wrap{
     .img{
       width: px2rem(215);

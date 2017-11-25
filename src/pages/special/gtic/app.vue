@@ -1,5 +1,5 @@
 <style lang="scss" scoped="">
-  @import "../../style/scss/helpers/functions";
+  @import "../../../style/scss/helpers/functions";
   .page{
     background:#000 url(./images/page-bg.png);
   }
@@ -61,6 +61,6 @@
 </script>
 
 <style lang="scss">
-  $IMAGES_PATH: '../../style/images/';
-  @import './../../style/scss/app.scss';
+  $IMAGES_PATH: '../../../style/images/';
+  @import './../../../style/scss/app.scss';
 </style>

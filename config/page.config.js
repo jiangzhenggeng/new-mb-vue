@@ -129,12 +129,12 @@ module.exports = [
   },
   {
     name: 'gtic',
-    main: './src/pages/gtic/main.js',
+    main: './src/pages/special/gtic/main.js',
     //不参与集体打包
     notpackage: true,
     options: {
       filename: '/Users/jiangzg/Desktop/index.html',
-      template: getTplPath('gtic'),
+      template: getTplPath('special/gtic'),
     }
   }
 ]

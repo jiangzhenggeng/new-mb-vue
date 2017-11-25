@@ -1,5 +1,5 @@
 <style lang="scss"  scoped="">
-  @import "../../../../style/scss/helpers/functions";
+  @import "../../../../../style/scss/helpers/functions";
   .first__wrap{
     margin: px2rem(80) auto;
     margin-top: px2rem(240);
