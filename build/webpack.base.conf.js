@@ -22,21 +22,33 @@ if (arguments.length) {
     })
   })
 } else {
-  completeModule = config.page
-  for(var i in completeModule){
-    if(completeModule[i].notpackage){
-      delete completeModule[i]
+  completeModule = config.page.filter((item) => {
+    if (item[i].notpackage) {
+      return false
     }
-  }
+    return true
+  })
 }
 
-if (!completeModule.length && process.argv[3]!=='test/unit/karma.conf.js' ) {
+if (!completeModule.length && process.argv[3] !== 'test/unit/karma.conf.js') {
   process.exit(0)
 }
 
 completeModule.forEach((item) => {
   entry[item.name] = item.main
 })
+
+if (completeModule.length == 1) {
+  if (completeModule[0].assetsRoot !== undefined) {
+    config.build.assetsRoot = completeModule[0].assetsRoot
+  }
+  if (completeModule[0].assetsSubDirectory !== undefined) {
+    config.build.assetsSubDirectory = completeModule[0].assetsSubDirectory
+  }
+  if (completeModule[0].assetsPublicPath !== undefined) {
+    config.build.assetsPublicPath = completeModule[0].assetsPublicPath
+  }
+}
 
 module.exports = {
   entry: entry,

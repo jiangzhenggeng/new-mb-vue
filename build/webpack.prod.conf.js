@@ -29,7 +29,7 @@ var HtmlWebpackPluginDefaultConfig = {
   chunksSortMode: 'dependency'
 }
 
-var arguments = process.argv.length>2?[process.argv[2]]:[];
+var arguments = process.argv.length > 2 ? [process.argv[2]] : []
 var HtmlWebpackPluginConfig = []
 var completeModule = []
 
@@ -44,19 +44,19 @@ if (arguments.length) {
     })
   })
 } else {
-  completeModule = config.page
-  for(var i in completeModule){
-    if(completeModule[i].notpackage){
-      delete completeModule[i]
+  completeModule = config.page.filter((item) => {
+    if (item[i].notpackage) {
+      return false
     }
-  }
+    return true
+  })
 }
 if (!completeModule.length) {
   process.exit(0)
 }
 
 completeModule.forEach((item) => {
-  item.options.chunks = ['vendor', 'manifest', item.name ];
+  item.options.chunks = ['vendor', 'manifest', item.name]
   var htmlPlugin = new HtmlWebpackPlugin(merge(HtmlWebpackPluginDefaultConfig, item.options))
   HtmlWebpackPluginConfig.push(htmlPlugin)
 })
@@ -123,13 +123,13 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['vendor']
     }),
     // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../static'),
+    //     to: config.build.assetsSubDirectory,
+    //     ignore: ['.*']
+    //   }
+    // ])
   ]
 })
 

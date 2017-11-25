@@ -108,9 +108,6 @@
   export default {
     methods: {
       scrollTopId (event, id) {
-        if (event.target !== event.currentTarget) {
-          return
-        }
         var dom = $('html,body')
         if (id) {
           dom = $('#' + id)
@@ -124,8 +121,8 @@
           $('html,body').animate({
             scrollTop: top
           })
-          $(event.target).closest('ul').find('.on').removeClass('on')
-          $(event.target).addClass('on')
+          $(event.currentTarget).closest('ul').find('.on').removeClass('on')
+          $(event.currentTarget).addClass('on')
         }
 
         var ulLeft = $(this.$refs['ul']).scrollLeft()

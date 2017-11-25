@@ -56,12 +56,6 @@
       PageFourth,
       PageFifth,
       PageBottom
-    },
-    mounted () {
-      this.hidePageLoading()
-    },
-    methods: {
-      ...mapActions(['hidePageLoading'])
     }
   }
 </script>

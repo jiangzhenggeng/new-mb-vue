@@ -7,6 +7,18 @@ function getTplPath (module) {
 
 module.exports = [
   {
+    name: 'test',
+    main: './src/pages/test/main.js',
+    notpackage: true,
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    options: {
+      filename: path.resolve(__dirname, '../dist/index.html'),
+      template: getTplPath('test'),
+    }
+  },
+  {
     name: 'index',
     main: './src/pages/main.js',
     options: {
