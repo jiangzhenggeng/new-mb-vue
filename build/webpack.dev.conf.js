@@ -18,22 +18,38 @@ if (arguments.length) {
   config.page.forEach((item) => {
     arguments.forEach((name) => {
       if (item.name == name) {
+        var chunks = [name]
+        if (item.subModel && Object.prototype.toString.call(item.subModel) === '[object Object]') {
+          for (var i in item.subModel) {
+            chunks.push(i)
+          }
+        }
         HtmlWebpackPluginObj = new HtmlWebpackPlugin({
           filename: 'index.html',
           template: item.options.template,
           inject: true,
-          chunks: [name],
+          chunks: chunks,
           removeAttributeQuotes: false
         })
       }
     })
   })
 } else {
+  var chunks = ['index']
+  config.page.forEach((item) => {
+    if (item.name == 'index') {
+      if (item.subModel && Object.prototype.toString.call(item.subModel) === '[object Object]') {
+        for (var i in item.subModel) {
+          chunks.push(i)
+        }
+      }
+    }
+  })
   HtmlWebpackPluginObj = new HtmlWebpackPlugin({
     filename: 'index.html',
     template: './src/pages/index/block_tpl/index.ejs.js',
     inject: true,
-    chunks: ['index'],
+    chunks: chunks,
     removeAttributeQuotes: false
   })
 }

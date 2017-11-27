@@ -57,6 +57,11 @@ if (!completeModule.length) {
 
 completeModule.forEach((item) => {
   item.options.chunks = ['vendor', 'manifest', item.name]
+  if (item.subModel && Object.prototype.toString.call(item.subModel) === '[object Object]') {
+    for (var i in item.subModel){
+      item.options.chunks.push(i)
+    }
+  }
   var htmlPlugin = new HtmlWebpackPlugin(merge(HtmlWebpackPluginDefaultConfig, item.options))
   HtmlWebpackPluginConfig.push(htmlPlugin)
 })

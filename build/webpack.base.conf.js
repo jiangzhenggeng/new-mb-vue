@@ -36,6 +36,11 @@ if (!completeModule.length && process.argv[3] !== 'test/unit/karma.conf.js') {
 
 completeModule.forEach((item) => {
   entry[item.name] = item.main
+  if (item.subModel && Object.prototype.toString.call(item.subModel) === '[object Object]') {
+    for (var i in item.subModel){
+      entry[i] = item.subModel[i]
+    }
+  }
 })
 
 if (completeModule.length == 1) {

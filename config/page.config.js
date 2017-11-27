@@ -16,7 +16,11 @@ module.exports = [
     options: {
       filename: path.resolve(__dirname, '../dist/index.html'),
       template: getTplPath('test'),
-    }
+    },
+    //扩展模块
+    // subModel:{
+    //
+    // }
   },
   {
     name: 'index',
