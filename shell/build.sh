@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BASE_PATH='/Users/jiangzg/PhpstormProjects/JIGUO'
-echo -e "\n切换目录:${BASE_PATH}\n"
+echo -e "\n切换目录:${BASE_PATH}/jiguo\n"
 cd ${BASE_PATH}/jiguo
 
 string=`git status`
