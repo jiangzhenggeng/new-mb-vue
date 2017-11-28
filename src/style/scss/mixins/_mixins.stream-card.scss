@@ -13,11 +13,12 @@
       &:after {
         content: '';
         display: block;
-        height: px2rem(1);
+        height: px2rem(2);
+        transform: scaleY(0.5);
         left: 0;
         width: 100%;
         position: absolute;
-        background-color: #ebebeb;
+        background-color: #e3e3e3;
         bottom: 0;
       }
     }
