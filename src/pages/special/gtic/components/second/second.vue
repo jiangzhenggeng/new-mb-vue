@@ -21,7 +21,7 @@
       <div class="second__wrap-title">
         <common-title
           :index="`02`"
-          :title="`Time Line`"
+          :title="`Schedule`"
           :bottom="`/ 评选流程 /`"
         />
       </div>

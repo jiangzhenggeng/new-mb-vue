@@ -93,17 +93,17 @@
             on: true
           },
           {
-            title: '大会介绍',
-            en: 'Introduce',
+            title: '活动介绍',
+            en: 'Introduction',
             id: 'introduce'
           },
           {
             title: '评选流程',
-            en: 'Time Line',
+            en: 'Schedule',
             id: 'time-line'
           },
           {
-            title: '奖项公布',
+            title: '奖项信息',
             en: 'Awards',
             id: 'awards'
           },
@@ -114,7 +114,7 @@
           },
           {
             title: '主办',
-            en: 'Host',
+            en: 'About',
             id: 'host'
           }
         ]

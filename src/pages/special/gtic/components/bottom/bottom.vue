@@ -23,15 +23,16 @@
     }
   }
 </style>
+
 <template>
   <div class="bottom__wrap">
     <div>
-      <div class="e">- 报名垂询邮箱 -</div>
-      <div class="g">PAPAPA@ZHIDX.COM</div>
+      <div class="e">- 评选垂询邮箱 -</div>
+      <div class="g">zhenyunce@zhidx.com</div>
     </div>
     <div class="item2">
       <div class="e">- 媒体合作邮箱 -</div>
-      <div class="g">PAPAPA@ZHIDX.COM</div>
+      <div class="g">marketing@zhidx.com</div>
     </div>
   </div>
 </template>

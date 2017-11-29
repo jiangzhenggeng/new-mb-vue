@@ -8,14 +8,14 @@
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="H5-1" transform="translate(-55.000000, -3040.000000)">
-            <g id="Group-13" transform="translate(55.000000, 3040.000000)">
+            <g id="Group-6" transform="translate(55.000000, 3040.000000)">
                 <rect id="Rectangle-5" fill="#51BDEC" x="0" y="0" width="644" height="330"></rect>
                 <rect id="Rectangle-9" fill="#000000" x="262" y="268" width="120" height="42"></rect>
                 <text id="报名" font-family="PingFangSC-Regular, PingFang SC" font-size="24" font-weight="normal" letter-spacing="0.435000002" fill="#FFFFFF">
                     <tspan x="298" y="298">报名</tspan>
                 </text>
-                <text id="AI-Pioneer-of-the-Ye" font-family="PingFangSC-Semibold, PingFang SC" font-size="12" font-weight="500" letter-spacing="0.289999992" fill="#000000">
-                    <tspan x="255.36" y="230">AI Pioneer of the Year</tspan>
+                <text id="AI-Pioneer" font-family="PingFangSC-Semibold, PingFang SC" font-size="12" font-weight="500" letter-spacing="0.289999992" fill="#000000">
+                    <tspan x="291.222" y="230">AI Pioneer</tspan>
                 </text>
                 <text id="年度AI先锋" font-family="PingFangSC-Semibold, PingFang SC" font-size="24" font-weight="500" letter-spacing="-0.24000001" fill="#000000">
                     <tspan x="263.488" y="208">年度AI先锋</tspan>

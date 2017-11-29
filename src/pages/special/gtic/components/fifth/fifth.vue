@@ -16,6 +16,15 @@
         height: 100%;
       }
     }
+    .logo{
+      height: px2rem(130);
+      img{
+        height: 100%;
+      }
+      &.jiguo{
+        height: px2rem(110);
+      }
+    }
   }
 </style>
 <template>
@@ -30,8 +39,8 @@
       </div>
       <div class="fifth__wrap-text">
         <div class="fifth__logo-inner">
-          <div class="mgr20"><img src="./logo-1.svg"/></div>
-          <div><img src="./logo-2.svg"/></div>
+          <div class="logo mgr20"><img src="./logo-1.png"/></div>
+          <div class="logo jiguo"><img src="./logo-2.svg"/></div>
         </div>
       </div>
     </div>
