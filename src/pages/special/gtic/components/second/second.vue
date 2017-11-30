@@ -5,7 +5,7 @@
     font-size: px2rem(24);
     color: #999999;
     .second__wrap-text{
-      width: px2rem(170);
+      width: px2rem(230);
       margin: auto;
       margin-top: px2rem(30);
       img{
@@ -26,7 +26,7 @@
         />
       </div>
       <div class="second__wrap-text">
-        <img src="./img.svg" />
+        <img src="./img.png" />
       </div>
     </div>
   </div>

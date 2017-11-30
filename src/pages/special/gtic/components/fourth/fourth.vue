@@ -95,6 +95,11 @@
 						desc: '索道投资<br>创始合伙人'
 					},
 					{
+						name: '孙玉望',
+						img: require('./images/013孙玉望-中芯聚望总裁.jpeg'),
+						desc: '中芯聚源<br>总裁'
+					},
+					{
 						name: '王华东',
 						img: require('./images/011王华东-经纬创投-合伙人.png'),
 						desc: '经纬创投<br>合伙人'
@@ -104,11 +109,11 @@
 						img: require('./images/012王晟-英诺天使基金-合伙人.jpg'),
 						desc: '英诺天使基金<br>合伙人'
 					},
-					{
-						name: '吴智勇',
-						img: require('./images/013吴智勇-丰厚资本-创始合伙人.jpg'),
-						desc: '丰厚资本<br>创始合伙人'
-					},
+//					{
+//						name: '吴智勇',
+//						img: require('./images/013吴智勇-丰厚资本-创始合伙人.jpg'),
+//						desc: '丰厚资本<br>创始合伙人'
+//					},
 					{
 						name: '熊伟铭',
 						img: require('./images/014熊伟铭-华创资本-合伙人.jpg'),

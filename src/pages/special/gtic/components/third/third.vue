@@ -83,7 +83,7 @@
         <common-title
           :index="`03`"
           :title="`Awards`"
-          :bottom="`/ 奖项设置 /`"
+          :bottom="`/ 奖项信息 /`"
         />
       </div>
       <div class="third__wrap-text">
@@ -165,9 +165,9 @@
 					//GTIC AWARDS 2018之年度AI先锋奖项报名 http://cn.mikecrm.com/Yc0hq7M
 					type2: 'http://cn.mikecrm.com/Yc0hq7M',
 					//GTIC AWARDS 2018之年度商业应用奖项报名 http://cn.mikecrm.com/dKMOXCe
-					type3: 'http://cn.mikecrm.com/dKMOXCe',
+					type3: 'http://cn.mikecrm.com/ebP5noq',
 					//GTIC AWARDS 2018之年度创新产品奖项报名 http://cn.mikecrm.com/ebP5noq
-					type4: 'http://cn.mikecrm.com/ebP5noq',
+					type4: 'http://cn.mikecrm.com/dKMOXCe',
 				},
 				content: '',
 				url: ''

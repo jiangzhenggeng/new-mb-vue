@@ -15,12 +15,12 @@
     <loading v-show="show"/>
     <page-header class="header-nav"/>
     <div class="content-wrap">
-      <page-logo></page-logo>
-      <page-first id="introduce"></page-first>
-      <page-second id="time-line"></page-second>
-      <page-third id="awards"></page-third>
-      <page-fourth id="judges"></page-fourth>
-      <page-fifth id="host"></page-fifth>
+      <page-logo class="window__scroll-flage" id="home"></page-logo>
+      <page-first class="window__scroll-flage" id="introduce"></page-first>
+      <page-second class="window__scroll-flage" id="time-line"></page-second>
+      <page-third class="window__scroll-flage" id="awards"></page-third>
+      <page-fourth class="window__scroll-flage" id="judges"></page-fourth>
+      <page-fifth class="window__scroll-flage" id="host"></page-fifth>
       <page-bottom></page-bottom>
     </div>
     <page-top></page-top>

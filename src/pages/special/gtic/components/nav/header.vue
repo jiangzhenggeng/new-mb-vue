@@ -12,7 +12,10 @@
     left: 0;
     width: 100%;
     z-index: 4;
-
+    transition: all .3s;
+    &.hidden-to-top {
+      top: px2rem(-88);
+    }
     ul {
       display: block;
       font-size: 0;
@@ -70,7 +73,7 @@
   }
 </style>
 <template>
-  <div class="header__wrap">
+  <div class="header__wrap" ref="header__wrap">
     <ul ref="ul" @click="scrollTopId($event,'li')">
       <li v-for="item in navList" :class="item.on?'on':''" :data-id="item.id">
         <div class="header__title">{{ item.title }}</div>
@@ -80,75 +83,108 @@
   </div>
 </template>
 <script>
-  import $ from 'jquery'
+	import $ from 'jquery'
+	import tools from '../../../../../tools/index'
 
-  export default {
-    data () {
-      return {
-        navList: [
-          {
-            title: '首页',
-            en: 'Home',
-            id: '',
-            on: true
-          },
-          {
-            title: '活动介绍',
-            en: 'Introduction',
-            id: 'introduce'
-          },
-          {
-            title: '评选流程',
-            en: 'Schedule',
-            id: 'time-line'
-          },
-          {
-            title: '奖项信息',
-            en: 'Awards',
-            id: 'awards'
-          },
-          {
-            title: '评委嘉宾',
-            en: 'Judges',
-            id: 'judges'
-          },
-          {
-            title: '主办',
-            en: 'About',
-            id: 'host'
-          }
-        ]
-      }
-    },
-    methods: {
-      scrollTopId (e, selector) {
-        //事件代理
-        const event = this.$eventProxy( e, selector )
-        var dom
-        if ($(event.target).data('id')) {
-          dom = $('#' + $(event.target).data('id'))
-        } else {
-          dom = $('html')
-        }
-        var top = $(dom).offset().top - $('.header-nav').height()
-        if ($(event.target).data('id') == 'introduce') {
-          top -= $('.first__wrap-title').height() / 2
-        }
+	export default {
+		data() {
+			return {
+				navList: [
+					{
+						title: '首页',
+						en: 'Home',
+						id: 'home',
+						on: true
+					},
+					{
+						title: '评选介绍',
+						en: 'Introduction',
+						id: 'introduce'
+					},
+					{
+						title: '评选流程',
+						en: 'Schedule',
+						id: 'time-line'
+					},
+					{
+						title: '奖项信息',
+						en: 'Awards',
+						id: 'awards'
+					},
+					{
+						title: '评委嘉宾',
+						en: 'Judges',
+						id: 'judges'
+					},
+					{
+						title: '主办',
+						en: 'About',
+						id: 'host'
+					}
+				]
+			}
+		},
+		mounted() {
+			var _this = this
+			var windowScrollFlage = $('.window__scroll-flage')
 
-        if (dom.length) {
-          $('html,body').animate({
-            scrollTop: top
-          })
-          $(event.target).closest('ul').find('.on').removeClass('on')
-          $(event.target).addClass('on')
-        }
+			$(document).on('scroll', function () {
 
-        var ulLeft = $(this.$refs['ul']).scrollLeft()
-        ulLeft = ulLeft + $(event.target).offset().left - ( $(window).width() / 2 ) + ($(event.target).outerWidth() / 2)
-        $(this.$refs['ul']).animate({
-          scrollLeft: ulLeft
-        })
-      }
-    }
-  }
+				$(_this.$refs['header__wrap']).addClass('hidden-to-top')
+				_this.touchstart && clearTimeout(_this.touchstart)
+				_this.touchstart = setTimeout(() => {
+
+					$(_this.$refs['header__wrap']).removeClass('hidden-to-top')
+
+					windowScrollFlage.each(function () {
+						if (
+							$(window).scrollTop() + $(window).height() >= $(this).offset().top &&
+							$(window).scrollTop() <= $(this).offset().top
+            ) {
+
+							var ulLeft = $(_this.$refs['ul']).scrollLeft()
+							var target = $(_this.$refs['ul']).find('li[data-id=' + $(this).attr('id') + ']')
+
+							target.closest('ul').find('.on').removeClass('on')
+							target.addClass('on')
+
+							ulLeft = ulLeft + target.offset().left - ( $(window).width() / 2 ) + (target.outerWidth() / 2)
+							$(_this.$refs['ul']).scrollLeft(ulLeft)
+							return false
+						}
+					})
+				}, 300)
+			})
+		},
+		methods: {
+			scrollTopId(e, selector) {
+				//事件代理
+				const event = this.$eventProxy(e, selector)
+				var dom
+				if ($(event.target).data('id')) {
+					dom = $('#' + $(event.target).data('id'))
+				} else {
+					dom = $('html')
+				}
+				var top = $(dom).offset().top - $('.header-nav').height()
+				if ($(event.target).data('id') == 'introduce') {
+					top -= $('.first__wrap-title').height() / 2
+				}
+
+				if (dom.length) {
+					$('html,body').animate({
+						scrollTop: top
+					})
+					$(event.target).closest('ul').find('.on').removeClass('on')
+					$(event.target).addClass('on')
+				}
+
+				var ulLeft = $(this.$refs['ul']).scrollLeft()
+				ulLeft = ulLeft + $(event.target).offset().left - ( $(window).width() / 2 ) + ($(event.target).outerWidth() / 2)
+				$(this.$refs['ul']).animate({
+					scrollLeft: ulLeft
+				})
+			}
+		}
+	}
 </script>

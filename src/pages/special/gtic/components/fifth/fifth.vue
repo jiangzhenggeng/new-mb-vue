@@ -9,7 +9,7 @@
     }
     .fifth__logo-inner {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       height: px2rem(204);
       img {
@@ -34,7 +34,7 @@
         <common-title
           :index="`05`"
           :title="`Host`"
-          :bottom="`/ 主办方 /`"
+          :bottom="`/ 主办 /`"
         />
       </div>
       <div class="fifth__wrap-text">
