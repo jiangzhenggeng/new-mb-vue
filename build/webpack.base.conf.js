@@ -87,8 +87,21 @@ module.exports = {
 				}
 			},
 			{
+				test: /\.svg$/,
+				include: [
+					path.resolve(__dirname, '../src/style/svg'),
+				],
+				loader: 'svg-sprite?' + JSON.stringify({
+					name: '[name]',
+					prefixize: true,
+				}),
+			},
+			{
 				test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
 				loader: 'url-loader',
+				exclude:[
+					path.resolve(__dirname, '../src/style/svg'),
+				],
 				options: {
 					limit: 1,
 					name: utils.assetsPath('img/' + (!global.staticNoShowName ? '[name].' : '') + '[hash:7].[ext]')
