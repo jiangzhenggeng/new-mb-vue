@@ -1,4 +1,5 @@
 var path = require('path')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var basePath = path.resolve(__dirname, '../../../jiguo/protected/modules/mb/views')
 
 function getTplPath(module) {
@@ -85,7 +86,14 @@ module.exports = [
 		options: {
 			filename: basePath + '/html/youpin.php',
 			template: getTplPath('special/youpin'),
-		}
+		},
+		//预渲染优化
+		// PrerenderSpaPlugin: new PrerenderSpaPlugin(
+		// 	// Absolute path to compiled SPA
+		// 	path.join(__dirname, '../dist'),
+		// 	// List of routes to prerender
+		// 	['/', '/register']
+		// )
 	},
 	//搜索
 	{
