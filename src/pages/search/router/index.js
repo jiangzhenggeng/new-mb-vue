@@ -5,9 +5,8 @@ import event from '../pages/event.vue'
 import article from '../pages/article.vue'
 
 Vue.use(Router)
-const debug = process.env.NODE_ENV !== 'production'
 const router = new Router({
-  mode: debug ? '' : 'history',
+  mode: process.env.NODE_ENV !== 'production' ? '' : 'history',
   routes: [
     {
       path: '/mb/search/list.html',

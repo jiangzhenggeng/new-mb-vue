@@ -1,5 +1,6 @@
 var utils = require('./utils')
 var webpack = require('webpack')
+var path = require('path')
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
@@ -54,6 +55,8 @@ if (arguments.length) {
   })
 }
 
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
+
 module.exports = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
@@ -69,6 +72,13 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     HtmlWebpackPluginObj,
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+
+		// new PrerenderSpaPlugin(
+		// 	// Absolute path to compiled SPA
+		// 	path.join(__dirname, '../dist'),
+		// 	// List of routes to prerender
+		// 	[ '/' ,'/register']
+		// ),
   ]
 })
