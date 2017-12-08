@@ -22,66 +22,66 @@
 </template>
 
 <script>
-	import jQuery from 'jquery';
+  import jQuery from 'jquery';
 
-	export default {
-		data: function () {
-			return {
-				data: []
-			}
-		},
-		components: {},
-		created: function () {
-			this.getAnnounceData();
-		},
-		methods: {
-			getAnnounceData() {
-				jQuery.get('/api/event/getBulletins', replayData => {
+  export default {
+    data: function () {
+      return {
+        data: []
+      }
+    },
+    components: {},
+    created: function () {
+      this.getAnnounceData();
+    },
+    methods: {
+      getAnnounceData() {
+        jQuery.get('/api/event/getBulletins', replayData => {
 
-					var htmlBox = jQuery(this.$refs['announcement']);
-					var wrapMain = jQuery(this.$refs['announcement-main']);
+          var htmlBox = jQuery(this.$refs['announcement']);
+          var wrapMain = jQuery(this.$refs['announcement-main']);
 
-					if (replayData.resultCode == 0) {
-						wrapMain.show();
-						this.data = replayData.result;
+          if (replayData.resultCode == 0) {
+            wrapMain.show();
+            this.data = replayData.result;
 
-						setTimeout(() => {
-							var cellLi = htmlBox.find('li');
-							var cellLen = cellLi.length / 2;
-							var cellHei = cellLi.first().height();
-							var scorllNum = 0;
+            setTimeout(() => {
+              var cellLi = htmlBox.find('li');
+              var cellLen = cellLi.length / 2;
+              var cellHei = cellLi.first().height();
+              var scorllNum = 0;
 
-							var setTimeFn = function () {
-								cellLi.removeClass('on').eq(scorllNum).addClass('on');
-								htmlBox.animate({
-									marginTop: -scorllNum * cellHei
-								}, function () {
-									if (scorllNum >= cellLen) {
-										scorllNum = 0;
-										htmlBox.css('margin-top', 0);
-									}
-									scorllNum++;
-								});
-								setTimeout(function () {
-									setTimeFn();
-								}, 4000);
-							};
-							setTimeFn();
-						});
-					}
-				}, 'json');
-			},
-		},
-		filters: {
-			filterUsername(username) {
-				username = username || '';
-				if (username.length > 7) {
-					return username.substr(0, 6) + '…';
-				}
-				return username;
-			}
-		}
-	}
+              var setTimeFn = function () {
+                cellLi.removeClass('on').eq(scorllNum).addClass('on');
+                htmlBox.animate({
+                  marginTop: -scorllNum * cellHei
+                }, function () {
+                  if (scorllNum >= cellLen) {
+                    scorllNum = 0;
+                    htmlBox.css('margin-top', 0);
+                  }
+                  scorllNum++;
+                });
+                setTimeout(function () {
+                  setTimeFn();
+                }, 4000);
+              };
+              setTimeFn();
+            });
+          }
+        }, 'json');
+      },
+    },
+    filters: {
+      filterUsername(username) {
+        username = username || '';
+        if (username.length > 7) {
+          return username.substr(0, 6) + '…';
+        }
+        return username;
+      }
+    }
+  }
 </script>
 
 <style lang="scss">
