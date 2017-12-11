@@ -28,7 +28,7 @@
   <div class="bottom__wrap">
     <div>
       <div class="e">- 评选垂询邮箱 -</div>
-      <div class="g">zhenyunce@zhidx.com</div>
+      <div class="g">habenhe@zhidx.com</div>
     </div>
     <div class="item2">
       <div class="e">- 媒体合作邮箱 -</div>

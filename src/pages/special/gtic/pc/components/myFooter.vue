@@ -3,7 +3,7 @@
     <div class="contact-wrapper main">
       <div class="footer-item">
         <h3>评选垂询邮箱</h3>
-        <p><a href="mailto:zhenyunce@zhidx.com">zhenyunce@zhidx.com</a></p>
+        <p><a href="mailto:habenhe@zhidx.com">habenhe@zhidx.com</a></p>
       </div>
       <div class="footer-item">
         <h3>媒体合作邮箱</h3>

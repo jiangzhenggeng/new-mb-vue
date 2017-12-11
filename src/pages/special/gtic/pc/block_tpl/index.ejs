@@ -13,7 +13,9 @@
     <meta name="keywords" content="人工智能,智能变革,GTIC,GTIC AWARDS,变革力量,AI先锋,Awe,AI赋能,黄仁勋视频致谢">
 </head>
 <body>
-<%= require('raw-loader!./../../block_tpl/share.php3') %>
+<% if( process.env.NODE_ENV == 'production' ){ %>
+    <%= require('raw-loader!./../../block_tpl/share.php3') %>
+<% } %>
 <div id="app"></div>
 <!-- built files will be auto injected -->
 </body>
