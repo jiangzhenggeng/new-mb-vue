@@ -29,15 +29,15 @@ var HtmlWebpackPluginDefaultConfig = {
 	chunksSortMode: 'dependency'
 }
 
-var arguments = process.argv.length > 2 ? [process.argv[2]] : []
+var arguments = process.argv.length > 2 ? process.argv.slice(2) : []
 var HtmlWebpackPluginConfig = []
 var completeModule = []
 
 if (arguments.length) {
 	config.page.forEach((item) => {
-		if (completeModule.length) return
+		if (completeModule.indexOf(item) !== -1) return
 		arguments.forEach((name) => {
-			if (completeModule.length) return
+			if (completeModule.indexOf(item) !== -1) return
 			if (item.name == name) {
 				completeModule.push(item)
 			}
