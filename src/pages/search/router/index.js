@@ -1,11 +1,13 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import index from '../pages/index.vue'
 import event from '../pages/event.vue'
 import article from '../pages/article.vue'
 
-Vue.use(Router)
-const router = new Router({
+if (process.env['vue-router']!=='VueRouter') {
+	Vue.use(VueRouter);
+}
+const router = new VueRouter({
   mode: process.env.NODE_ENV !== 'production' ? '' : 'history',
   routes: [
     {

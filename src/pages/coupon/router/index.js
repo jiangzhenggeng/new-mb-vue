@@ -1,12 +1,13 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
 const Bind = () => import('../pages/coupon.vue')
 const Draw = () => import('../pages/draw.vue')
-
-Vue.use(Router)
+if (process.env['vue-router']!=='VueRouter') {
+	Vue.use(VueRouter);
+}
 const debug = process.env.NODE_ENV !== 'production'
-const router = new Router({
+const router = new VueRouter({
   mode: debug ? '' : 'history',
   routes: [
     {

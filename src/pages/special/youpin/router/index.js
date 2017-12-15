@@ -1,11 +1,13 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Index from './../components/index.vue'
 import Register from './../components/register/register.vue'
 
-Vue.use(Router)
+if (process.env['vue-router']!=='VueRouter') {
+	Vue.use(VueRouter);
+}
 
-export default new Router({
+export default new VueRouter({
 	mode: process.env.NODE_ENV !== 'production' ? '' : 'history',
   routes: [
     {

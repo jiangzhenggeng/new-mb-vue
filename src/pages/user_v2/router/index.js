@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
 const Bind = () => import('../pages/bind/index.vue')
 const SetPasswd = () => import('../pages/password/set-passwd.vue')
@@ -37,9 +37,11 @@ function beforeEnter (to, from, next) {
   }
 }
 
-Vue.use(Router)
+if (process.env['vue-router']!=='VueRouter') {
+	Vue.use(VueRouter);
+}
 const debug = process.env.NODE_ENV !== 'production'
-const router = new Router({
+const router = new VueRouter({
   mode: debug ? '' : 'history',
   routes: [
     {

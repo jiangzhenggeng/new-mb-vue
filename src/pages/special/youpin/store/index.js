@@ -3,7 +3,9 @@ import Vuex from 'vuex';
 import * as actions from './actions';
 import mutations from './mutations';
 
-Vue.use(Vuex);
+if (process.env.vuex!=='Vuex') {
+	Vue.use(Vuex)
+}
 
 const initState = {
 	//页面加载提示

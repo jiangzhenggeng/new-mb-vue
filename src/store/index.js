@@ -5,7 +5,7 @@ import * as actions from './actions'
 import mutations from './mutations'
 import search from './../pages/search/store'
 
-if (process.env.s!=='Vuex') {
+if (process.env.vuex!=='Vuex') {
 	Vue.use(Vuex)
 }
 

@@ -30,6 +30,8 @@ module.exports = [
 			filename: basePath + '/index/index.php',
 			template: getTplPath('index'),
 		},
+		//不允许集体打包方案
+		notpackage: true,
 		externals: {
 			'vue': 'Vue',
 			'vuex': 'Vuex',

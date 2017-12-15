@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Login from '../pages/login/login.vue'
 import Passwd from '../pages/login/passwd.vue'
 import SetPasswd from '../pages/login/set-passwd.vue'
@@ -7,9 +7,11 @@ import Register from '../pages/login/register.vue'
 import Index from '../pages/index/index.vue'
 import Userinfo from '../pages/userinfo/index.vue'
 
-Vue.use(Router)
+if (process.env['vue-router']!=='VueRouter') {
+	Vue.use(VueRouter);
+}
 const debug = process.env.NODE_ENV !== 'production'
-const router = new Router({
+const router = new VueRouter({
   mode: debug ? '' : 'history',
   routes: [
     {

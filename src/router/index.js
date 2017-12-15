@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 import index from '../pages/index/index.vue';
 
 if (process.env['vue-router']!=='VueRouter') {
-	Vue.use(Router);
+	Vue.use(VueRouter);
 }
 
 const router = new Router({

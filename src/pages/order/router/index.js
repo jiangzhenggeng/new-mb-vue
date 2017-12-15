@@ -1,11 +1,13 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Order from '../pages/order.vue'
 import OrderShow from '../pages/order-show.vue'
 
-Vue.use(Router)
+if (process.env['vue-router']!=='VueRouter') {
+	Vue.use(VueRouter);
+}
 const debug = process.env.NODE_ENV !== 'production'
-const router = new Router({
+const router = new VueRouter({
   mode: debug ? '' : 'history',
   routes: [
     {
