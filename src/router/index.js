@@ -6,7 +6,7 @@ if (process.env['vue-router']!=='VueRouter') {
 	Vue.use(VueRouter);
 }
 
-const router = new Router({
+const router = new VueRouter({
 	mode: 'history',
 	// hashbang: false,
 	// history: true,

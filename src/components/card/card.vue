@@ -8,6 +8,7 @@
               <img src="../../style/images/elite.png">
             </div>
             <img
+              data-background-size="60px auto"
               v-lazy="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/230/h/230/q/100`"
               :src="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/50/h/50/q/30`"
             />

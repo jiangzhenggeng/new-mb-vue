@@ -71,6 +71,10 @@ module.exports = {
 			'@': resolve('src'),
 		}
 	},
+	externals: {
+		// 'vue': 'Vue',
+		// 'jquery': '$',
+	},
 	module: {
 		rules: [
 			{
