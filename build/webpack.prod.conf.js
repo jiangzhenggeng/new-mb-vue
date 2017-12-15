@@ -65,10 +65,20 @@ completeModule.forEach((item) => {
 	var htmlPlugin = new HtmlWebpackPlugin(merge(HtmlWebpackPluginDefaultConfig, item.options))
 	HtmlWebpackPluginConfig.push(htmlPlugin)
 })
+
+var externals = {}
+var externals_env = {}
+if (completeModule.length == 1 && completeModule[0].externals) {
+	externals = completeModule[0].externals
+}
+for (let i in externals) {
+	externals_env[i] = '"' + externals[i] + '"'
+}
+
 const plugins = [
 	// http://vuejs.github.io/vue-loader/en/workflow/production.html
 	new webpack.DefinePlugin({
-		'process.env': env
+		'process.env': merge(externals_env, env)
 	}),
 	new webpack.optimize.UglifyJsPlugin({
 		compress: {
@@ -140,8 +150,10 @@ var webpackConfig = merge(baseWebpackConfig, {
 		filename: utils.assetsPath('js/[name].[chunkhash].js'),
 		chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
 	},
+	externals,
 	plugins
 })
+
 
 if (config.build.productionGzip) {
 	var CompressionWebpackPlugin = require('compression-webpack-plugin')

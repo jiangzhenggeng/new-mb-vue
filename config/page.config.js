@@ -29,6 +29,12 @@ module.exports = [
 		options: {
 			filename: basePath + '/index/index.php',
 			template: getTplPath('index'),
+		},
+		externals: {
+			'vue': 'Vue',
+			'vuex': 'Vuex',
+			'vue-router': 'VueRouter',
+			'jquery': '$'
 		}
 	},
 	{

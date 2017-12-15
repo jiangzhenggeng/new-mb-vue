@@ -5,7 +5,9 @@ import * as actions from './actions'
 import mutations from './mutations'
 import search from './../pages/search/store'
 
-Vue.use(Vuex)
+if (process.env.s!=='Vuex') {
+	Vue.use(Vuex)
+}
 
 const initState = {
   //页面加载提示

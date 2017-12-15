@@ -59,10 +59,8 @@ cd ${BASE_PATH}/mb_new_vue/home
 if [ ${#@} == 0 ];then
         npm run build
     else
-       for arg in "$@";do
-            echo '正在打包'${arg}
-            npm run build ${arg}
-       done
+       echo '正在打包'${@}
+       npm run build ${@}
 fi
 
 #提价分支
