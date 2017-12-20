@@ -165,6 +165,7 @@ module.exports = [
 		main: './src/pages/special/gtic/pc/main.js',
 		//不参与集体打包
 		notpackage: (function () {
+			//资源不显示名字
 			global.staticNoShowName = true
 			return true
 		})(),

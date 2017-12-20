@@ -14,6 +14,5 @@ Vue.use(VueLazyLoad, {
 
 new Vue({
 	el: '#app',
-	template: '<App/>',
-	components: {App}
+	render: _ => _(App)
 })
