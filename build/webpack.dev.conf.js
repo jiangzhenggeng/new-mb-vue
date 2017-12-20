@@ -25,13 +25,11 @@ if (arguments.length) {
 						chunks.push(i)
 					}
 				}
-				HtmlWebpackPluginObj = new HtmlWebpackPlugin({
+				HtmlWebpackPluginObj = new HtmlWebpackPlugin(merge(item.options,{
 					filename: 'index.html',
-					template: item.options.template,
-					inject: true,
 					chunks: chunks,
 					removeAttributeQuotes: false
-				})
+				}))
 				completeModule.push(item)
 			}
 		})
@@ -46,17 +44,18 @@ if (arguments.length) {
 				}
 			}
 			completeModule.push(item)
+			HtmlWebpackPluginObj = new HtmlWebpackPlugin(merge(item.options,{
+				filename: 'index.html',
+				chunks: chunks,
+				removeAttributeQuotes: false
+			}))
 		}
-	})
-	HtmlWebpackPluginObj = new HtmlWebpackPlugin({
-		filename: 'index.html',
-		template: './src/pages/index/block_tpl/index.ejs.js',
-		inject: true,
-		chunks: chunks,
-		removeAttributeQuotes: false
 	})
 }
 
+if (!completeModule.length) {
+	process.exit(0)
+}
 
 var externals = {}
 var externals_env = {}
