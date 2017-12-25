@@ -156,7 +156,7 @@ module.exports = [
 			return true
 		})(),
 		options: {
-			filename: path.resolve(__dirname, '../../../jiguo/static/gtic/mb.php'),
+			filename: '/Users/jiangzg/Desktop/gtic/mb.php',
 			template: getTplPath('special/gtic'),
 		}
 	},
@@ -170,7 +170,7 @@ module.exports = [
 			return true
 		})(),
 		options: {
-			filename: path.resolve(__dirname, '../../../jiguo/static/gtic/index.php'),
+			filename: '/Users/jiangzg/Desktop/gtic/index.php',
 			template: getTplPath('special/gtic/pc'),
 		}
 	}
