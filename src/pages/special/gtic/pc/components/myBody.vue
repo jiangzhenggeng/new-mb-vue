@@ -132,7 +132,7 @@
               <p>-最终评选出10家获奖公司。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" href="http://cn.mikecrm.com/Yc0hq7M" target="_blank">报名</a>
+            <a class="apply-btn" _href="http://cn.mikecrm.com/Yc0hq7M" target="_blank">{{'敬请期待'||'报名'}}</a>
           </li>
           <li>
             <div class="shadow">
@@ -155,7 +155,7 @@
               <p>-最终评选出10个获奖产品。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" href="http://cn.mikecrm.com/ebP5noq" target="_blank">报名</a>
+            <a class="apply-btn" _href="http://cn.mikecrm.com/ebP5noq" target="_blank">{{'敬请期待'||'报名'}}</a>
           </li>
           <li>
             <div class="shadow">
@@ -179,7 +179,7 @@
               <p>-最终评选出5个获奖者。</p>
             </div>
             <a class="icon-add" href="javascript:;"><img src="../assets/images/icon-add.png" alt=""></a>
-            <a class="apply-btn" href="http://cn.mikecrm.com/dKMOXCe" target="_blank">报名</a>
+            <a class="apply-btn" _href="http://cn.mikecrm.com/dKMOXCe" target="_blank">{{'敬请期待'||'报名'}}</a>
           </li>
         </ul>
       </div>
