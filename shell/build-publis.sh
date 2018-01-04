@@ -62,13 +62,15 @@ git checkout -b ${BRANCH_NAME}
 cd ${BASE_PATH}/mb_new_vue/home
 
 if [ ${#@} == 0 ];then
-        echo '请输入打目标包'
+        echo '\n请输入打目标包\n'
     else
        command_dnot_clear=''
+       number=1
        for arg in "$@";do
-            echo '正在打包'${arg} ${command_dnot_clear}
+            echo '\n('${number}'/'${#@}')正在打包'${arg} ${command_dnot_clear}'\n'
             npm run build ${arg} ${command_dnot_clear}
             command_dnot_clear='command-dnot-clear'
+            ((number=$number+1))
        done
 fi
 
