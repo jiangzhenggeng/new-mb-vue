@@ -11,7 +11,7 @@ var entry = {}
 
 var arguments = process.argv.length > 2 ? process.argv.slice(2) : []
 var completeModule = []
-if (arguments.length) {
+if (arguments.length && arguments[0]!='command-dnot-clear') {
 	config.page.forEach((item) => {
 		if (completeModule.indexOf(item) !== -1) return
 		arguments.forEach((name) => {
@@ -22,12 +22,8 @@ if (arguments.length) {
 		})
 	})
 } else {
-	completeModule = config.page.filter((item) => {
-		if (item.notpackage) {
-			return false
-		}
-		return true
-	})
+	console.log('请输入目标包名称')
+	process.exit(0)
 }
 
 if (!completeModule.length && process.argv[3] !== 'test/unit/karma.conf.js') {
@@ -70,10 +66,6 @@ module.exports = {
 			'vue$': 'vue/dist/vue.runtime.esm.js',
 			'@': resolve('src'),
 		}
-	},
-	externals: {
-		// 'vue': 'Vue',
-		// 'jquery': '$',
 	},
 	module: {
 		rules: [

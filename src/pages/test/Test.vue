@@ -5,13 +5,25 @@
 </template>
 
 <script>
-  export default {
-    methods: {
-      showDialg () {
-        this.Dialog().show()
-      }
-    }
-  }
+	export default {
+		data() {
+			return {
+				a: {
+					b: {
+						c: 'hah'
+					}
+				}
+			}
+		},
+    mounted(){
+			console.log(this.$data)
+    },
+		methods: {
+			showDialg() {
+				this.Dialog().show()
+			}
+		}
+	}
 </script>
 
 

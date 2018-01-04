@@ -6,12 +6,20 @@
       <load-data-limit url="/api/article/GetArticleList">
         <template slot="item" slot-scope="props">
           <!--一般大卡片-->
-          <item-large v-if="props.item.type==1||props.item.type==2||props.item.type==3||props.item.type==4"
-                      :item="props.item"/>
+          <item-large
+            v-if="props.item.type|largeType"
+            :item="props.item"
+          />
           <!--话题-->
-          <item-topic v-else-if="props.item.type==6" :item="props.item"/>
+          <item-topic
+            v-else-if="props.item.type==6"
+            :item="props.item"
+          />
           <!--一般小卡片-->
-          <item-card v-else :item="props.item"/>
+          <item-card
+            v-else
+            :item="props.item"
+          />
         </template>
       </load-data-limit>
     </div>
@@ -39,7 +47,12 @@
 			'item-topic': itemTopic
 		},
 
-		methods: {}
+		methods: {},
+		filters: {
+			largeType(type) {
+				return type == 1 || type == 2 || type == 3 || type == 4
+			}
+		}
 	}
 </script>
 

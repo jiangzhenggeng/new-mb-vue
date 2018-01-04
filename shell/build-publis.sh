@@ -72,6 +72,40 @@ if [ ${#@} == 0 ];then
        done
 fi
 
+#提价分支
+cd ${BASE_PATH}/jiguo
+
+# 检测是否在 ${BRANCH_NAME} 主分支
+string2=`git status`
+tempStr2=${string2:10:${#BRANCH_NAME}}
+
+if [ "$tempStr2" != "$BRANCH_NAME" ];then
+    echo "Git不在${BRANCH_NAME}分支，不允许提交"
+    exit 0
+fi
+
+
+git status
+git add .
+git commit -m "${BRANCH_NAME}-${COMMIT_TEXT}"
+# git pull origin ${BRANCH_NAME}
+git push origin ${BRANCH_NAME}
+
+git checkout ${CURRENT_BRANCH}
+
+#清理分支
+BRANCH_PREFIX="j-system-auto-build-"
+GIT_BRANCH=`git branch`
+GIT_BRANCH=(${GIT_BRANCH//\*/ })
+
+for branch in ${GIT_BRANCH[@]}
+do
+    if [ "${branch:0:${#BRANCH_PREFIX}}" == "${BRANCH_PREFIX}" ];then
+        git branch -D ${branch}
+    fi
+done
+
+cd ${BASE_PATH}/mb_new_vue/home
 
 
 

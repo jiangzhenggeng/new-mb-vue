@@ -33,7 +33,7 @@ var arguments = process.argv.length > 2 ? process.argv.slice(2) : []
 var HtmlWebpackPluginConfig = []
 var completeModule = []
 
-if (arguments.length) {
+if (arguments.length && arguments[0]!='command-dnot-clear') {
 	config.page.forEach((item) => {
 		if (completeModule.indexOf(item) !== -1) return
 		arguments.forEach((name) => {
@@ -44,13 +44,10 @@ if (arguments.length) {
 		})
 	})
 } else {
-	completeModule = config.page.filter((item) => {
-		if (item.notpackage) {
-			return false
-		}
-		return true
-	})
+	console.log('请输入目标包名称')
+	process.exit(0)
 }
+
 if (!completeModule.length) {
 	process.exit(0)
 }
@@ -64,6 +61,10 @@ completeModule.forEach((item) => {
 	}
 	var htmlPlugin = new HtmlWebpackPlugin(merge(HtmlWebpackPluginDefaultConfig, item.options))
 	HtmlWebpackPluginConfig.push(htmlPlugin)
+	if (item.externals && completeModule.length>1){
+		console.log('externals字段只能单独打包')
+		process.exit(0)
+	}
 })
 
 var externals = {}

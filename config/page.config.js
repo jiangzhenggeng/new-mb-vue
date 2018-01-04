@@ -10,7 +10,6 @@ module.exports = [
 	{
 		name: 'test',
 		main: './src/pages/test/main.js',
-		notpackage: true,
 		assetsRoot: path.resolve(__dirname, '../dist'),
 		assetsSubDirectory: 'static',
 		assetsPublicPath: '/',
@@ -30,8 +29,6 @@ module.exports = [
 			filename: basePath + '/index/index.php',
 			template: getTplPath('index'),
 		},
-		//不允许集体打包方案
-		notpackage: true,
 		externals: {
 			'vue': 'Vue',
 			'vuex': 'Vuex',
@@ -150,11 +147,6 @@ module.exports = [
 	{
 		name: 'gtic',
 		main: './src/pages/special/gtic/main.js',
-		//不参与集体打包
-		notpackage: (function () {
-			global.staticNoShowName = true
-			return true
-		})(),
 		options: {
 			filename: '/Users/jiangzg/Desktop/gtic/mb.php',
 			template: getTplPath('special/gtic'),
@@ -163,12 +155,6 @@ module.exports = [
 	{
 		name: 'gtic-pc',
 		main: './src/pages/special/gtic/pc/main.js',
-		//不参与集体打包
-		notpackage: (function () {
-			//资源不显示名字
-			global.staticNoShowName = true
-			return true
-		})(),
 		options: {
 			filename: '/Users/jiangzg/Desktop/gtic/index.php',
 			template: getTplPath('special/gtic/pc'),
