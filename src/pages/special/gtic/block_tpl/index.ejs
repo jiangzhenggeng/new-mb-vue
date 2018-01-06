@@ -19,6 +19,7 @@
     <script><%= require('raw-loader!./../../../../inline/flexible') %></script>
 </head>
 <body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <% if( process.env.NODE_ENV == 'production' ){ %>
     <%= require('raw-loader!./../block_tpl/share.php3') %>
 <% } %>

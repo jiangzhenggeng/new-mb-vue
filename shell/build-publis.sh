@@ -90,24 +90,9 @@ fi
 git status
 git add .
 git commit -m "${BRANCH_NAME}-${COMMIT_TEXT}"
-# git pull origin ${BRANCH_NAME}
 git push origin ${BRANCH_NAME}
 
-git checkout ${CURRENT_BRANCH}
-
-#清理分支
-BRANCH_PREFIX="j-system-auto-build-"
-GIT_BRANCH=`git branch`
-GIT_BRANCH=(${GIT_BRANCH//\*/ })
-
-for branch in ${GIT_BRANCH[@]}
-do
-    if [ "${branch:0:${#BRANCH_PREFIX}}" == "${BRANCH_PREFIX}" ];then
-        git branch -D ${branch}
-    fi
-done
-
-cd ${BASE_PATH}/mb_new_vue/home
+cd ${BASE_PATH}/mb_new_vue/home/shell
 
 
 

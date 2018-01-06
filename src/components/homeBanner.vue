@@ -17,14 +17,7 @@
                   <div class="banner-title">{{ v.name }} {{ v.isshoufa == 2 ? '(体验师专享)' : '' }}</div>
                   <div class="banner-tips pos-rel">
                     <span class="ft16 colfff">{{ v.follownum }} <font class="ft12 gray">人申请</font></span>
-                    <template v-if="v.is_pay_event">
-                      <span
-                        class="ft12 gray">免费试用 + {{ v.meta[0].status == 2 ? v.meta[0].buying_name : v.meta[1].buying_name
-                        }}</span>
-                    </template>
-                    <template v-else>
-                      <span class="ft12 gray">{{ v.isshoufa == 2 ? '体验师试用' : '免费试用' }}</span>
-                    </template>
+                    <span class="ft12 gray">{{v.buying_name}}</span>
 
                     <template v-if="v.deadline > now">
                       <span class="ft12 colfff pos-abs r0 b0">{{ v.deadline_time }} <font class="gray">截止</font></span>

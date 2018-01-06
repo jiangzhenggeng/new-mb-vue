@@ -87,6 +87,12 @@
 	import tools from '../../../../../tools/index'
 
 	export default {
+		props: {
+			href: {
+				type: Boolean,
+				default: false
+			}
+		},
 		data() {
 			return {
 				navList: [
@@ -128,11 +134,12 @@
 			var _this = this
 			var windowScrollFlage = $('.window__scroll-flage')
 
-			$(document).on('scroll', function () {
+			$(window).off('scroll.header.nav').on('scroll.header.nav', function () {
 
 				$(_this.$refs['header__wrap']).addClass('hidden-to-top')
 				_this.touchstart && clearTimeout(_this.touchstart)
 				_this.touchstart = setTimeout(() => {
+					if ($(_this.$refs['ul']).length <= 0) return;
 
 					$(_this.$refs['header__wrap']).removeClass('hidden-to-top')
 
@@ -140,7 +147,7 @@
 						if (
 							$(window).scrollTop() + $(window).height() >= $(this).offset().top &&
 							$(window).scrollTop() <= $(this).offset().top
-            ) {
+						) {
 
 							var ulLeft = $(_this.$refs['ul']).scrollLeft()
 							var target = $(_this.$refs['ul']).find('li[data-id=' + $(this).attr('id') + ']')
@@ -148,7 +155,7 @@
 							target.closest('ul').find('.on').removeClass('on')
 							target.addClass('on')
 
-							ulLeft = ulLeft + target.offset().left - ( $(window).width() / 2 ) + (target.outerWidth() / 2)
+							ulLeft = ulLeft + target.offset().left - ($(window).width() / 2) + (target.outerWidth() / 2)
 							$(_this.$refs['ul']).scrollLeft(ulLeft)
 							return false
 						}
@@ -156,10 +163,21 @@
 				}, 300)
 			})
 		},
+		beforeDestroy() {
+			$(window).off('scroll.header.nav')
+		},
 		methods: {
 			scrollTopId(e, selector) {
 				//事件代理
 				const event = this.$eventProxy(e, selector)
+
+				if (this.href) {
+					this.$router.push({
+						path: '/mb#' + $(event.target).data('id')
+					})
+					return
+				}
+
 				var dom
 				if ($(event.target).data('id')) {
 					dom = $('#' + $(event.target).data('id'))
@@ -180,7 +198,7 @@
 				}
 
 				var ulLeft = $(this.$refs['ul']).scrollLeft()
-				ulLeft = ulLeft + $(event.target).offset().left - ( $(window).width() / 2 ) + ($(event.target).outerWidth() / 2)
+				ulLeft = ulLeft + $(event.target).offset().left - ($(window).width() / 2) + ($(event.target).outerWidth() / 2)
 				$(this.$refs['ul']).animate({
 					scrollLeft: ulLeft
 				})

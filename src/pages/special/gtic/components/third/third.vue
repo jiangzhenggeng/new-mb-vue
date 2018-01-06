@@ -16,7 +16,7 @@
         width: 100%;
         display: block;
       }
-      .btn-fix-bg{
+      .btn-fix-bg {
         background: #000;
         color: #fff;
         position: absolute;
@@ -96,25 +96,25 @@
         <common-title
           :index="`03`"
           :title="`Awards`"
-          :bottom="`/ 奖项信息 /`"
+          :bottom="title"
         />
       </div>
       <div class="third__wrap-text">
-        <div class="third__wrap-item" @click="showWindow('type1')">
+        <div v-if="innerDontShow!=4" class="third__wrap-item" @click="showWindow('type1')">
           <img src="./1.svg"/>
-          <div class="btn-fix-bg">敬请期待</div>
+          <div class="btn-fix-bg">投票</div>
         </div>
-        <div class="third__wrap-item" @click="showWindow('type2')">
+        <div v-if="innerDontShow!=1" class="third__wrap-item" @click="showWindow('type2')">
           <img src="./2.svg"/>
-          <div class="btn-fix-bg">敬请期待</div>
+          <div class="btn-fix-bg">投票</div>
         </div>
-        <div class="third__wrap-item" @click="showWindow('type3')">
+        <div v-if="innerDontShow!=2" class="third__wrap-item" @click="showWindow('type3')">
           <img src="./3.svg"/>
-          <div class="btn-fix-bg">敬请期待</div>
+          <div class="btn-fix-bg">投票</div>
         </div>
-        <div class="third__wrap-item" @click="showWindow('type4')">
+        <div v-if="innerDontShow!=3" class="third__wrap-item" @click="showWindow('type4')">
           <img src="./4.svg"/>
-          <div class="btn-fix-bg">敬请期待</div>
+          <div class="btn-fix-bg">投票</div>
         </div>
       </div>
     </div>
@@ -123,19 +123,50 @@
         <div class="window__inner-content" v-html="content"></div>
         <div class="hybtn__wrap">
           <div class="hybtn close" @click="closeWindow">关闭</div>
-          <div class="hybtn apply" @click="apply" v-if="url">报名</div>
+          <!--<div class="hybtn apply" @click="apply" v-if="url">报名</div>-->
+          <template v-if="type">
+            <div class="hybtn apply">
+              <div @click="toUrl('type.php?type='+type)">投票</div>
+            </div>
+          </template>
+          <template v-else>
+            <!--<div>投票</div>-->
+          </template>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+	import $ from 'jquery'
 	import CommonTitle from './../common-title/common-title.vue'
+
+	function GetQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]);
+		return null;
+	}
 
 	const events = ['mousewheel', 'DOMMouseScroll', 'touchmove']
 	export default {
+		props: {
+			refresh: {
+				type: Boolean,
+				default: false
+			},
+			title: {
+				type: String,
+				default: '/ 奖项信息 /'
+			},
+			dontShow: {
+				type: String,
+				default: GetQueryString('type')
+			}
+		},
 		data() {
 			return {
+				type: '',
 				show: false,
 				contentList: {
 					'type1': `<p>“GTIC AWARDS年度大奖，为在2017年度最具变革力、有巨大影响力的公司授予最高荣誉。”</p>
@@ -175,7 +206,7 @@
                       -将评估参选方的创新性、客户价值、成长性、影响力；<br>
                       -大众投票权重占比30%，评委嘉宾评分权重占70%；<br>
                       -最终评选出5个获奖者。
-                    </p>`
+                    </p>`,
 				},
 				urlList: {
 					type1: '',
@@ -186,8 +217,15 @@
 					//GTIC AWARDS 2018之年度创新产品奖项报名 http://cn.mikecrm.com/ebP5noq
 					type4: '',//'http://cn.mikecrm.com/dKMOXCe',
 				},
+				typeIdList: {
+					type1: '',
+					type2: '1',
+					type3: '2',
+					type4: '3',
+				},
 				content: '',
-				url: ''
+				url: '',
+				innerDontShow: this.dontShow
 			}
 		},
 		watch: {
@@ -209,12 +247,19 @@
 			CommonTitle
 		},
 		methods: {
+			toUrl(url) {
+				window.location = url
+				this.show = false
+				$(window).scrollTop(0)
+			},
 			showWindow(key) {
 				this.content = this.contentList[key]
 				if (this.content) {
 					this.show = true
 					this.url = this.urlList[key]
 				}
+				this.type = this.typeIdList[key]
+				// console.log(this.type)
 			},
 			closeWindow() {
 				this.show = false
@@ -223,9 +268,9 @@
 				if (this.url) window.location = this.url
 			},
 			_preventDefault(e) {
-				e.preventDefault()
-				e.stopPropagation()
-				return false
+				// e.preventDefault()
+				// e.stopPropagation()
+				// return false
 			}
 		}
 	}

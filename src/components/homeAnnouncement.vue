@@ -121,7 +121,7 @@
         left: px2rem(74);
         top: 50%;
         margin-top: px2rem(-24);
-        width: px2rem(2);
+        width: px2rem(2.5);
         height: px2rem(48);
         background-color: #D1D1D1;
       }

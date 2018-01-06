@@ -146,9 +146,25 @@ module.exports = [
 	},
 	{
 		name: 'gtic',
-		main: './src/pages/special/gtic/main.js',
+		main: './src/pages/special/gtic/index.js',
 		options: {
 			filename: '/Users/jiangzg/Desktop/gtic/mb.php',
+			template: getTplPath('special/gtic'),
+		}
+	},
+	{
+		name: 'gtic-type',
+		main: './src/pages/special/gtic/type.js',
+		options: {
+			filename: '/Users/jiangzg/Desktop/gtic/type.php',
+			template: getTplPath('special/gtic'),
+		}
+	},
+	{
+		name: 'gtic-detail',
+		main: './src/pages/special/gtic/detail.js',
+		options: {
+			filename: '/Users/jiangzg/Desktop/gtic/detail.php',
 			template: getTplPath('special/gtic'),
 		}
 	},
