@@ -92,7 +92,7 @@
         <div class="content-desc">{{item.desc}}</div>
         <div class="vote-btn-wrap">
           <div v-if="item.status!=1" class="vote-btn" @click="clickVote(item.id)">投票</div>
-          <div v-else class="vote-btn" @click="clickVote(item.id)">你已投票</div>
+          <div v-else class="vote-btn">你已投票</div>
         </div>
       </div>
     </div>

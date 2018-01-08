@@ -94,7 +94,7 @@
           v-for="item in list"
           :key="item.id"
         >
-          <a :href="'detail.php?type='+type+'&id='+item.id">
+          <div @click="opUrl('detail.php?type='+type+'&id='+item.id)">
             <div class="com2-list__item">
               <div class="com2-list__img">
                 <img :src="item.cover"/>
@@ -105,11 +105,11 @@
                 <div class="com2-list__bottom">
                   <div class="com2-list__tike-num">{{item.vote}} 票</div>
                   <div v-if="item.status!=1" class="com2-list__tike-query" @click.stop="clickVote(item.id)">投票</div>
-                  <div v-else class="com2-list__tike-query" @click.stop="clickVote(item.id)">你已投票</div>
+                  <div v-else class="com2-list__tike-query">你已投票</div>
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
       <!--<div class="com2-list__down">-->
@@ -134,8 +134,8 @@
 				required: true
 			}
 		},
-		computed: {
-			toUrl(url) {
+		methods: {
+			opUrl(url) {
 				window.location = url
 			}
 		}
