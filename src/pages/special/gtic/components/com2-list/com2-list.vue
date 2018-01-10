@@ -91,7 +91,7 @@
     <div class="com2-list__box">
       <ul>
         <li
-          v-for="item in list"
+          v-for="item in inner_list"
           :key="item.id"
         >
           <div @click="opUrl('detail.php?type='+type+'&id='+item.id)">
@@ -105,7 +105,7 @@
                 <div class="com2-list__bottom">
                   <div class="com2-list__tike-num">{{item.vote}} 票</div>
                   <div v-if="item.status!=1" class="com2-list__tike-query" @click.stop="clickVote(item.id)">投票</div>
-                  <div v-else class="com2-list__tike-query">你已投票</div>
+                  <div v-else class="com2-list__tike-query">已投票</div>
                 </div>
               </div>
             </div>
@@ -134,9 +134,28 @@
 				required: true
 			}
 		},
+		data() {
+			return {
+				inner_list: this.list
+			}
+		},
+		watch: {
+			list() {
+				this.inner_list = this.list
+			}
+		},
 		methods: {
 			opUrl(url) {
 				window.location = url
+			},
+			voteSuccess(id) {
+				this.inner_list = this.inner_list.map((item) => {
+					if (item.id == id) {
+						item.vote = parseInt(String(item.vote || 0)) + 1
+						item.status = 1
+					}
+					return item
+				})
 			}
 		}
 	}

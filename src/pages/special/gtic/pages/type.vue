@@ -64,6 +64,7 @@
 	import Com2Logo from '../components/com2-logo/com2-logo'
 	import Com2Next from '../components/com2-next/com2-next'
 	import Com2List from '../components/com2-list/com2-list'
+	var Cookies = require('cookies-js')
 
 
 	function GetQueryString(name) {
@@ -83,9 +84,15 @@
 		},
 		created() {
 			var vm = this
+			var code = Cookies.get('code') || ('code' + String(Math.random()).replace('.', '') + String(new Date().getTime()))
+			Cookies.set('code', code, {expires: 999999999})
+
 			$.ajax({
 				url: 'http://wx.zhidx.com/zhidx/gtic/getuserlist',
 				type: 'get',
+        data:{
+					code
+        },
 				dataType: 'jsonp',
 				success(replayData) {
 					vm.list = replayData[vm.type]

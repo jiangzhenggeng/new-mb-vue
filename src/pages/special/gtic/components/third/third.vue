@@ -102,7 +102,7 @@
       <div class="third__wrap-text">
         <div v-if="innerDontShow!=4" class="third__wrap-item" @click="showWindow('type1')">
           <img src="./1.svg"/>
-          <div class="btn-fix-bg">投票</div>
+          <div class="btn-fix-bg">敬请期待</div>
         </div>
         <div v-if="innerDontShow!=1" class="third__wrap-item" @click="showWindow('type2')">
           <img src="./2.svg"/>

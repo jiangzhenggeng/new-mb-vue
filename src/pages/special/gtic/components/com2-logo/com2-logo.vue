@@ -39,12 +39,46 @@
   <div class="com2-logo__wrap">
     <div class="com2-logo__wrap-inner">
       <div class="com2-logo__wrap-logo">
-        <img src="./i-cv.svg"/>
+        <img :src="list['type'+typeid].cover"/>
       </div>
       <div class="com2-logo__desc">
-        <div class="com2-logo__title">年度创新产品-投票</div>
-        <div class="com2-logo__english">Innovative Product of the Year</div>
+        <div class="com2-logo__title">{{list['type'+typeid].title}}</div>
+        <div class="com2-logo__english">{{list['type'+typeid].en}}</div>
       </div>
     </div>
   </div>
 </template>
+<script>
+	function GetQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]);
+		return null;
+	}
+
+	export default {
+
+		data() {
+			return {
+				typeid: GetQueryString('type'),
+				list: {
+					type1: {
+						cover: require('./type-1.svg'),
+						title: '年度AI先锋-投票',
+						en: 'AI Pioneer of the Year'
+					},
+					type2: {
+						cover: require('./type-2.svg'),
+						title: '年度创新产品-投票',
+						en: 'Innovative Product of the Year'
+					},
+					type3: {
+						cover: require('./type-3.svg'),
+						title: '年度商业应用-投票',
+						en: 'Commercial Application of the Year'
+					},
+				}
+			}
+		}
+	}
+</script>

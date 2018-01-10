@@ -83,16 +83,16 @@
     <div class="com3__box">
       <div class="face__wrap">
         <div class="face">
-          <img :src="item.cover"/>
+          <img :src="inner_item.cover"/>
         </div>
-        <div class="tick-number">{{item.vote}}票</div>
+        <div class="tick-number">{{inner_item.vote}}票</div>
       </div>
       <div class="content">
-        <div class="title">{{item.username}}</div>
-        <div class="content-desc">{{item.desc}}</div>
+        <div class="title">{{inner_item.username}}</div>
+        <div class="content-desc">{{inner_item.desc}}</div>
         <div class="vote-btn-wrap">
-          <div v-if="item.status!=1" class="vote-btn" @click="clickVote(item.id)">投票</div>
-          <div v-else class="vote-btn">你已投票</div>
+          <div v-if="inner_item.status!=1" class="vote-btn" @click="clickVote(inner_item.id)">投票</div>
+          <div v-else class="vote-btn">已投票</div>
         </div>
       </div>
     </div>
@@ -107,6 +107,22 @@
 			item: {
 				type: Object,
 				required: true
+			}
+		},
+		data() {
+			return {
+				inner_item: this.item
+			}
+		},
+		watch: {
+			item() {
+				this.inner_item = this.item
+			}
+		},
+		methods: {
+			voteSuccess(id) {
+				this.inner_item.vote = parseInt(String(this.inner_item.vote || 0)) + 1
+				this.inner_item.status = 1
 			}
 		}
 	}

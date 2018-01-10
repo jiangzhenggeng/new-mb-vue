@@ -51,6 +51,7 @@
 	import Com3Desc from '../components/com3-desc/com3-desc'
 	import Com3Share from '../components/com3-share/com3-share'
 	import $ from 'jquery'
+	var Cookies = require('cookies-js')
 
 	function GetQueryString(name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -70,10 +71,16 @@
 		},
 		created() {
 			var vm = this
+			var code = Cookies.get('code') || ('code' + String(Math.random()).replace('.', '') + String(new Date().getTime()))
+			Cookies.set('code', code, {expires: 999999999})
+
 			$.ajax({
 				url: 'http://wx.zhidx.com/zhidx/gtic/getuserlist',
 				type: 'get',
 				dataType: 'jsonp',
+        data:{
+					code
+        },
 				success(replayData) {
 					(replayData[vm.type] || []).forEach((item) => {
 						if (item.id == vm.id) {
