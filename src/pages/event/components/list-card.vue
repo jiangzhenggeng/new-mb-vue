@@ -17,18 +17,34 @@
           </template>
           <div class="stream-img">
             <img
-              v-lazy="`http://s1.jiguo.com/${item.fileid}/640?imageView2/1/w/640/h/320/q/100`"
-              :src="`http://s1.jiguo.com/${item.fileid}/640?imageView2/1/w/60/h/30/q/30`"
+              v-lazy="`http://s1.jiguo.com/${item.fileid}/640?imagediv2/1/w/640/h/320/q/100`"
+              :src="`http://s1.jiguo.com/${item.fileid}/640?imagediv2/1/w/60/h/30/q/30`"
             />
             <div class="mask-cover"></div>
           </div>
-          <div class="stream-bottom">
-            <div class="stream-title ft18">{{item.name}}</div>
-            <div class="stream-text">
-              <span class="ft14"><em class="ft18 colfff mgr10">{{ item.follownum }}</em>人参与</span>
-              <span :class="`ft14 fr mgt4 ${item.status.status}`">{{ item.status.title }}</span>
+          <template v-if="item.is_reserve">
+            <div class="stream-bottom event-reserve">
+              <div class="stream-title ft18">{{item.name}}</div>
+              <div class="stream-text">
+                <span class="ft14"><em class="ft18 colfff mgr5">{{ item.reserve_num }}</em>人已预约</span>
+                <div class="flex center">
+                  <div v-if="item.status && item.status.status_title">{{item.status.status_title}}</div>
+                  <div class="subscribe mgl10">
+                    <div class="subscribe-btn flex center ft12">立即预约</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </template>
+          <template v-else>
+            <div class="stream-bottom">
+              <div class="stream-title ft18">{{item.name}}</div>
+              <div class="stream-text">
+                <span class="ft14"><em class="ft18 colfff mgr10">{{ item.follownum }}</em>人参与</span>
+                <span :class="`ft14 fr mgt4 ${item.status.status}`">{{ item.status.title }}</span>
+              </div>
+            </div>
+          </template>
         </div>
       </a>
     </div>
@@ -37,33 +53,34 @@
 
 <script>
 
-  import * as types from '@/store/types'
-  import { mapState } from 'vuex'
+	import * as types from '@/store/types'
+	import {mapState} from 'vuex'
 
-  export default {
-    props: {
-      item: {
-        type: Object
-      }
-    },
-    data: function () {
-      return {}
-    },
-    created () {
-      this.$store.commit(types.PAGE_LOADING_QUERY, {
-        show: false
-      })
-    }
-  }
+	export default {
+		props: {
+			item: {
+				type: Object
+			}
+		},
+		data: function () {
+			return {}
+		},
+		created() {
+			this.$store.commit(types.PAGE_LOADING_QUERY, {
+				show: false
+			})
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
   @import './../../../style/scss/helpers/functions';
+
   .mian-stream li.large.event {
     .stream-bottom {
       color: #fff;
     }
-    .stream-text{
+    .stream-text {
       color: #ccc;
     }
     .stream-title {

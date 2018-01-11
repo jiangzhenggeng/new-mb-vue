@@ -144,6 +144,21 @@
           justify-content: space-between;
         }
       }
+      //试用预约
+      .stream-bottom.event-reserve{
+        .subscribe{
+
+        }
+        .subscribe-btn{
+          color: #fff;
+          background: #F66039;
+          border-radius: px2rem(4);
+          overflow: hidden;
+
+          width: px2rem(73 * 2);
+          height: px2rem(23 * 2);
+        }
+      }
     }
 
     //话题
