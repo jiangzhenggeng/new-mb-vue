@@ -131,11 +131,16 @@ $wxjs = $jssdk->GetSignPackage();
 
 
 	var urls = window.location.href;
+	var title = "GTIC AWARDS 2018年度评选 | 发现智能变革力量"
+  if(urls.indexOf('detail.php')>-1){
+		title = '我参加了GTIC AWARDS 2018 年度评选，快来给我投票吧！'
+	}
+
 	wx.ready(function () {
 
 		//分享到朋友圈
 		wx.onMenuShareTimeline({
-			title: "GTIC AWARDS 2018年度评选 | 发现智能变革力量", // 分享标题
+			title: title, // 分享标题
 			link: urls, // 分享链接
 			imgUrl: 'http://cdn.jiguo.com/static@2.0/v1.0.0/img/8f1f320.jpg', // 分享图标
 			success: function () {
@@ -148,7 +153,7 @@ $wxjs = $jssdk->GetSignPackage();
 
 		//分享给朋友
 		wx.onMenuShareAppMessage({
-			title: "GTIC AWARDS 2018年度评选 | 发现智能变革力量", // 分享标题
+			title: title, // 分享标题
 			desc: "", // 分享描述
 			link: urls, // 分享链接
 			imgUrl: 'http://cdn.jiguo.com/static@2.0/v1.0.0/img/8f1f320.jpg', // 分享图标

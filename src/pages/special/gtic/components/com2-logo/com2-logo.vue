@@ -74,8 +74,8 @@
 					},
 					type3: {
 						cover: require('./type-3.svg'),
-						title: '年度商业应用-投票',
-						en: 'Commercial Application of the Year'
+						title: '优秀解决方案-投票',
+						en: 'Best Solution of the year'
 					},
 				}
 			}
