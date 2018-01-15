@@ -16,7 +16,10 @@
                 <div class="banner-desc">
                   <div class="banner-title">{{ v.name }} {{ v.isshoufa == 2 ? '(体验师专享)' : '' }}</div>
                   <div class="banner-tips pos-rel">
-                    <span class="ft16 colfff">{{ v.follownum }} <font class="ft12 gray">人申请</font></span>
+
+                    <span v-if="!v.is_reserve" class="ft16 colfff">{{ v.follownum }} <font class="ft12 gray">人申请</font></span>
+                    <span class="ft16 colfff" v-else>{{ v.follownum }} <font class="ft12 gray">人已预约</font></span>
+
                     <span class="ft12 gray">{{v.buying_name}}</span>
 
                     <template v-if="v.deadline > now">
