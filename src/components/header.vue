@@ -182,6 +182,8 @@
     position: absolute;
     width: 100%;
     z-index: 1;
+    left: 0;
+    top: 0;
     a {
       display: block;
       line-height: $height;
