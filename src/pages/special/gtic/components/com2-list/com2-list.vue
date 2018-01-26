@@ -104,8 +104,9 @@
                 <div class="com2-list__content">{{item.desc}}</div>
                 <div class="com2-list__bottom">
                   <div class="com2-list__tike-num">{{item.vote}} 票</div>
-                  <div v-if="item.status!=1" class="com2-list__tike-query" @click.stop="clickVote(item.id)">投票</div>
-                  <div v-else class="com2-list__tike-query">已投票</div>
+                  <!--<div v-if="item.status!=1" class="com2-list__tike-query" @click.stop="clickVote(item.id)">投票</div>-->
+                  <!--<div v-else class="com2-list__tike-query">已投票</div>-->
+                  <div class="com2-list__tike-query">投票结束</div>
                 </div>
               </div>
             </div>

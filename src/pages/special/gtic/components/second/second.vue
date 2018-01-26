@@ -109,9 +109,9 @@
               <div class="subtitle">公众投票</div>
               <div class="subtime">2018.01.10-2018.01.26</div>
             </li>
-            <li :class="isOn('2018.01.26 00:00:01','2018.02.09 23:59:59')?'on':''">
+            <li :class="isOn('2018.01.27 00:00:01','2018.02.09 23:59:59')?'on':''">
               <div class="subtitle">评委评审</div>
-              <div class="subtime">2018.01.26-2018.02.09</div>
+              <div class="subtime">2018.01.27-2018.02.09</div>
             </li>
             <li :class="isOn('2018.03.09 00:00:01','2099.03.09 23:59:59')?'on':''">
               <div class="subtitle">颁奖仪式</div>

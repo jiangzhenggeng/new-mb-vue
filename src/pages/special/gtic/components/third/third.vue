@@ -106,15 +106,15 @@
         </div>
         <div v-if="innerDontShow!=1" class="third__wrap-item" @click="showWindow('type2')">
           <img src="./2.svg"/>
-          <div class="btn-fix-bg">投票</div>
+          <div class="btn-fix-bg">投票结束</div>
         </div>
         <div v-if="innerDontShow!=2" class="third__wrap-item" @click="showWindow('type3')">
           <img src="./3.svg"/>
-          <div class="btn-fix-bg">投票</div>
+          <div class="btn-fix-bg">投票结束</div>
         </div>
         <div v-if="innerDontShow!=3" class="third__wrap-item" @click="showWindow('type4')">
           <img src="./4.svg"/>
-          <div class="btn-fix-bg">投票</div>
+          <div class="btn-fix-bg">投票结束</div>
         </div>
       </div>
     </div>
@@ -126,7 +126,8 @@
           <!--<div class="hybtn apply" @click="apply" v-if="url">报名</div>-->
           <template v-if="type">
             <div class="hybtn apply">
-              <div @click="toUrl('type.php?type='+type)">投票</div>
+              <!--<div @click="toUrl('type.php?type='+type)">投票</div>-->
+              <div>投票结束</div>
             </div>
           </template>
           <template v-else>

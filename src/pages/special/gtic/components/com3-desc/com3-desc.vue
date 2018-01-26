@@ -91,8 +91,9 @@
         <div class="title">{{inner_item.username}}</div>
         <div class="content-desc">{{inner_item.desc}}</div>
         <div class="vote-btn-wrap">
-          <div v-if="inner_item.status!=1" class="vote-btn" @click="clickVote(inner_item.id)">投票</div>
-          <div v-else class="vote-btn">已投票</div>
+          <div class="vote-btn">投票结束</div>
+          <!--<div v-if="inner_item.status!=1" class="vote-btn" @click="clickVote(inner_item.id)">投票</div>-->
+          <!--<div v-else class="vote-btn">已投票</div>-->
         </div>
       </div>
     </div>
