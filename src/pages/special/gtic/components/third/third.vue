@@ -126,8 +126,7 @@
           <!--<div class="hybtn apply" @click="apply" v-if="url">报名</div>-->
           <template v-if="type">
             <div class="hybtn apply">
-              <!--<div @click="toUrl('type.php?type='+type)">投票</div>-->
-              <div>投票结束</div>
+              <div @click="toUrl('type.php?type='+type)">投票结束</div>
             </div>
           </template>
           <template v-else>

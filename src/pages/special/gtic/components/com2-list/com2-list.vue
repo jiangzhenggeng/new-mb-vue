@@ -67,7 +67,8 @@
         color: #000;
         font-size: px2rem(20);
         height: px2rem(33);
-        width: px2rem(98);
+        min-width: px2rem(98);
+        padding: 0 px2rem(10);
         display: flex;
         justify-content: center;
         align-items: center;
