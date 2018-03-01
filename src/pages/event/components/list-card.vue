@@ -28,14 +28,14 @@
               <template
                 v-if="item.meta"
                 v-for="(meta,meta_index) in item.meta"
-                v-key="meta.unit+meta.title"
+                v-key="meta.mid"
               >
                 <div
                   class="home-d1"
                   :class="meta.is_sold_out==1?'gray':''"
                 >
-                  <span>{{meta.title}}</span>
-                  <span class="home-g1">{{meta.unit}}</span>
+                  <span>{{meta.event_list_title}}</span>
+                  <span class="home-g1">{{meta.event_list_unit}}</span>
                 </div>
               </template>
             </div>

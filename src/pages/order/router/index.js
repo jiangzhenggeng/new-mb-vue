@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Order from '../pages/order.vue'
+import OrderWriteFree from '../pages/order-write-free.vue'
+import OrderWritePay from '../pages/order-write-pay.vue'
 import OrderShow from '../pages/order-show.vue'
 
 if (process.env['vue-router']!=='VueRouter') {
@@ -10,9 +11,13 @@ const debug = process.env.NODE_ENV !== 'production'
 const router = new VueRouter({
   mode: debug ? '' : 'history',
   routes: [
+		{
+			path: '/mb/pay/freeorder(.*)',
+			component: OrderWriteFree
+		},
     {
       path: '/mb/pay/payorder(.*)',
-      component: Order
+      component: OrderWritePay
     },
     {
       path: '/mb/pay/myorder(.*)',

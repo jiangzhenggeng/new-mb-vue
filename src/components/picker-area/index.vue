@@ -1,179 +1,43 @@
 <style lang="scss">
-
-  @import "../../style/scss/helpers/functions";
-
-  .area2-select-wrap {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    color: #9D9D9D;
-    font-size: px2rem(28);
-    z-index: 9;
-  }
-
-  .area2-select-mask {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-
-  .area2-select-inner {
-    height: px2rem(640);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .area2-select-header {
-    height: px2rem(100);
-    line-height: px2rem(100);
-    text-align: center;
-    position: relative;
-    font-size: px2rem(32);
-    border-bottom: 1px solid #F3F3F3;
-  }
-
-  .area2-close-wrap {
-    padding: px2rem(24);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    img {
-      display: block;
-      width: px2rem(30);
-      height: px2rem(30);
-    }
-  }
-
-  .area2-close-icon {
-    width: 100%;
-    height: 100%;
-  }
-
-  .area2-sub-header {
-    height: px2rem(80);
-    line-height: px2rem(80);
-    border-bottom: 1px solid #F3F3F3;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    padding: 0 px2rem(24);
-  }
-
-  .area2-sub-item {
-    padding: 0 px2rem(20);
-    position: relative;
-  }
-
-  .area2-sub-item::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: px2rem(6);
-    bottom: 0;
-    left: 0;
-    background-color: #F34416;
-    display: none;
-  }
-
-  .area2-sub-item.on {
-    color: #F34416;
-  }
-
-  .area2-sub-item.on::after {
-    display: block;
-  }
-
-  .area2-item-wrap {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-  }
-  .swiper-container{
-    height: 100%;
-  }
-  .swiper-slide {
-    overflow-y: scroll;
-  }
-  .area2-swiper-box {
-    height: px2rem(436);
-  }
-
-  .area2-swiper-inner {
-    padding: px2rem(25) px2rem(44);
-  }
-
-  .area2-swiper-slide {
-    height: 40px;
-    line-height: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .area2-swiper-slide.on {
-    color: #F34416;
-  }
-
-  .area2-swiper-areaname {
-    position: relative;
-    padding-right: 45px;
-  }
-
-  .area2-swiper-areaname::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: 0px;
-    top: 50%;
-    margin-top: -10px;
-    line-height: normal;
-    display: none;
-    background-position: center center;
-    background-size: 10px auto;
-    background-repeat: no-repeat;
-    background-image: url(http://cdn.jiguo.com/static/WeiXin/images/center/area_gou.png);
-  }
-
-  .on .area2-swiper-areaname::after {
-    display: block;
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-
-  .fade-enter, .fade-leave-active {
-    opacity: 0;
-  }
+  @import "./style.scss";
 </style>
 
 <template>
-  <transition name="fade">
-    <div class="area2-select-wrap" v-if="show">
-      <div class="area2-select-mask" @click="close"></div>
+  <div
+    @click="open"
+    class="area2-select-wrap"
+  >
+    <slot></slot>
+    <div class="area2-select-box" v-if="show_inner">
+      <div class="area2-select-mask" @click.stop="close"/>
       <div class="area2-select-inner">
         <div class="area2-select-header">
-          <div class="area2-close-wrap" @click="">
+          <div class="area2-close-wrap" @click.stop="close">
             <img class="area2-close-icon" src="./area_close.png"/>
           </div>
           <div>所在区域</div>
         </div>
 
         <div class="area2-sub-header">
-          <div class="area2-sub-item">北京</div>
-          <div class="area2-sub-item">北京市</div>
-          <div class="area2-sub-item">海淀区</div>
+          <template v-if="inner_addrSelect.length">
+            <div
+              v-for="(inner_addrSelectItem,inner_addrSelectIndex) in inner_addrSelect"
+              :key="inner_addrSelectItem.id"
+              @click="tapTabBar(inner_addrSelectIndex)"
+              :class="['area2-sub-item',currentTab==inner_addrSelectIndex?'on':'']"
+            >
+              {{inner_addrSelectItem.name}}
+            </div>
+          </template>
+          <template v-if="inner_addrSelect.length<addrList.length">
+            <div
+              :class="['area2-sub-item',currentTab>=addrList.length-1?'on':'']"
+              @click="tapTabBar(inner_addrSelect.length)"
+            >
+              {{'请选择'}}
+            </div>
+          </template>
+
         </div>
 
         <div class="area2-item-wrap">
@@ -182,148 +46,175 @@
             :not-next-tick="notNextTick"
             ref="mySwiper"
           >
-            <swiper-slide>
-              <div v-for="item in provinceList" @click="selectItem(item,'select_province')">
-                <div class="area2-swiper-inner">
-                  <div bindtap="selectResideprovince">
-                    <div class="area2-swiper-areaname">{{ item.name }}</div>
-                  </div>
-                </div>
+            <swiper-slide
+              v-for="(addrListItem,addrListIndex) in addrList"
+              :key="addrListIndex"
+            >
+              <div
+                v-for="item in addrListItem"
+                :key="item.name"
+                @click="clickSelectArea(item.id,item.name)"
+                class="area2-swiper-inner"
+              >
+                <div class="area2-swiper-areaname">{{ item.name }}</div>
+                <img v-if="inner_addrSelect[addrListIndex] && item.name==inner_addrSelect[addrListIndex].name" class="area2-swiper-gou" src="./area_gou.png" />
               </div>
             </swiper-slide>
-            <swiper-slide>
-              <div v-for="item in cityList" @click="selectItem(item,'select_city')">
-                <div class="area2-swiper-inner">
-                  <div bindtap="selectResideprovince">
-                    <div class="area2-swiper-areaname">{{ item.name }}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div v-for="item in countyList" @click="selectItem(item,'select_county')">
-                <div class="area2-swiper-inner">
-                  <div bindtap="selectResideprovince">
-                    <div class="area2-swiper-areaname">{{ item.name }}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
+
           </swiper>
         </div>
 
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
-  require('swiper/dist/css/swiper.css')
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+	require('swiper/dist/css/swiper.css')
+	import {swiper, swiperSlide} from 'vue-awesome-swiper'
 
-  import PickerItem from '../picker-item/picker-item.vue'
-  import cityList from './cityList'
+	import PickerItem from '../picker-item/picker-item.vue'
+	import _cityList from './cityList'
 
-  function getArea (pid) {
-    var areaArray = []
-    cityList.forEach(item => {
-      if (item.pid === pid) {
-        areaArray.push(item)
-      }
-    })
-    return areaArray
-  }
+	let cityList = _cityList.sort(function (a, b) {
+		return a.id > b.id ? -1 : 1
+	})
 
-  function nameFind (name) {
-    var data = {}
-    cityList.forEach(item => {
-      if (item.name === name) {
-        data = item
-      }
-    })
-    return data
-  }
+	function getCurrentItemList(cityList, pid, defaultSelect) {
+		var list = []
+		var selectid
+		for (let i = cityList.length - 1; i >= 0; i--) {
+			let item = cityList[i]
+			if (item.pid == pid) {
+				if (defaultSelect && defaultSelect.name == item.name) {
+					selectid = item.id
+				}
+				list.push(item)
+			}
+		}
+		return {
+			list,
+			selectid
+		}
+	}
 
-  export default {
-    name: 'pdIosSelect',
-    props: {
-      show: {
-        type: Boolean,
-        default: false
-      },
-      province: {
-        type: String,
-        default: '北京'
-      },
-      city: {
-        type: String,
-        default: '北京市'
-      },
-      county: {
-        type: String,
-        default: '东城区'
-      }
-    },
-    data () {
-      return {
-        provinceList: getArea(0),
-        cityList: getArea(1),
-        countyList: getArea(2),
-        select_province: nameFind(this.province),
-        select_city: nameFind(this.city),
-        select_county: nameFind(this.county),
-        inner_show: this.show,
+	export default {
+		name: 'pdIosSelect',
+		props: {
+			show: {
+				type: Boolean,
+				default: false
+			},
+			addrSelect: {
+				type: Array,
+				default: []
+			},
+		},
+		data() {
+			let vm = this
+			return {
+				addrList: [],
+				inner_addrSelect: [],
 
-        notNextTick: true,
-        swiperOption: {
-          initialSlide:0,
-          loop: false,
-          direction: 'horizontal',
-          debugger: true,
-          onTransitionStart (swiper) {
-            console.log(swiper)
-          }
-        }
-      }
-    },
-    watch: {
-      select_province (newVal) {
-        this.cityList = getArea(newVal.id)
-      },
-      select_city (newVal) {
-        this.countyList = getArea(newVal.id)
-      },
-      show (newVal) {
-        this.inner_show = newVal
-      }
-    },
-    components: {
-      PickerItem,
-      swiper,
-      swiperSlide
-    },
-    methods: {
-      getReturnData () {
-        var array = []
-        this.provinceList.length && array.push(this.select_province)
-        this.cityList.length && array.push(this.select_city)
-        this.countyList.length && array.push(this.select_county)
+				show_inner: this.show,
+				currentTab: 0,
 
-        return array
-      },
-      close () {
-        this.inner_show = false
-        this.$emit('update:show', false)
-        this.$emit('close', this.getReturnData())
-      },
-      ok () {
-        this.$emit('update:show', false)
-        this.inner_show = false
-        this.$emit('ok', this.getReturnData())
-      },
-      selectItem(item,key){
-        this[key] = item;
-      }
-    }
-  }
+				notNextTick: true,
+				swiperOption: {
+					loop: false,
+					direction: 'horizontal',
+					onSlideChangeStart(swiper) {
+						vm.currentTab = swiper.activeIndex
+					}
+				}
+			}
+		},
+		watch: {
+			addrSelect() {
+				this._setInitSelect()
+			}
+		},
+		created() {
+			this._setInitSelect()
+		},
+		components: {
+			PickerItem,
+			swiper,
+			swiperSlide
+		},
+		methods: {
+			_setInitSelect() {
+				var addrSelect = this.addrSelect
+				var addrList = []
+				var tempResult, selectid
+				var hasFixGh = true
+				addrSelect = addrSelect.filter((item) => {
+					if (item.name && hasFixGh) {
+						return true
+					}
+					hasFixGh = false
+					return false
+				}).map((item) => {
+					item.name = (item.name + '').replace(/^\s+|\s+$/g, '')
+					return item
+				})
+
+				let inner_addrSelect = []
+				for (var i = 0; i < addrSelect.length || i == 0; i++) {
+					selectid = tempResult ? tempResult.selectid : 0
+					tempResult = getCurrentItemList(cityList, selectid, addrSelect[i])
+					addrList[i] = tempResult.list
+					if (tempResult.selectid) {
+						inner_addrSelect.push(addrSelect[i])
+					}
+				}
+
+				this.addrList = addrList
+				this.inner_addrSelect = inner_addrSelect
+				this.currentTab = addrList.length - 1
+				this.swiperOption.initialSlide = addrList.length - 1
+			},
+			open() {
+				this.show_inner = true
+				this.$emit('open')
+			},
+			close() {
+				this.show_inner = false
+				this.$emit('close')
+			},
+			tapTabBar(currentTab) {
+				this.$refs['mySwiper'].swiper.slideTo(currentTab)
+				this.currentTab = currentTab
+			},
+			clickSelectArea(itemId, itemName) {
+				var currentTab = this.$refs['mySwiper'].swiper.activeIndex
+				var nextTab = currentTab + 1
+				var inner_addrSelect = this.inner_addrSelect
+				var addrList = this.addrList
+				//已选择地址
+				inner_addrSelect[currentTab] = {
+					name: itemName,
+					id: itemId
+				}
+				inner_addrSelect.splice(currentTab + 1)
+				var nextItemList = getCurrentItemList(cityList, itemId)
+				if (nextItemList.list.length) {
+					addrList[nextTab] = nextItemList.list
+				}
+				addrList.splice(nextTab + 1)
+
+				this.addrList = addrList
+				this.inner_addrSelect = inner_addrSelect
+				this.currentTab = currentTab >= addrList.length - 1 ? currentTab : currentTab + 1
+
+				this.$nextTick(() => {
+					if (currentTab >= addrList.length - 1) {
+						this.$emit('select', this.inner_addrSelect)
+						this.close()
+					}
+					this.$refs['mySwiper'].swiper.slideTo(this.currentTab)
+				})
+			}
+		}
+	}
 </script>
