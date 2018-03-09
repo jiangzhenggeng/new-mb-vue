@@ -150,7 +150,8 @@ module.exports = [
 		options: {
 			filename: '/Users/jiangzg/Desktop/gtic/mb.php',
 			template: getTplPath('special/gtic'),
-		}
+		},
+		assetsPublicPath:'https://cdn.jiguo.com/static@2.0/'
 	},
 	{
 		name: 'gtic-type',
@@ -158,7 +159,8 @@ module.exports = [
 		options: {
 			filename: '/Users/jiangzg/Desktop/gtic/type.php',
 			template: getTplPath('special/gtic'),
-		}
+		},
+		assetsPublicPath:'https://cdn.jiguo.com/static@2.0/'
 	},
 	{
 		name: 'gtic-detail',
@@ -166,7 +168,8 @@ module.exports = [
 		options: {
 			filename: '/Users/jiangzg/Desktop/gtic/detail.php',
 			template: getTplPath('special/gtic'),
-		}
+		},
+		assetsPublicPath:'https://cdn.jiguo.com/static@2.0/'
 	},
 	{
 		name: 'gtic-pc',
