@@ -51,7 +51,7 @@
       <template v-if="productName">
         <div class="article-show-all-header" v-if="item.product">
           <a class="article-show-all-header-href ft16 gray" :href="`/mb/article/articlelist/id/${item.pid}.html`">
-            <span style="height: 40px;">{{ item.product }}</span>
+            <span class="line1">{{ item.product }}</span>
             <span v-if="item.num>1" class="icon icon-more">{{item.num}}篇</span>
           </a>
         </div>
@@ -82,6 +82,18 @@
   }
 </script>
 <style lang="scss" scoped>
+  $IMAGES_PATH : '../../style/images/';
+  @import './../../style/scss/helpers/_functions.scss';
+  .line1{
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    height: px2rem(40);
+    flex: 1;
+  }
   .icon.icon-more {
     position: relative;
     padding-right: px2rem(35);
