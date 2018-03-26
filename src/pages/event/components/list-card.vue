@@ -17,8 +17,9 @@
           </template>
           <div class="stream-img">
             <img
-              v-lazy="`http://s1.jiguo.com/${item.cover}/640?imagediv2/1/w/640/h/320/q/100`"
-              :src="`http://s1.jiguo.com/${item.cover}/640?imagediv2/1/w/60/h/30/q/30`"
+              :data-background-size="`${220/75}rem auto`"
+              v-lazy="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/640/h/320/q/100`"
+              :src="`http://s1.jiguo.com/${item.cover}/640?imageView2/1/w/60/h/30/q/30`"
             />
             <div class="mask-cover"></div>
           </div>
@@ -31,8 +32,11 @@
                 v-key="meta.mid"
               >
                 <div
-                  class="home-d1"
-                  :class="meta.is_sold_out==1?'gray':''"
+                  :class="[
+                    'home-d1',
+                    meta.is_sold_out==1?'gray':'',
+                    meta.is_end==1?'del-line':''
+                  ]"
                 >
                   <span>{{meta.event_list_title}}</span>
                   <span class="home-g1">{{meta.event_list_unit}}</span>
@@ -106,11 +110,11 @@
 				show: false
 			})
 		},
-    methods:{
-			isArray(array){
-				return Object.prototype.toString.call(array)==='[object Array]'
-      }
-    }
+		methods: {
+			isArray(array) {
+				return Object.prototype.toString.call(array) === '[object Array]'
+			}
+		}
 	}
 </script>
 
