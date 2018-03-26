@@ -90,7 +90,7 @@ fi
 git status
 git add .
 git commit -m "${BRANCH_NAME}-${COMMIT_TEXT}"
-git push origin ${BRANCH_NAME}
+#git push origin ${BRANCH_NAME}
 
 cd ${BASE_PATH}/mb_new_vue/home/shell
 
