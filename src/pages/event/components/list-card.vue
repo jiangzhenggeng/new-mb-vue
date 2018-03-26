@@ -34,8 +34,10 @@
                 <div
                   :class="[
                     'home-d1',
-                    meta.is_sold_out==1?'gray':'',
-                    meta.is_end==1?'del-line':''
+                    {
+                      'gray':meta.is_sold_out==1,
+                      'del-line':meta.is_sold_out==1||meta.is_end==1
+                    }
                   ]"
                 >
                   <span>{{meta.event_list_title}}</span>
