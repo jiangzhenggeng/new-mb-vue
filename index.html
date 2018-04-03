@@ -6,36 +6,52 @@
 </head>
 <body>
 <style>
-  *{
+  * {
     margin: 0;
     padding: 0;
   }
-  .box{
-    display: flex;
-    align-items: stretch;
-    border:1px solid green;
+
+  .box {
+    border: 5px solid red;
+  }
+
+  .item1 {
+    background: green;
+    width: 100px;
     height: 100px;
+    float: left;
   }
-  .item{
-    flex-grow: 1;
+
+  .item2 {
+    background: yellowgreen;
+    height: 100px;
+    width: 100px;
   }
-  .item1{
-    background: #2D8cF0;
-  }
-  .item2{
-    background: #00ff00;
-  }
-  .item3{
-    background: #1c2438;
-    flex-grow: 2;
-  }
+
 </style>
 
 <div class="box">
   <div class="item item1">sc</div>
   <div class="item item2">sc</div>
-  <div class="item item3">cdd</div>
+  <div class="item item2">sc</div>
 </div>
 
+
+<style>
+  p {
+    color: #f55;
+    background: #fcc;
+    width: 200px;
+    line-height: 100px;
+    text-align: center;
+    margin: 100px;
+  }
+</style>
+<div style="float: left">
+  <p>Haha</p>
+  <div class="wrap">
+    <p>Hehe</p>
+  </div>
+</div>
 </body>
 </html>

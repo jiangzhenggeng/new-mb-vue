@@ -6,15 +6,15 @@
           <template v-if="item.isshoufa==1">
             <span class="event-tag shoufa">首发</span>
           </template>
-          <template v-else-if="item.isshoufa==2">
-            <span class="event-tag tiyanshi">体验师专享</span>
-          </template>
-          <template v-else-if="item.isshoufa==3">
-            <span class="event-tag ev-zhekou">折扣</span>
-          </template>
-          <template v-else-if="item.isshoufa==5">
-            <span class="event-tag tiyanshi">App专享</span>
-          </template>
+          <!--<template v-else-if="item.isshoufa==2">-->
+            <!--<span class="event-tag tiyanshi">体验师专享</span>-->
+          <!--</template>-->
+          <!--<template v-else-if="item.isshoufa==3">-->
+            <!--<span class="event-tag ev-zhekou">折扣</span>-->
+          <!--</template>-->
+          <!--<template v-else-if="item.isshoufa==5">-->
+            <!--<span class="event-tag tiyanshi">App专享</span>-->
+          <!--</template>-->
           <div class="stream-img">
             <img
               :data-background-size="`${220/75}rem auto`"

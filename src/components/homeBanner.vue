@@ -8,9 +8,9 @@
               <a :href="`/mb/event/index/${v.eventid}.html`">
                 <div class="banner-img-box">
                   <span v-if="v.isshoufa==1" class="event-tag shoufa">首发</span>
-                  <span v-else-if="v.isshoufa==2" class="event-tag tiyanshi">体验师专享</span>
-                  <span v-else-if="v.isshoufa==3" class="event-tag ev-zhekou">折扣</span>
-                  <span v-else-if="v.isshoufa==5" class="event-tag tiyanshi">App专享</span>
+                  <!--<span v-else-if="v.isshoufa==2" class="event-tag tiyanshi">体验师专享</span>-->
+                  <!--<span v-else-if="v.isshoufa==3" class="event-tag ev-zhekou">折扣</span>-->
+                  <!--<span v-else-if="v.isshoufa==5" class="event-tag tiyanshi">App专享</span>-->
                   <img :src="`http://s1.jiguo.com/${v.fileid}/640?imageView2/1/w/640/h/320/q/100`">
                 </div>
                 <div class="banner-desc">
