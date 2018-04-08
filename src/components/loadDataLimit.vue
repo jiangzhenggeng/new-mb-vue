@@ -40,166 +40,170 @@
 
 <script>
 
-  import jQuery from 'jquery'
-  import throttle from '../tools/throttle'
-  import sessionStorage from '../tools/session-storage'
+	import $ from 'jquery'
+	import throttle from '../tools/throttle'
+	import sessionStorage from '../tools/session-storage'
 
-  export default {
-    props: {
-      cache: {
-        type: Boolean,
-        default: process.env.NODE_ENV == 'production' ? true : false
-      },
-      url: {
-        type: String
-      },
-      size: {
-        type: Number,
-        default: 10
-      },
-      fixload: {
-        type: Number,
-        default: 1000
-      },
-      limit: {
-        type: [String, Number],
-        default: ''
-      },
-      extData: {
-        type: Object,
-        default: function () {
-          return {
-            sys: 'mb'
-          }
-        }
-      },
-      resultCallback: {
-        type: Function,
-        default: function (replayData) {
-          return replayData
-        }
-      }
-    },
-    data: function () {
-      return {
-        new_limit: this.limit,
-        item_data: [],
+	let WIN_HEIGHT = $(window).height()
 
-        loading: false,
-        nodata: false,
-        nomore: false,
+	export default {
+		props: {
+			cache: {
+				type: Boolean,
+				default: process.env.NODE_ENV == 'production' ? true : false
+			},
+			url: {
+				type: String
+			},
+			size: {
+				type: Number,
+				default: 10
+			},
+			fixload: {
+				type: Number,
+				default: 1000
+			},
+			limit: {
+				type: [String, Number],
+				default: ''
+			},
+			extData: {
+				type: Object,
+				default: function () {
+					return {
+						sys: 'mb'
+					}
+				}
+			},
+			resultCallback: {
+				type: Function,
+				default: function (replayData) {
+					return replayData
+				}
+			}
+		},
+		data: function () {
+			return {
+				new_limit: this.limit,
+				item_data: [],
 
-        timer: null,
-        jqueryLoader: null,
-        _cacheKey_: window.location.href,
-        _cacheData_: ''
-      }
-    },
-    components: {},
-    mounted: function () {
+				loading: false,
+				nodata: false,
+				nomore: false,
 
-      this._cacheKey_ = window.location.href
-      let cache_data = sessionStorage.get(this._cacheKey_)
-      if (!this.cache || !cache_data) {
-        sessionStorage.delete(this._cacheKey_)
-        this.getItemData()
-      } else {
-        this._cacheData_ = cache_data
+				timer: null,
+				$Loader: null,
+				_cacheKey_: window.location.href,
+				_cacheData_: ''
+			}
+		},
+		components: {},
+		mounted: function () {
 
-        this.new_limit = cache_data.limit || this.new_limit
-        this.item_data = cache_data.data || this.item_data
-        this.loading = cache_data.loading || this.loading
-        this.nodata = cache_data.nodata || this.nodata
-        this.nomore = cache_data.nomore || this.nomore
-      }
+			this._cacheKey_ = window.location.href
+			let cache_data = sessionStorage.get(this._cacheKey_)
+			if (!this.cache || !cache_data) {
+				sessionStorage.delete(this._cacheKey_)
+				this.getItemData()
+			} else {
+				this._cacheData_ = cache_data
 
-      let throttleDeFn = throttle(() => {
-        this.getItemData()
-      },320);
-      jQuery(window).off('scroll.home').on('scroll.home', () => {
-        throttleDeFn()
-      })
-    },
-    methods: {
-      getItemData () {
-        //没有更多数据
-        if (this.nomore) return
+				this.new_limit = cache_data.limit || this.new_limit
+				this.item_data = cache_data.data || this.item_data
+				this.loading = cache_data.loading || this.loading
+				this.nodata = cache_data.nodata || this.nodata
+				this.nomore = cache_data.nomore || this.nomore
 
-        //正在加载中
-        if (this.loading) return
+				this.$emit('loading:success')
+			}
 
-        var loadMoreObj = jQuery(this.$refs['loading-more-flage'] || null)
-        if (loadMoreObj.length && window.$WIN_HEIGHT + jQuery(window).scrollTop() + loadMoreObj.height() + this.fixload < loadMoreObj.offset().top) {
-          return
-        }
-        this.loading = true
-        var l_timer = setTimeout(() => {
-          this.loading = false
-          this.jqueryLoader && this.jqueryLoader.abort()
-        }, 10000)
+			let throttleDeFn = throttle(() => {
+				this.getItemData()
+			}, 320);
+			$(window).off('scroll.home').on('scroll.home', () => {
+				throttleDeFn()
+			})
+		},
+		methods: {
+			getItemData() {
+				//没有更多数据
+				if (this.nomore) return
 
-        this.jqueryLoader = jQuery.get(this.url, jQuery.extend(true, this.extData, {
-          limit: this.new_limit,
-          size: this.size
-        }), replayDate => {
-          replayDate = this.resultCallback(replayDate)
+				//正在加载中
+				if (this.loading) return
 
-          this.loading = false
-          clearTimeout(l_timer)
+				var loadMoreObj = $(this.$refs['loading-more-flage'] || null)
+				if (loadMoreObj.length && WIN_HEIGHT + $(window).scrollTop() + loadMoreObj.height() + this.fixload < loadMoreObj.offset().top) {
+					return
+				}
+				this.loading = true
+				var l_timer = setTimeout(() => {
+					this.loading = false
+					this.$Loader && this.$Loader.abort()
+				}, 10000)
 
-          if (replayDate.resultCode == 0) {
+				this.$Loader = $.get(this.url, $.extend(true, this.extData, {
+					limit: this.new_limit,
+					size: this.size
+				}), replayDate => {
+					replayDate = this.resultCallback(replayDate)
 
-            replayDate.result = replayDate.result || []
-            //没有数据
-            if (!this.item_data.length && !replayDate.result.length) {
-              this.nodata = true
-            }
-            if (replayDate.result.length < this.size) {
-              this.nomore = true
-            }
+					this.loading = false
+					clearTimeout(l_timer)
 
-            this.new_limit = replayDate.limit
-            this.item_data = this.item_data.concat(replayDate.result)
+					if (replayDate.resultCode == 0) {
+						this.$emit('loading:success')
+						replayDate.result = replayDate.result || []
+						//没有数据
+						if (!this.item_data.length && !replayDate.result.length) {
+							this.nodata = true
+						}
+						if (replayDate.result.length < this.size) {
+							this.nomore = true
+						}
 
-            //缓存数据
-            this._cacheData_ = {
-              limit: this.new_limit,
-              data: this.item_data,
-              loading: this.loading,
-              nodata: this.nodata,
-              nomore: this.nomore,
-            }
-            sessionStorage.set(this._cacheKey_, this._cacheData_)
-            jQuery(window).trigger('scroll')
+						this.new_limit = replayDate.limit
+						this.item_data = this.item_data.concat(replayDate.result)
 
-            if (!this.nomore && !this.nodata) {
-              if (loadMoreObj.length && window.$WIN_HEIGHT + jQuery(window).scrollTop() + loadMoreObj.height() >= loadMoreObj.offset().top) {
-                this.timer && clearTimeout(this.timer)
-                this.timer = setTimeout(() => {
-                  this.getItemData()
-                }, 0)
-              }
-            }
+						//缓存数据
+						this._cacheData_ = {
+							limit: this.new_limit,
+							data: this.item_data,
+							loading: this.loading,
+							nodata: this.nodata,
+							nomore: this.nomore,
+						}
+						sessionStorage.set(this._cacheKey_, this._cacheData_)
+						$(window).trigger('scroll')
 
-          } else {
+						if (!this.nomore && !this.nodata) {
+							if (loadMoreObj.length && window.$WIN_HEIGHT + $(window).scrollTop() + loadMoreObj.height() >= loadMoreObj.offset().top) {
+								this.timer && clearTimeout(this.timer)
+								this.timer = setTimeout(() => {
+									this.getItemData()
+								}, 0)
+							}
+						}
 
-          }
-        }, 'json')
-      },
-      refresh () {
-        this.jqueryLoader.abort()
-        sessionStorage.delete(this._cacheKey_)
-        this.timer && clearTimeout(this.timer)
-        this.new_limit = ''
-        this.item_data = []
-        this.nomore = false
-        this.loading = false
-        this.nodata = false
-        this._cacheData_ = ''
-        this.item_data = []
-      }
-    }
-  }
+					} else {
+						this.$emit('loading:error')
+					}
+				}, 'json')
+			},
+			refresh() {
+				this.$Loader.abort()
+				sessionStorage.delete(this._cacheKey_)
+				this.timer && clearTimeout(this.timer)
+				this.new_limit = ''
+				this.item_data = []
+				this.nomore = false
+				this.loading = false
+				this.nodata = false
+				this._cacheData_ = ''
+				this.item_data = []
+			}
+		}
+	}
 </script>
 
 

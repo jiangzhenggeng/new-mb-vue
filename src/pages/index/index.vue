@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="content-wrap ft">
+    <page-header/>
     <home-banner/>
     <home-announcement/>
     <div class="mian-stream">
-      <load-data-limit url="/api/article/GetArticleList">
+      <load-data-limit
+        url="/api/article/GetArticleList"
+        @loading:success="closePageLoading"
+      >
         <template slot="item" slot-scope="props">
           <!--一般大卡片-->
           <item-large
@@ -27,6 +31,7 @@
 </template>
 
 <script>
+	import pageHeader from '../../components/header';
 	import homeBanner from '../../components/homeBanner.vue';
 	import homeAnnouncement from '../../components/homeAnnouncement.vue';
 	import loadDataLimit from '../../components/loadDataLimit.vue';
@@ -35,19 +40,27 @@
 	import itemTopic from '../../components/card/topic.vue';
 
 	export default {
-		data: function () {
+		data() {
 			return {}
 		},
+		beforeCreate() {
+			this.pageLoadingHandel = this.$PageLoading()
+		},
 		components: {
-			'home-banner': homeBanner,
-			'home-announcement': homeAnnouncement,
-			'load-data-limit': loadDataLimit,
-			'item-card': itemCard,
-			'item-large': itemLarge,
-			'item-topic': itemTopic
+			pageHeader,
+			homeBanner,
+			homeAnnouncement,
+			loadDataLimit,
+			itemCard,
+			itemLarge,
+			itemTopic
 		},
 
-		methods: {},
+		methods: {
+			closePageLoading() {
+				this.pageLoadingHandel.close()
+			}
+		},
 		filters: {
 			largeType(type) {
 				return type == 1 || type == 2 || type == 3 || type == 4

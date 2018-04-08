@@ -50,10 +50,13 @@
       </a>
       <template v-if="productName">
         <div class="article-show-all-header" v-if="item.product">
-          <a class="article-show-all-header-href ft16 gray" :href="`/mb/article/articlelist/id/${item.pid}.html`">
+          <router-link
+            class="article-show-all-header-href ft16 gray"
+            :to="`/mb/article/articlelist/id/${item.pid}.html`"
+          >
             <span class="line1">{{ item.product }}</span>
             <span v-if="item.num>1" class="icon icon-more">{{item.num}}篇</span>
-          </a>
+          </router-link>
         </div>
       </template>
     </div>
@@ -62,29 +65,29 @@
 
 <script>
 
-  export default {
-    props: {
-      item: {
-        type: Object
-      },
-      tag: {
-        type: Boolean,
-        default: true
-      },
-      productName: {
-        type: Boolean,
-        default: false
-      }
-    },
-    data: function () {
-      return {}
-    },
-  }
+	export default {
+		props: {
+			item: {
+				type: Object
+			},
+			tag: {
+				type: Boolean,
+				default: true
+			},
+			productName: {
+				type: Boolean,
+				default: false
+			}
+		},
+		data: function () {
+			return {}
+		},
+	}
 </script>
 <style lang="scss" scoped>
-  $IMAGES_PATH : '../../style/images/';
+  $IMAGES_PATH: '../../style/images/';
   @import './../../style/scss/helpers/_functions.scss';
-  .line1{
+  .line1 {
     overflow: hidden;
     text-overflow: ellipsis;
 
@@ -94,6 +97,7 @@
     height: px2rem(40);
     flex: 1;
   }
+
   .icon.icon-more {
     position: relative;
     padding-right: px2rem(35);

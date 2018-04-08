@@ -5,47 +5,21 @@ import * as actions from './actions'
 import mutations from './mutations'
 import search from './../pages/search/store'
 
-if (process.env.vuex!=='Vuex') {
+if (process.env.vuex !== 'Vuex') {
 	Vue.use(Vuex)
 }
 
-const initState = {
-  //页面加载提示
-  show: true,
-  'page-router-loading': false
-}
 const debug = process.env.NODE_ENV !== 'production'
 
 const store = new Vuex.Store({
-  state: initState,
-  actions,
-  mutations,
-  modules: {
-    search
-  },
-  strict: debug,
-  plugins: debug ? [createLogger()] : []
-})
-
-store.registerModule('routerDir', {
-  state: {
-    direction: 'forward'
-  },
-  mutations: {
-    updateDirection (state, payload) {
-      state.direction = payload.direction
-    }
-  },
-  actions: {
-    updateDirection ({commit}, direction) {
-      commit({type: 'updateDirection', direction: direction})
-      if (direction.direction == 'out') {
-        setTimeout(() => {
-          commit({type: 'updateDirection', direction: 'forward'})
-        }, 350)
-      }
-    }
-  }
+	state: {},
+	actions,
+	mutations,
+	modules: {
+		search
+	},
+	strict: debug,
+	plugins: debug ? [createLogger()] : []
 })
 
 export default store

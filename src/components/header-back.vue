@@ -1,8 +1,8 @@
 <template>
-  <div class="header header-wrap" ref="header-wrap">
+  <div class="header header-wrap header-back-wrap" ref="header-wrap">
     <div class="header__back-wrap">
       <a @click="back" class="header__back">
-        <i class="icon icon-back" v-waves.circle="true"></i>
+        <i class="icon icon-back"></i>
       </a>
     </div>
     <div class="header__title">
@@ -21,34 +21,31 @@
 </template>
 
 <script>
-  import Cookie from 'js-cookie'
-  import $ from 'jquery'
-  import { mapState, mapActions } from 'vuex'
 
-  export default {
-    props: {
-      title: {
-        type: String,
-        default: '导航标题'
-      },
-      rightTitle: {
-        type: String,
-        default: ''
-      },
-      setAbsolute: {
-        type: Boolean,
-        default: true
-      }
-    },
-    methods: {
-      back: function () {
-        this.$emit('back')
-      },
-      right () {
-        this.$emit('right')
-      }
-    }
-  }
+	export default {
+		props: {
+			title: {
+				type: String,
+				default: '导航标题'
+			},
+			rightTitle: {
+				type: String,
+				default: ''
+			},
+			setAbsolute: {
+				type: Boolean,
+				default: true
+			}
+		},
+		methods: {
+			back () {
+				this.$emit('back')
+			},
+			right() {
+				this.$emit('right')
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -121,7 +118,8 @@
 </style>
 <style lang="scss">
   @import "../style/scss/helpers/functions";
-  .header-wrap + .page__body{
+
+  .header-back-wrap + div {
     border-top: px2rem(104) solid transparent;
   }
 </style>

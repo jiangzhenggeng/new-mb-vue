@@ -1,8 +1,8 @@
 <template>
-  <aside class="side-menu" v-bind:class="{show}" id="side-menu">
+  <aside :class="['side-menu',{show}]" id="side-menu">
     <div class="mask" @click="closeMenu"></div>
     <menu ref="menu" class="menu-inner">
-      <div class="menu-app-download clear" v-waves.block="true">
+      <div class="menu-app-download clear">
         <a href="/mb/app/index.html" class="block">
           <div class="app-download-logo fl">
             <img src="../style/images/menu/app-menue-icon.png">
@@ -16,16 +16,29 @@
       </div>
       <div class="swipe">
         <ul>
-          <li :class="{'on': curr=='index'}" v-waves.block="true"><a href="/mb/index/index.html"><i class="icon icon-home"></i>首页</a></li>
-          <li :class="{'on': curr=='event'}" v-waves.block="true"><a href="/mb/event/index.html"><i class="icon icon-menu-event"></i>试用</a></li>
-          <li :class="{'on': curr=='product'}" v-waves.block="true"><a href="/mb/product/index.html"><i class="icon icon-xinping"></i>新品</a></li>
-          <li :class="{'on': curr=='rebate'}" v-waves.block="true"><a href="/mb/rebate/index.html"><i class="icon icon-discount"></i>折扣</a></li>
-          <li :class="{'on': curr=='list'}" v-waves.block="true"><a href="/mb/list/index.html"><i class="icon icon-list"></i>清单</a></li>
-          <li :class="{'on': curr=='article'}" v-waves.block="true"><a href="/mb/article/index.html"><i class="icon icon-experience"></i>体验</a></li>
-          <li :class="{'on': curr=='vip'}" v-waves.block="true"><a href="/mb/vip/index.html"><i class="icon icon-uee"></i>体验师</a></li>
-          <li :class="{'on': curr=='youpin'}" v-waves.block="true"><a href="/mb/html/youpin.html"><i class="icon icon-youpin"></i>优品</a></li>
-          <li :class="{'on': curr=='mall'}" v-waves.block="true"><a href="/mb/mall/index.html"><i class="icon icon-mall"></i>商城</a></li>
-          <li :class="{'on': curr=='html'}" v-waves.block="true"><a href="/mb/html/list.html"><i class="icon icon-contact"></i>联系</a></li>
+          <li :class="{'on': curr=='index'}">
+            <router-link to="/mb/index/index.html"><i class="icon icon-home"></i>首页</router-link>
+          </li>
+          <li :class="{'on': curr=='event'}">
+            <router-link to="/mb/event/index.html"><i class="icon icon-menu-event"></i>试用</router-link>
+          </li>
+          <li :class="{'on': curr=='product'}">
+            <router-link to="/mb/product/index.html"><i class="icon icon-xinping"></i>新品</router-link>
+          </li>
+          <li :class="{'on': curr=='rebate'}">
+            <router-link to="/mb/rebate/index.html"><i class="icon icon-discount"></i>折扣</router-link>
+          </li>
+          <li :class="{'on': curr=='list'}">
+            <router-link to="/mb/list/index.html"><i class="icon icon-list"></i>清单</router-link>
+          </li>
+          <li :class="{'on': curr=='article'}">
+            <router-link to="/mb/article/index.html"><i class="icon icon-experience"></i>体验</router-link>
+          </li>
+
+          <li :class="{'on': curr=='vip'}"><a href="/mb/vip/index.html"><i class="icon icon-uee"></i>体验师</a></li>
+          <li :class="{'on': curr=='youpin'}"><a href="/mb/html/youpin.html"><i class="icon icon-youpin"></i>优品</a></li>
+          <li :class="{'on': curr=='mall'}"><a href="/mb/mall/index.html"><i class="icon icon-mall"></i>商城</a></li>
+          <li :class="{'on': curr=='html'}"><a href="/mb/html/list.html"><i class="icon icon-contact"></i>联系</a></li>
         </ul>
       </div>
     </menu>
@@ -33,18 +46,16 @@
 </template>
 
 <script>
-	import $ from 'jquery';
-
 	export default {
 		props: {
 			show: {
 				type: Boolean,
 				default: false
 			},
-      curr: {
-        type: String,
-        default: 'index'
-      }
+			curr: {
+				type: String,
+				default: 'index'
+			}
 		},
 		data() {
 			return {
@@ -115,13 +126,18 @@
     li {
       line-height: px2rem(100);
       border-bottom: px2rem(1) solid #f0f0f0;
-      padding-left: 42%;
       position: relative;
-      .icon {
-        position: absolute;
-        left: px2rem(-60);
-        top: 50%;
-        margin-top: px2rem(-26);
+      a {
+        color: #cfcfcf;
+        display: block;
+        position: relative;
+        padding-left: px2rem(150);
+        .icon {
+          position: absolute;
+          left: px2rem(90);
+          top: 50%;
+          margin-top: px2rem(-26);
+        }
       }
       &.on a {
         color: #fb3f3d;
@@ -161,11 +177,6 @@
           background-image: url(../style/images/menu/red.png);
         }
       }
-    }
-    a {
-      color: #cfcfcf;
-      display: block;
-      position: relative;
     }
   }
 
