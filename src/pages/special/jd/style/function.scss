@@ -1,0 +1,4 @@
+//将px单位转换为rem单位
+@function px2rem($number,$baseFontSize:108) {
+  @return $number / ($number * 0 + 1) / $baseFontSize * 1rem;
+}

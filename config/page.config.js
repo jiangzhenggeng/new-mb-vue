@@ -186,6 +186,14 @@ module.exports = [
       filename: '/Users/jiangzg/Desktop/gtic/index.php',
       template: getTplPath('special/gtic/pc'),
     }
+  },
+  {
+    name: 'jd-h5',
+    main: './src/pages/special/jd/main.js',
+    options: {
+      filename: '/Users/jiangzg/Desktop/jd/index.html',
+      template: getTplPath('special/jd'),
+    }
   }
 ]
 
