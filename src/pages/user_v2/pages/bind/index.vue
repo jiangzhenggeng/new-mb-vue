@@ -97,7 +97,7 @@
 
     <loading-window ref="loading-window"></loading-window>
     <confirm-window @cancel="confirmCancel" @ok="confirmOk" ref="confirm-window">
-      <div slot="content">改手机号已注册，是否直接登录</div>
+      <div slot="content">该手机号已注册，是否直接登录</div>
       <div slot="left-btn" class="gray">去登录</div>
       <div slot="right-btn" class="red">输入新的手机号</div>
     </confirm-window>

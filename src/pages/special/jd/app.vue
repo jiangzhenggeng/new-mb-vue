@@ -1,6 +1,6 @@
 <template>
   <div class="body-content">
-    <a class="btn-img" href="http://www.jiguo.com/event/index/1682.html" v-animate>
+    <a class="btn-img" href="http://www.jiguo.com/event/index/2640.html" v-animate>
       <img src="./style/btn-bg.png"/>
     </a>
 

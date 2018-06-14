@@ -191,7 +191,7 @@ module.exports = [
     name: 'jd-h5',
     main: './src/pages/special/jd/main.js',
     options: {
-      filename: '/Users/jiangzg/Desktop/jd/index.html',
+      filename: '/Users/jiangzg/Desktop/jd/mb.html',
       template: getTplPath('special/jd'),
     }
   }
