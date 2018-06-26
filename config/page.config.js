@@ -28,6 +28,11 @@ module.exports = [
     options: {
       filename: basePath + '/index/index.php',
       template: getTplPath('index'),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: false,
+      },
     },
     externals: {
       'vue': 'Vue',
