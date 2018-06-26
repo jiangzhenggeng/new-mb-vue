@@ -2,17 +2,20 @@
   <div class="video-wrap">
     <div class="video">
       <div class="video-inner" @click="play">
-        <video
-          ref="video"
-          src="http://www.w3school.com.cn/i/movie.ogg"
+        <iframe
+          class="video-iframe"
+          :class="{'full-screen':playing}"
+          frameborder="0"
+          :src="`https://v.qq.com/iframe/player.html?vid=m0690l8zl0z&tiny=0&auto=${playing?1:0}`"
         />
-        <div v-show="!playing" class="play-btn"/>
+        <!--<div v-show="!playing" class="play-btn"/>-->
       </div>
     </div>
-    <div class="video-next" v-animate>
-      <img class="img" src="http://s1.jiguo.com/ad27caec-1b13-460b-b9b1-7afc050705d1"/>
-      <div class="text">汽车挑战测试，十项指标全能王......</div>
-    </div>
+    <a class="video-next" v-animate
+       href="http://m.jiguo.com/mb/article/article/62706.html?from=singlemessage&isappinstalled=0">
+      <img class="img" src="http://s1.jiguo.com/efbf5ebc-3dec-45a7-ad61-fb59b5a37d6b?imageView2/1/w/640/h/365/q/100"/>
+      <div class="text">这个夏天不仅有世界杯！超能玩家跨界集结...</div>
+    </a>
   </div>
 </template>
 
@@ -24,20 +27,20 @@
       }
     },
     mounted () {
-      this.$refs['video'].onended = () => {
-        this.playing = false
-      }
+      // this.$refs['video'].onended = () => {
+      //   this.playing = false
+      // }
     },
     methods: {
       play () {
-        let video = this.$refs['video']
-        if (this.playing && !video.ended) {
-          video.pause()
-          this.playing = false
-        } else {
-          video.play()
-          this.playing = true
-        }
+        //let video = this.$refs['video']
+        // if (this.playing) {
+        //   //video.pause()
+        //   this.playing = false
+        // } else {
+        //   //video.play()
+        //   this.playing = true
+        // }
       }
     }
   }
@@ -64,7 +67,7 @@
         position: absolute;
         z-index: 2;
 
-        background-image: url(./video-wondow.png);
+        background-image: url(./video-bg.png);
         background-position: left top;
         background-size: 100% 100%;
         pointer-events: none;
@@ -89,6 +92,7 @@
       margin: auto;
       margin-top: px2rem(95);
       position: relative;
+      display: block;
       &:after {
         content: '';
         display: block;
@@ -130,9 +134,22 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url(./play-btn.png);
+    /*background-image: url(./play-btn.png);*/
     background-position: center center;
     background-size: px2rem(106) px2rem(106);
     background-repeat: no-repeat;
+    z-index: 1;
+  }
+
+  .video-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    &.full-screen {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 5;
+    }
   }
 </style>
