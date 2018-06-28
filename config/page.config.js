@@ -24,7 +24,7 @@ module.exports = [
   },
   {
     name: 'index',
-    main: './src/pages/main.js',
+    main: './src/pages/index/main.js',
     options: {
       filename: basePath + '/index/index.php',
       template: getTplPath('index'),

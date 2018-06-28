@@ -1,5 +1,11 @@
+<style lang="scss">
+  $IMAGES_PATH: '../../style/images/';
+  @import '../../style/scss/app.scss';
+</style>
+
 <template>
   <div>
+    <page-header/>
     <home-banner/>
     <home-announcement/>
     <div class="mian-stream">
@@ -27,33 +33,35 @@
 </template>
 
 <script>
-	import homeBanner from '../../components/homeBanner.vue';
-	import homeAnnouncement from '../../components/homeAnnouncement.vue';
-	import loadDataLimit from '../../components/loadDataLimit.vue';
-	import itemCard from '../../components/card/card.vue';
-	import itemLarge from '../../components/card/large.vue';
-	import itemTopic from '../../components/card/topic.vue';
+  import pageHeader from '../../components/header.vue'
+  import homeBanner from '../../components/homeBanner.vue'
+  import homeAnnouncement from '../../components/homeAnnouncement.vue'
+  import loadDataLimit from './components/load-data-limit.vue'
+  import itemCard from '../../components/card/card.vue'
+  import itemLarge from '../../components/card/large.vue'
+  import itemTopic from '../../components/card/topic.vue'
 
-	export default {
-		data: function () {
-			return {}
-		},
-		components: {
-			'home-banner': homeBanner,
-			'home-announcement': homeAnnouncement,
-			'load-data-limit': loadDataLimit,
-			'item-card': itemCard,
-			'item-large': itemLarge,
-			'item-topic': itemTopic
-		},
+  export default {
+    data: function () {
+      return {}
+    },
+    components: {
+      pageHeader,
+      homeBanner,
+      homeAnnouncement,
+      loadDataLimit,
+      itemCard,
+      itemLarge,
+      itemTopic
+    },
 
-		methods: {},
-		filters: {
-			largeType(type) {
-				return type == 1 || type == 2 || type == 3 || type == 4
-			}
-		}
-	}
+    methods: {},
+    filters: {
+      largeType (type) {
+        return type == 1 || type == 2 || type == 3 || type == 4
+      }
+    }
+  }
 </script>
 
 

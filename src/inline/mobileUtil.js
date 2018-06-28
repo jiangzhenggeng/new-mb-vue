@@ -49,10 +49,12 @@ window.mobileUtil = (function (win, doc) {
 						ow = win.outerWidth || iw,
 						sw = win.screen.width || iw,
 						saw = win.screen.availWidth || iw,
+
 						ih = win.innerHeight || width,
 						oh = win.outerHeight || ih,
 						ish = win.screen.height || ih,
 						sah = win.screen.availHeight || ih,
+
 						w = Math.min(iw, ow, sw, saw, ih, oh, ish, sah),
 						scale = w / width;
 

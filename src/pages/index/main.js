@@ -1,10 +1,8 @@
-import App from './app.vue'
-import store from './../store'
-import router from './../router'
+import Vue from 'vue'
+import Index from './index.vue'
 
-require('./boot')({
-  router,
-  store,
-  render: _ => _(App)
+new Vue({
+  el: '#app',
+  render: _ => _(Index)
 })
 
